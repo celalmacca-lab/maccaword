@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E3B43">
+<title>MACCA · İngilizce Kelime Kartları — Kelimeyi Filmde Duy</title>
+<meta name="description" content="MACCA kelime kartlarındaki 713 İngilizce kelimenin telaffuzunu gerçek YouTube film ve video kesitleriyle dinle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E3B43;        /* kartlardaki koyu petrol yeşili */
+  --ink-deep:#092A31;
+  --paper:#FFFFFF;
+  --mist:#E8F0F0;       /* sayfa zemini: hafif petrol tonu */
+  --bulb:#F4C63F;       /* 1. karttaki ampul sarısı — sadece "dinle" anları için */
+  --line:rgba(14,59,67,.14);
+  --radius:16px;
+  --shadow:0 10px 30px rgba(9,42,49,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--mist);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--bulb);color:var(--ink-deep)}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,4vw,48px);
+  background:rgba(232,240,240,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand .mark{
+  width:38px;height:38px;border:3px solid var(--ink);
+  display:grid;place-items:center;
+  font-family:'Montserrat';font-weight:800;font-size:20px;
+  background:linear-gradient(90deg,var(--ink) 50%,var(--paper) 50%);
+  color:transparent;
+  background-clip:border-box;
+  position:relative;
+}
+.brand .mark::after{
+  content:"M";position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(90deg,var(--paper) 50%,var(--ink) 50%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand b{font-family:'Montserrat';font-weight:800;letter-spacing:.22em;font-size:15px}
+.nav a.buy{
+  font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.06em;
+  text-decoration:none;color:var(--paper);background:var(--ink);
+  padding:10px 18px;border-radius:999px;transition:transform .15s ease, background .15s ease;
+}
+.nav a.buy:hover{background:var(--ink-deep);transform:translateY(-1px)}
+
+/* ---------- HERO: çalışan bir kart ---------- */
+.hero{padding:clamp(28px,6vw,72px) clamp(16px,4vw,48px) clamp(20px,4vw,48px);max-width:1100px;margin:0 auto}
+.hero h1{
+  font-family:'Montserrat';font-weight:800;
+  font-size:clamp(26px,4.6vw,44px);line-height:1.15;letter-spacing:-.01em;
+  max-width:640px;
+}
+.hero h1 em{font-style:normal;box-shadow:inset 0 -0.42em var(--bulb)}
+.hero p.sub{margin-top:12px;max-width:560px;font-size:clamp(15px,1.8vw,17px);color:#2C555D;line-height:1.6}
+
+.deck{position:relative;margin-top:clamp(24px,4vw,40px);max-width:760px}
+.deck::before{ /* arkadaki ikinci kart */
+  content:"";position:absolute;inset:0;
+  background:var(--paper);border-radius:var(--radius);
+  transform:rotate(2.2deg) translate(8px,6px);
+  box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.herocard{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:210px;
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  transform:rotate(-1.1deg);transition:transform .2s ease;
+  cursor:pointer;border:0;padding:0;text-align:left;width:100%;
+}
+.herocard:hover{transform:rotate(-1.1deg) translateY(-3px)}
+.herocard:focus-visible{outline:3px solid var(--bulb);outline-offset:3px}
+.herocard .half{padding:clamp(18px,3.5vw,32px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.herocard .half.dark{background:var(--ink);color:var(--paper)}
+.herocard .half.light{background:var(--paper);color:var(--ink)}
+.hw{font-family:'Montserrat';font-weight:800;font-size:clamp(30px,5.5vw,52px);line-height:1}
+.hbar{
+  align-self:flex-start;font-family:'Montserrat';font-weight:700;
+  letter-spacing:.18em;font-size:clamp(12px,1.6vw,15px);
+  padding:7px 12px;
+}
+.half.dark .hbar{background:var(--paper);color:var(--ink)}
+.half.light .hbar{background:var(--ink);color:var(--paper)}
+.playhint{display:flex;align-items:center;gap:12px;font-weight:700;font-family:'Montserrat';font-size:clamp(14px,1.8vw,17px)}
+.playhint .btnplay{
+  width:52px;height:52px;border-radius:50%;flex:none;
+  background:var(--bulb);display:grid;place-items:center;
+  box-shadow:0 6px 16px rgba(244,198,63,.5);
+}
+.playhint .btnplay svg{width:20px;height:20px;fill:var(--ink-deep);margin-left:3px}
+.half.light small{color:#4A6E75;font-weight:500;font-family:'Manrope';font-size:13px;line-height:1.5}
+
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.04em;color:#33595F}
+.stats span b{color:var(--ink);font-size:16px;margin-right:4px}
+
+/* ---------- ARAÇ ÇUBUĞU ---------- */
+.toolbar{
+  max-width:1100px;margin:8px auto 0;padding:0 clamp(16px,4vw,48px);
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+}
+.search{
+  flex:1;min-width:240px;display:flex;align-items:center;gap:10px;
+  background:var(--paper);border:1.5px solid var(--line);border-radius:999px;
+  padding:12px 18px;box-shadow:0 2px 10px rgba(9,42,49,.05);
+}
+.search svg{width:18px;height:18px;stroke:var(--ink);opacity:.6;flex:none}
+.search input{
+  border:0;outline:0;flex:1;font-family:'Manrope';font-size:16px;color:var(--ink);background:transparent;
+}
+.search input::placeholder{color:#7C9AA0}
+#count{font-family:'Montserrat';font-weight:700;font-size:13px;color:#33595F;letter-spacing:.04em}
+
+/* ---------- KELİME IZGARASI ---------- */
+.grid{
+  max-width:1100px;margin:20px auto 56px;padding:0 clamp(16px,4vw,48px);
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px;
+}
+.tile{
+  position:relative;border-radius:12px;padding:18px 14px 14px;min-height:118px;
+  display:flex;flex-direction:column;justify-content:space-between;gap:10px;
+  cursor:pointer;border:1.5px solid var(--line);
+  transition:transform .15s ease, box-shadow .15s ease;
+  text-align:left;width:100%;font-family:inherit;
+}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.tile:focus-visible{outline:3px solid var(--bulb);outline-offset:2px}
+.tile.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tile.light{background:var(--paper);color:var(--ink)}
+.tile .en{font-family:'Montserrat';font-weight:800;font-size:clamp(18px,2.2vw,22px);line-height:1.05;word-break:break-word}
+.tile .tr{
+  align-self:flex-start;font-family:'Montserrat';font-weight:700;font-size:10.5px;
+  letter-spacing:.14em;padding:5px 8px;max-width:100%;
+}
+.tile.dark .tr{background:var(--paper);color:var(--ink)}
+.tile.light .tr{background:var(--ink);color:var(--paper)}
+.tile .no{
+  position:absolute;top:9px;right:10px;font-family:'Montserrat';font-weight:700;
+  font-size:10px;opacity:.45;letter-spacing:.05em;
+}
+.cell{position:relative;display:flex}
+.cell .tile{flex:1;padding-bottom:44px}
+.ytmini{
+  position:absolute;bottom:10px;right:10px;z-index:2;
+  display:inline-flex;align-items:center;gap:5px;text-decoration:none;
+  font-family:'Montserrat';font-weight:800;font-size:10px;letter-spacing:.04em;
+  background:#E4372E;color:#fff;padding:5px 9px;border-radius:7px;
+  box-shadow:0 3px 8px rgba(228,55,46,.35);transition:transform .12s ease;
+}
+.ytmini:hover{transform:scale(1.07)}
+.ytmini svg{width:9px;height:9px;fill:#fff}
+.empty{grid-column:1/-1;text-align:center;padding:48px 12px;color:#4A6E75;font-size:15px}
+.empty b{font-family:'Montserrat';display:block;font-size:18px;color:var(--ink);margin-bottom:6px}
+
+/* ---------- SATIN AL ---------- */
+.buy-strip{background:var(--ink);color:var(--paper)}
+.buy-inner{
+  max-width:1100px;margin:0 auto;padding:clamp(36px,6vw,64px) clamp(16px,4vw,48px);
+  display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;
+}
+.buy-inner h2{font-family:'Montserrat';font-weight:800;font-size:clamp(22px,3.4vw,32px);max-width:520px;line-height:1.2}
+.buy-inner p{margin-top:10px;max-width:520px;color:#BCD3D6;line-height:1.6;font-size:15px}
+.buy-inner .cta{
+  font-family:'Montserrat';font-weight:800;font-size:15px;letter-spacing:.04em;
+  background:var(--bulb);color:var(--ink-deep);text-decoration:none;
+  padding:16px 30px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(244,198,63,.35);
+  transition:transform .15s ease;display:inline-block;border:0;cursor:pointer;
+}
+.buy-inner .cta:hover{transform:translateY(-2px)}
+
+footer{
+  max-width:1100px;margin:0 auto;padding:26px clamp(16px,4vw,48px);
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  font-size:13px;color:#4A6E75;
+}
+footer b{font-family:'Montserrat';letter-spacing:.2em;color:var(--ink)}
+
+/* ---------- MODAL / OYNATICI ---------- */
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;
+  align-items:flex-start;justify-content:center;
+  background:rgba(9,42,49,.55);backdrop-filter:blur(4px);
+  padding:clamp(0px,3vw,40px);overflow-y:auto;
+}
+.modal.open{display:flex}
+.sheet{
+  background:var(--paper);width:100%;max-width:760px;border-radius:var(--radius);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden;
+  margin:auto 0;
+}
+@media (max-width:560px){
+  .modal{padding:0}
+  .sheet{border-radius:0;min-height:100%}
+}
+.sheet-head{
+  background:var(--ink);color:var(--paper);
+  padding:22px clamp(18px,4vw,30px) 20px;position:relative;
+}
+.sheet-head .kartno{
+  font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.16em;
+  color:var(--bulb);margin-bottom:6px;
+}
+.sheet-head .en{font-family:'Montserrat';font-weight:800;font-size:clamp(30px,6vw,44px);line-height:1}
+.sheet-head .tr{
+  display:inline-block;margin-top:12px;background:var(--paper);color:var(--ink);
+  font-family:'Montserrat';font-weight:700;letter-spacing:.16em;font-size:13px;padding:6px 12px;
+}
+.close{
+  position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;
+  border:0;background:rgba(255,255,255,.14);color:var(--paper);font-size:20px;
+  cursor:pointer;line-height:1;transition:background .15s ease;
+}
+.close:hover{background:rgba(255,255,255,.28)}
+
+.controls{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  padding:14px clamp(18px,4vw,30px) 6px;
+}
+.chip{
+  font-family:'Montserrat';font-weight:700;font-size:12.5px;letter-spacing:.03em;
+  border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+  padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .12s ease;
+}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.tts{background:var(--bulb);border-color:var(--bulb);color:var(--ink-deep)}
+.chip.tts:hover{filter:brightness(1.05)}
+.ctrl-label{font-size:11px;font-family:'Montserrat';font-weight:700;letter-spacing:.1em;color:#7C9AA0;margin-right:2px}
+
+#ygStatus{padding:4px clamp(18px,4vw,30px) 0;font-size:13px;color:#4A6E75;min-height:20px}
+.player{padding:10px clamp(18px,4vw,30px) 4px}
+#yg{min-height:400px;border-radius:12px;overflow:hidden;background:var(--mist);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:#4A6E75;font-size:14px;padding:8px}
+#yg .wait{max-width:300px;line-height:1.6}
+.ytframe{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.ytframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#ytWrap .chip{margin-top:10px}
+.alt a.yt{border-color:#E4372E;color:#E4372E}
+.alt a.yt:hover{background:#FCEBEA;border-color:#E4372E}
+
+.alt{
+  display:flex;flex-wrap:wrap;gap:8px;padding:12px clamp(18px,4vw,30px) 6px;
+}
+.alt a{
+  font-size:13px;font-weight:700;font-family:'Montserrat';text-decoration:none;
+  color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;
+  transition:all .12s ease;display:inline-flex;align-items:center;gap:6px;
+}
+.alt a:hover{border-color:var(--ink);background:var(--mist)}
+.alt-note{padding:2px clamp(18px,4vw,30px) 14px;font-size:12px;color:#7C9AA0;line-height:1.5}
+
+.sheet-nav{
+  display:flex;justify-content:space-between;gap:10px;
+  border-top:1px solid var(--line);padding:12px clamp(18px,4vw,30px);
+}
+.sheet-nav button{
+  border:0;background:transparent;font-family:'Montserrat';font-weight:700;font-size:14px;
+  color:var(--ink);cursor:pointer;padding:10px 12px;border-radius:10px;
+  display:flex;align-items:center;gap:8px;transition:background .12s ease;
+}
+.sheet-nav button:hover{background:var(--mist)}
+.sheet-nav button:disabled{opacity:.3;cursor:default;background:transparent}
+
+/* ---------- CÜMLE PANELİ ---------- */
+.sent{margin:10px clamp(18px,4vw,30px) 4px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.sent[hidden]{display:none}
+.sent .cap{background:var(--mist);padding:8px 14px;font-family:'Montserrat';font-weight:700;font-size:10.5px;letter-spacing:.14em;color:#33595F;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.sent .cap .st{color:#E4372E}
+.sent-en{padding:12px 14px 4px;font-size:17px;line-height:1.55;color:var(--ink);outline:none}
+.sent-en:empty::before{content:"Cümle burada görünecek…";color:#9DB4B9;font-size:14px}
+.sent-en mark{background:var(--bulb);padding:1px 4px;border-radius:4px;font-weight:700}
+.sent-tr{padding:2px 14px 10px;font-size:15px;line-height:1.5;color:#2C555D;font-style:italic;min-height:18px}
+.sent-tr mark{background:var(--bulb);padding:1px 4px;border-radius:4px;font-style:normal;font-weight:700;color:var(--ink)}
+.sent-anlam{padding:0 14px 12px;font-size:13px;line-height:1.55;color:#33595F}
+.sent-anlam[hidden]{display:none}
+.sent-anlam b{color:var(--ink)}
+.sent-btns{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 12px}
+.srclabel{font-size:10.5px;font-family:'Montserrat';font-weight:700;letter-spacing:.12em;color:#7C9AA0;width:100%;margin-bottom:-2px}
+footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px solid var(--line)}
+.sheet-nav .nx b{font-family:'Montserrat'}
+
+/* ---------- MOBİL İYİLEŞTİRMELERİ ---------- */
+.sheet-nav{padding-bottom:calc(12px + env(safe-area-inset-bottom))}
+@media (max-width:700px){
+  .toolbar{position:sticky;top:64px;z-index:40;background:var(--mist);
+    padding-top:10px;padding-bottom:10px;box-shadow:0 8px 16px -12px rgba(9,42,49,.25)}
+}
+@media (max-width:430px){
+  .herocard .half{padding:16px 14px}
+  .hw{font-size:clamp(24px,8vw,34px)}
+  .hbar{letter-spacing:.12em;font-size:11px;padding:6px 9px}
+  .playhint{font-size:13px;gap:9px}
+  .playhint .btnplay{width:44px;height:44px}
+  .chip{padding:10px 14px}
+  .ytmini{padding:6px 10px;font-size:10.5px}
+  .grid{gap:10px;grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+}
+
+/* ---------- YÖNETİCİ (QR BAĞLANTI) PANELİ ---------- */
+.admin{max-width:1100px;margin:8px auto 56px;padding:0 clamp(16px,4vw,48px)}
+.admin[hidden]{display:none}
+.admin-head h2{font-family:'Montserrat';font-weight:800;font-size:22px}
+.admin-head p{margin:6px 0 14px;color:#4A6E75;font-size:14px;line-height:1.6;max-width:640px}
+.admin-row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  background:var(--paper);border:1.5px solid var(--line);border-radius:10px;
+  padding:10px 14px;margin-bottom:8px;font-size:13px}
+.admin-row b{font-family:'Montserrat';min-width:120px;font-size:14px}
+.admin-row .no2{font-family:'Montserrat';font-weight:700;font-size:10.5px;color:#7C9AA0;min-width:44px}
+.admin-row .anlam{color:#7C9AA0;min-width:120px;font-size:11.5px;letter-spacing:.06em;font-family:'Montserrat';font-weight:700}
+.admin-row .u{flex:1;min-width:220px;word-break:break-all;color:#33595F;font-family:monospace;font-size:12px}
+.admin-row a.chip{text-decoration:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="#"><span class="mark"></span><b>MACCA</b></a>
+  <a class="buy" href="#satin-al">Kart Setini Satın Al</a>
+</nav>
+
+<header class="hero">
+  <h1>Kelimeyi ezberleme.<br><em>Filmde duy.</em></h1>
+  <p class="sub">Kartındaki QR kodu okut; kelimenin gerçek YouTube kesitlerinde — filmlerde, dizilerde, röportajlarda — tam söylendiği saniyeye atla ve telaffuzu ana dilinden öğren. Her kartın kendine özel sayfası vardır.</p>
+
+  <button class="herocard" id="heroCard" aria-label="Learn kelimesini videolarda dinle">
+    <span class="half dark">
+      <span class="hw">Learn</span>
+      <span class="hbar">ÖĞRENMEK</span>
+    </span>
+    <span class="half light">
+      <span class="playhint">
+        <span class="btnplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        Karta dokun,<br>videolarda dinle
+      </span>
+      <small>Kesit, kelimenin geçtiği cümlenin sonuna kadar oynar ve tam orada durur; kelime sarı işaretli, Türkçesi hemen altında.</small>
+    </span>
+  </button>
+
+  <div class="stats">
+    <span><b>3</b>set</span>
+    <span><b id="stCards">—</b>kart</span>
+    <span><b id="stWords">—</b>kelime</span>
+    <span><b>∞</b>gerçek video kesiti</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <label class="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Kelime ara… (İngilizce veya Türkçe)" autocomplete="off">
+  </label>
+  <span id="count"></span>
+</div>
+
+<main class="grid" id="grid" aria-live="polite"></main>
+
+<!-- Sadece yönetici anahtarıyla görünür: her kelimenin QR hedef bağlantısı -->
+<section class="admin" id="adminPanel" hidden>
+  <div class="admin-head">
+    <h2>🔗 QR Bağlantı Listesi</h2>
+    <p>Her kelimenin kendine özel adresi aşağıda. Dinamik QR servisinde her kartın hedefi olarak bu bağlantıları kullan. Bu liste ve yukarıdaki kelime ızgarası <b>yalnızca yönetici bağlantısıyla</b> görünür; QR ile gelen ziyaretçi sadece kendi kelimesini görür.</p>
+    <button class="chip" id="copyAllBtn">📋 Tümünü kopyala (kelime + anlam + adres)</button>
+  </div>
+  <div id="adminList"></div>
+</section>
+
+<section class="buy-strip" id="satin-al">
+  <div class="buy-inner">
+    <div>
+      <h2>Masanda dursun, cebinde konuşsun.</h2>
+      <p>3 setten oluşan, çift taraflı <span id="stCards2">—</span> kartlık MACCA serisiyle günde 10 dakikada en sık kullanılan İngilizce kelimeleri öğren. Karttaki kelimeyi bu sitede arat, telaffuzu gerçek videolardan dinle.</p>
+    </div>
+    <button class="cta" id="buyBtn">Kart Setini Satın Al →</button>
+  </div>
+</section>
+
+<footer>
+  <span><b>MACCA</b> · İngilizce Kelime Kartları</span>
+  <span>Kesitler <a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a> &amp; YouTube ile · <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Şartları</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik</a> · Ticari kullanım için <a href="https://youglish.com/api/contact" target="_blank" rel="noopener">YouGlish izni</a></span>
+</footer>
+
+<!-- ================= OYNATICI ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mEn">
+  <div class="sheet">
+    <div class="sheet-head">
+      <div class="kartno" id="mKart">KART 1</div>
+      <div class="en" id="mEn">Learn</div>
+      <div class="tr" id="mTr">ÖĞRENMEK</div>
+      <button class="close" id="mClose" aria-label="Kapat">✕</button>
+    </div>
+
+    <div class="controls">
+      <button class="chip tts" id="ttsBtn">🔊 Hızlı telaffuz</button>
+      <button class="chip on" id="sentModeBtn" title="Kesit, kelimenin geçtiği cümle tamamlanınca otomatik durur — cümle asla yarıda kesilmez">✂️ Tek cümle: AÇIK</button>
+      <button class="chip on" id="anlamBtn" title="Kesitteki cümle Türkçeye çevrilir; kelime karttaki anlamıyla kullanılmamışsa kesit otomatik atlanır ve eşleşen kesit aranır">🎯 Anlam filtresi: AÇIK</button>
+      <span class="ctrl-label">AKSAN</span>
+      <button class="chip on" data-acc="us">🇺🇸 US</button>
+      <button class="chip" data-acc="uk">🇬🇧 UK</button>
+      <button class="chip" data-acc="aus">🇦🇺 AUS</button>
+      <button class="chip" data-acc="all">🌍 Tümü</button>
+    </div>
+
+    <div id="ygStatus"></div>
+
+    <div class="player">
+      <div id="ytWrap" hidden>
+        <div class="ytframe"><iframe id="ytFrame" src="" title="Seçilmiş video kesiti" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <button class="chip" id="moreClips">🎞 Bu kelime için daha fazla gerçek kesit</button>
+      </div>
+      <div id="ygWrap" hidden>
+        <div id="yg"><div class="wait">Video oynatıcı yükleniyor…<br>Kesitler YouTube üzerinden gelir.</div></div>
+      </div>
+    </div>
+
+    <div class="sent" id="sentPanel" hidden>
+      <div class="cap"><span>KESİTTEKİ CÜMLE</span><span class="st" id="sentState"></span></div>
+      <div class="sent-en" id="sentEn"></div>
+      <div class="sent-tr" id="sentTr"></div>
+      <div class="sent-anlam" id="sentAnlam" hidden></div>
+      <div class="sent-btns">
+        <button class="chip" id="replayBtn">🔁 Cümleyi tekrar dinle</button>
+        <button class="chip" id="nextClipBtn">⏭ Sonraki kesit</button>
+        <button class="chip" id="trBtn">🇹🇷 Çevir</button>
+      </div>
+    </div>
+
+    <div class="alt">
+      <span class="srclabel">KAYNAĞA GÖRE KESİT ARA</span>
+      <a id="srcFilm" target="_blank" rel="noopener">🎬 Film &amp; Dizi</a>
+      <a id="srcTed" target="_blank" rel="noopener">🎤 TED</a>
+      <a id="srcSpeech" target="_blank" rel="noopener">🗣 Ünlü konuşmaları</a>
+      <a id="srcToon" target="_blank" rel="noopener">📺 Çizgi film</a>
+      <a id="srcViral" target="_blank" rel="noopener">🔥 Viral / Shorts</a>
+    </div>
+    <div class="alt">
+      <a id="lnkYT" class="yt" target="_blank" rel="noopener">▶ YouTube'da ara</a>
+      <a id="lnkYg" target="_blank" rel="noopener">▶ YouGlish'te aç</a>
+      <a id="lnkDict" target="_blank" rel="noopener">📖 Cambridge Sözlük</a>
+    </div>
+    <div class="alt-note">Gömülü oynatıcı film, dizi, TED, konuşma gibi tüm kaynaklardan karışık gerçek kesitler getirir; belirli bir kaynak istersen yukarıdaki bağlantıları kullan ya da beğendiğin kesiti dosyadaki <b>OZEL_VIDEOLAR</b> listesine ekle.</div>
+
+    <div class="sheet-nav">
+      <button id="prevBtn">← <span>Önceki</span></button>
+      <button id="nextBtn" class="nx"><span>Sonraki:</span> <b id="nextWord"></b> →</button>
+    </div>
+  </div>
+</div>
+
+<script async src="https://youglish.com/public/emb/widget.js" charset="utf-8"></script>
+<script>
+/* =========================================================
+   AYARLAR
+   Satış linkini buraya yapıştır (Shopier, Trendyol, Instagram DM vb.)
+   ========================================================= */
+const SATIN_ALMA_LINKI = ""; // örn: "https://www.shopier.com/senin-magazan"
+
+/* =========================================================
+   YÖNETİCİ ANAHTARI — kelime listesini SADECE SEN görürsün
+   Tüm kelimeleri, QR bağlantılarını ve kopyalama panelini
+   görmek için siteyi şu adresle aç:
+
+     https://senin-siten.com/sayfa.html#liste-macca2026
+
+   Aşağıdaki anahtarı mutlaka kendine özel, tahmin edilemez
+   bir şeyle değiştir (harf/rakam, boşluksuz):
+   ========================================================= */
+const YONETICI_ANAHTARI = "macca2026";
+
+/* =========================================================
+   KENDİ SEÇTİĞİN VİDEOLAR (isteğe bağlı)
+   Bir kelime için beğendiğin bir YouTube kesiti varsa buraya
+   yapıştır; site o kelimede DOĞRUDAN bu videoyu gömer.
+   &t=35s  → cümlenin başladığı saniye
+   &end=41 → cümlenin BİTTİĞİ saniye (video tam orada durur;
+             yazmazsan emniyet süresi kadar oynar)
+   Kelimeyi küçük harfle yaz. Örnekler:
+     "learn": "https://www.youtube.com/watch?v=VIDEO_ID&t=35s&end=41",
+     "win":   "https://youtu.be/VIDEO_ID?t=90&end=97",
+   ========================================================= */
+const OZEL_VIDEOLAR = {
+  // "learn": "https://www.youtube.com/watch?v=VIDEO_ID&t=35s",
+};
+
+/* Cümle bitişi esastır: kesit, kelimenin geçtiği cümle TAMAMLANINCA durur.
+   Altyazı sinyali hiç gelmezse (nadir) video en geç bu sürede durdurulur (emniyet freni). */
+const EMNIYET_SANIYE = 20;
+
+/* YouTube linkini gömülebilir adrese çevirir */
+function parseT(t){
+  if(!t) return 0;
+  if(/^\d+$/.test(t)) return +t;
+  let s=0; const h=t.match(/(\d+)h/), m=t.match(/(\d+)m/), sn=t.match(/(\d+)s/);
+  if(h)s+=3600*+h[1]; if(m)s+=60*+m[1]; if(sn)s+=+sn[1];
+  return s;
+}
+function ytEmbed(url){
+  try{
+    const u=new URL(url);
+    let id="";
+    if(u.hostname.includes("youtu.be")) id=u.pathname.slice(1).split("/")[0];
+    else if(u.pathname.startsWith("/shorts/")) id=u.pathname.split("/")[2];
+    else if(u.pathname.startsWith("/embed/")) id=u.pathname.split("/")[2];
+    else id=u.searchParams.get("v")||"";
+    if(!id) return null;
+    const t=parseT(u.searchParams.get("t")||u.searchParams.get("start")||"");
+    let bit=parseT(u.searchParams.get("end")||u.searchParams.get("e")||"");
+    if(!bit||bit<=t) bit=t+EMNIYET_SANIYE;
+    return "https://www.youtube-nocookie.com/embed/"+id+"?rel=0&modestbranding=1&start="+t+"&end="+bit;
+  }catch(e){ return null; }
+}
+
+/* =========================================================
+   KART VERİSİ — [İngilizce1, Türkçe1, İngilizce2, Türkçe2]
+   Sıra, fiziksel desteyle aynıdır (Set 1 → Set 3).
+   Kaynak: Temmuz 2026'da yeniden düzenlenen kart PDF'leri
+   (Kartlar 1: 91 · Kartlar 2: 104 · Kartlar 3: 162 kart).
+   ========================================================= */
+const KARTLAR = [
+["Learn","ÖĞRENMEK","Billion","MİLYAR"],
+["Up","YUKARI","Out","DIŞARI"],
+["About","HAKKINDA","Other","DİĞER"],
+["When","NE ZAMAN","How","NASIL"],
+["Over","ÜZERİNDE","Any","HER"],
+["Where","NEREDE","Back","GERİ"],
+["First","İLK","Much","ÇOK"],
+["Down","AŞAĞIDA","Still","HALA"],
+["Lost","KAYIP","Win","KAZANMAK"],
+["Nothing","HİÇBİR ŞEY","Anything","HERHANGİ"],
+["Maybe","BELKİ","Being","VAROLUŞ"],
+["During","SIRASINDA","Something","BİR ŞEY"],
+["With","İLE","Without","OLMADAN"],
+["Myself","KENDİM","Himself","KENDİSİ"],
+["Somebody","BİRİSİ","Nobody","KİMSE"],
+["Past","GEÇMİŞ","Future","GELECEK"],
+["However","ANCAK","Enough","YETER"],
+["Yet","HENÜZ","Whatever","HER NEYSE"],
+["Beyond","ÖTESİNDE","Whom","KİMİ"],
+["Several","BİRÇOK","Well","İYİ"],
+["Know","BİLMEK","Among","ARASINDA"],
+["Through","BOYUNCA","Away","UZAKTA"],
+["Every","HER","Might","GÜÇ"],
+["Both","İKİSİ DE","Around","ETRAFINDA"],
+["Environment","ÇEVRE","Region","BÖLGE"],
+["Along","BOYUNCA","Someone","BİRİSİ"],
+["Average","ORTALAMA","Belong","AİT OLMAK"],
+["More","DAHA","Till","KADAR"],
+["None","HİÇBİRİ","Just","SADECE"],
+["Really","GERÇEKTEN","Say","SÖYLEMEK"],
+["Mean","DEMEK İSTEMEK","Also","AYRICA"],
+["Too","FAZLA","Make","YAPMAK"],
+["Take","ALMAK","Look","BAKMAK"],
+["Put","KOYMAK","Thought","DÜŞÜNCE"],
+["Some","BİRAZ","Again","TEKRAR"],
+["Own","KENDİ","Give","VERMEK"],
+["Use","KULLANMAK","Tell","SÖYLEMEK"],
+["Kind","KİBAR","Actually","DOĞRUSU"],
+["Government","HÜKÜMET","Find","BULMAK"],
+["Place","YER","Different","FARKLI"],
+["Sure","ELBETTE","Probably","MUHTEMELEN"],
+["Fact","GERÇEK","Bit","PARÇA"],
+["Found","KURMAK","High","YÜKSEK"],
+["Side","KENAR","Week","HAFTA"],
+["State","DEVLET","Keep","TUTMAK"],
+["Percent","YÜZDE","Important","ÖNEMLİ"],
+["Country","ÜLKE","Feel","HİSSETMEK"],
+["Laugh","GÜLMEK","Less","DAHA AZ"],
+["Later","SONRA","Hand","EL"],
+["Mind","AKIL","Able","YAPABİLEN"],
+["Continue","DEVAM ETMEK","Case","DAVA"],
+["Absolutely","KESİNLİKLE","Bring","GETİRMEK"],
+["Final","SON","Early","ERKEN"],
+["According","-E GÖRE","Dear","SEVGİLİ"],
+["Especially","ÖZELLİKLE","Fire","ATEŞ"],
+["Air","HAVA","Area","ALAN"],
+["Council","MECLİS","Far","UZAK"],
+["Best","EN İYİ","Certain","KESİN"],
+["Clearly","ŞÜPHESİZ","Experience","DENEYİM"],
+["Completely","TAMAMEN","Follow","TAKİP ETMEK"],
+["Check","KONTROL","Drive","SÜRMEK"],
+["Former","ÖNCEKİ","Act","YASA"],
+["Building","BİNA","Account","HESAP"],
+["Basic","TEMEL","Court","MAHKEME"],
+["Date","RANDEVU","Come","GELMEK"],
+["Care","BAKIM","Deep","DERİN"],
+["Authority","YETKİ","Design","TASARIM"],
+["Earlier","DAHA ÖNCE","Board","PANO"],
+["Charge","ŞARJ","Ahead","İLERİSİ"],
+["Floor","ZEMİN","Head","KAFA"],
+["Forward","İLERİ DOĞRU","Bank","BANKA"],
+["Game","OYUN","Central","MERKEZİ"],
+["Foreign","YABANCI","Figure","ŞEKİL"],
+["Couple","ÇİFT","Anyway","NEYSE"],
+["Ever","ŞİMDİYE KADAR","Computer","BİLGİSAYAR"],
+["Deal","ANLAŞMA","Cold","SOĞUK"],
+["Feeling","DUYGU","Fun","EĞLENCE"],
+["Difficult","ZOR","Cut","PAY"],
+["Example","ÖRNEK","Committee","KURUL"],
+["Action","EYLEM","Doubt","ŞÜPHE"],
+["Hair","SAÇ","Cost","ÜCRET"],
+["Fine","PARA CEZASI","Call","ÇAĞRI"],
+["Ball","BALO","Child","EVLAT"],
+["Happy","MUTLU","Begin","BAŞLAMAK"],
+["Class","DERS","Family","AİLE"],
+["Choice","SEÇENEK","Activity","FAALİYET"],
+["Cover","KAPAK","Beautiful","GÜZEL"],
+["Already","ZATEN","Change","DEĞİŞTİRMEK"],
+["Fall","DÜŞMEK","Easy","KOLAY"],
+["Bill","FATURA","Different","FARKLI"],
+["College","ÜNİVERSİTE","Amount","MİKTAR"],
+["Earth","DÜNYA","Else","BAŞKA"],
+["Carry","TAŞIMAK","Daughter","KIZ EVLAT"],
+["Agree","KATILMAK","Born","DOĞMAK"],
+["Happen","OLMAK","Face","YÜZ"],
+["Front","ÖN","Field","ALAN"],
+["Education","EĞİTİM","Evidence","KANIT"],
+["Department","BÖLÜM","Below","AŞAĞIDA"],
+["Ask","SORMAK","Business","İŞ"],
+["General","GENEL","Decision","KARAR"],
+["Direct","DOĞRUDAN","Centre","MERKEZ"],
+["Generally","GENELLİKLE","Evening","AKŞAM"],
+["Get","ALMAK","Current","AKIM"],
+["Believe","İNANMAK","Common","ORTAK"],
+["Finally","SONUNDA","Guess","TAHMİN"],
+["Close","KAPALI","Force","KUVVET"],
+["Capital","SERMAYE","Attention","DİKKAT"],
+["Body","VÜCUT","Course","KURS"],
+["Function","FONKSİYON","Chance","ŞANS"],
+["Ground","ZEMİN","Century","YÜZYIL"],
+["Further","DAHA İLERİ","Degree","DERECE"],
+["Data","VERİ","East","DOĞU"],
+["Church","KİLİSE","Fair","ADİL"],
+["Almost","NEREDEYSE","Due","DOLAYI"],
+["Community","TOPLULUK","Buy","SATIN ALMAK"],
+["Forget","UNUTMAK","Certainly","KESİNLİKLE"],
+["Become","OLMAK","Hall","SALON"],
+["Available","MÜSAİT","Even","EŞİT"],
+["Consider","DÜŞÜNMEK","Funny","KOMİK"],
+["Difference","FARK","Better","DAHA İYİ"],
+["Cause","SEBEP","Growth","BÜYÜME"],
+["Effect","ETKİ","Break","KIRMAK"],
+["Always","HER ZAMAN","Spend","HARCAMAK"],
+["Sometimes","BAZEN","Quite","OLDUKÇA"],
+["Individual","BİREYSEL","Self","KENDİ"],
+["Interested","İLGİLİ","Matter","MADDE"],
+["Significant","ÖNEMLİ","Term","DÖNEM"],
+["Meeting","TOPLANTI","Wide","GENİŞ"],
+["Rest","DİNLENMEK","Throat","BOĞAZ"],
+["Job","İŞ","Piece","PARÇA"],
+["Science","BİLİM","Idea","FİKİR"],
+["Light","IŞIK","Send","GÖNDERMEK"],
+["Rate","ORAN","Single","TEK"],
+["Person","KİŞİ","Pass","GEÇMEK"],
+["Law","YASA","National","ULUSAL"],
+["Top","ÜST","Report","RAPOR"],
+["Sea","DENİZ","Likely","OLASI"],
+["Tonight","BU GECE","Sort","TÜR"],
+["Middle","ORTA","West","BATI"],
+["Sit","OTURMAK","Stay","KALMAK"],
+["Present","SUNMAK","Husband","KOCA"],
+["Land","ARAZİ","Post","POSTA"],
+["Wife","EŞ","Order","SİPARİŞ"],
+["Stage","SAHNE","Arrive","VARMAK"],
+["Relationship","İLİŞKİ","Sign","İMZA"],
+["Here","BURADA","Process","SÜREÇ"],
+["Means","ARAÇLAR","Island","ADA"],
+["Purpose","AMAÇ","Together","BİRLİKTE"],
+["Member","ÜYE","Point","NOKTA"],
+["Show","GÖSTERMEK","Situation","DURUM"],
+["Minister","BAKAN","Necessary","GEREKLİ"],
+["Provide","SAĞLAMAK","View","GÖRÜŞ"],
+["Response","YANIT","Material","MALZEME"],
+["Research","ARAŞTIRMA","Particular","ÖZEL"],
+["Want","İSTEMEK","Worth","DEĞER"],
+["Lead","YOL GÖSTERMEK","Nearly","NEREDEYSE"],
+["Lot","ÇOK","South","GÜNEY"],
+["Usually","GENELLİKLE","Practice","PRATİK"],
+["River","NEHİR","Short","KISA"],
+["Offer","TEKLİF","Position","POZİSYON"],
+["Visit","ZİYARET","Patients","HASTALAR"],
+["Hear","DUYMAK","Simply","SADECE"],
+["Period","DÖNEM","Western","BATILI"],
+["Private","ÖZEL","Series","DİZİ"],
+["Thing","ŞEY","Issue","SORUN"],
+["Seem","GÖRÜNMEK","Worry","ENDİŞELENMEK"],
+["Step","ADIM","Turn","DÖNMEK"],
+["Opportunity","FIRSAT","Service","HİZMET"],
+["Write","YAZMAK","Quality","KALİTE"],
+["Meet","TANIŞMAK","Space","UZAY"],
+["Policy","POLİTİKA","Page","SAYFA"],
+["Stand","DURMAK","Various","ÇEŞİTLİ"],
+["Line","HAT","Include","DAHİL ETMEK"],
+["Voice","SES","Increase","ARTIRMAK"],
+["Large","BÜYÜK","Interest","İLGİ"],
+["Unless","YOKSA","Public","HALK"],
+["Another","DİĞER","Population","NÜFUS"],
+["Remember","HATIRLAMAK","Sense","DUYU"],
+["Nature","DOĞA","Legal","YASAL"],
+["Straight","DÜZ","Right","DOĞRU"],
+["Often","SIK SIK","Main","ANA"],
+["Let","İZİN VERMEK","Respect","SAYGI"],
+["Health","SAĞLIK","Recently","SON ZAMANLARDA"],
+["Suppose","VARSAYMAK","North","KUZEY"],
+["Subject","KONU","Section","BÖLÜM"],
+["Press","BASIN","Perhaps","BELKİ"],
+["Record","KAYIT","Argue","TARTIŞMAK"],
+["Town","KASABA","Need","İHTİYAÇ"],
+["Size","BOYUT","Hope","UMUT"],
+["Strong","GÜÇLÜ","Heart","KALP"],
+["Sir","BEYEFENDİ","Treatment","TEDAVİ"],
+["Same","AYNI","Movement","HAREKET"],
+["Pay","ÖDEMEK","Price","FİYAT"],
+["Road","YOL","Information","BİLGİ"],
+["Major","BÜYÜK","Management","YÖNETİM"],
+["Local","YEREL","Open","AÇIK"],
+["Acquire","ELDE ETMEK","Admit","İTİRAF ETMEK"],
+["Advise","TAVSİYE ETMEK","Affect","ETKİLEMEK"],
+["Allow","İZİN VERMEK","Answer","CEVAP"],
+["Appear","GÖRÜNMEK","Appoint","ATAMAK"],
+["Approve","ONAYLAMAK","Arrange","DÜZENLEMEK"],
+["Arrest","TUTUKLAMAK","Build","YAPMAK"],
+["Burn","YANMAK","Catch","TUTMAK"],
+["Choose","SEÇMEK","Claim","İDDİA ETMEK"],
+["Clean","TEMİZ","Climb","TIRMANMAK"],
+["Combine","BİRLEŞMEK","Comment","YORUM"],
+["Compare","KARŞILAŞTIRMAK","Confirm","ONAYLAMAK"],
+["Connect","BAĞLAMAK","Contain","KAPSAMAK"],
+["Cook","PİŞİRMEK","Count","SAYMAK"],
+["Create","YARATMAK","Damage","HASAR"],
+["Define","TANIMLAMAK","Deliver","TESLİM ETMEK"],
+["Depend","BAĞIMLI OLMAK","Describe","TANIMLAMAK"],
+["Destroy","YIKMAK","Determine","BELİRLEMEK"],
+["Develop","GELİŞMEK","Disappear","YOK OLMAK"],
+["Discover","KEŞFETMEK","Discuss","TARTIŞMAK"],
+["Enter","GİRMEK","Escape","KAÇMAK"],
+["Explain","AÇIKLAMAK","Explore","KEŞFETMEK"],
+["Fail","BAŞARISIZ","Fear","KORKU"],
+["Focus","ODAK","Grow","BÜYÜMEK"],
+["Handle","KULP","Hang","ASMAK"],
+["Influence","ETKİ","Inform","BİLDİRMEK"],
+["Introduce","TANITMAK","Join","BİRLEŞTİRMEK"],
+["Judge","YARGIÇ","Kick","TEKMELEMEK"],
+["Knock","VURMAK","Leave","AYRILMAK"],
+["Like","GİBİ","Listen","DİNLEMEK"],
+["Live","CANLI","Lose","KAYBETMEK"],
+["Manage","YÖNETMEK","Mark","İŞARET"],
+["Marry","EVLENMEK","Mention","BAHSETMEK"],
+["Obtain","EDİNMEK","Prefer","TERCİH ETMEK"],
+["Prepare","HAZIRLAMAK","Prevent","ÖNLEMEK"],
+["Produce","ÜRETMEK","Promise","SÖZ"],
+["Protect","KORUMAK","Prove","KANITLAMAK"],
+["Pull","ÇEKMEK","Push","İTMEK"],
+["Race","YARIŞ","Read","OKUMAK"],
+["Realize","FARK ETMEK","Receive","ALMAK"],
+["Refuse","REDDETMEK","Result","SONUÇ"],
+["Reject","REDDETMEK","Remain","KALMAK"],
+["Suggest","ÖNERMEK","Remove","KALDIRMAK"],
+["Repeat","YİNELEMEK","Suffer","ACI ÇEKMEK"],
+["Steal","ÇALMAK","Reply","YANIT"],
+["Respond","YANITLAMAK","Ride","BİNMEK"],
+["Rise","ARTMAK","Exactly","KESİNLİKLE"],
+["Yelling","BAĞIRMAK","Represent","TEMSİL ETMEK"],
+["Search","ARAMAK","Run","KOŞMAK"],
+["Wish","DİLEMEK","History","TARİH"],
+["Only","SADECE","Production","ÜRETİM"],
+["Late","GEÇ","Special","ÖZEL"],
+["Paper","KAĞIT","Range","MENZİL"],
+["Indeed","GERÇEKTEN","Return","GERİ DÖNMEK"],
+["Income","GELİR","Particularly","ÖZELLİKLE"],
+["White","BEYAZ","Knowledge","BİLGİ"],
+["Left","SOL","Least","EN AZ"],
+["Recent","SON","Miss","ÖZLEMEK"],
+["Nice","GÜZEL","Part","PARÇA"],
+["Wait","BEKLEMEK","Poor","FAKİR"],
+["Role","ROL","Sound","SES"],
+["Obviously","AÇIKÇASI","Type","TÜR"],
+["Industry","SANAYİ","Language","DİL"],
+["Trade","TİCARET","Share","PAYLAŞMAK"],
+["Ready","HAZIR","Trust","GÜVEN"],
+["Rights","HAKLAR","Stuff","ŞEY"],
+["Value","DEĞER","Yesterday","DÜN"],
+["Soon","YAKINDA","See","GÖRMEK"],
+["Morning","SABAH","Then","O ZAMAN"],
+["Similar","BENZER","Room","ODA"],
+["Wonder","MERAK ETMEK","Moment","AN"],
+["Society","TOPLUM","Exhausted","YORGUN"],
+["Description","AÇIKLAMA","Cure","TEDAVİ"],
+["Assignment","GÖREV","Investigate","ARAŞTIRMAK"],
+["Fair Share","ADİL PAYLAŞIM","Raise","YÜKSELTMEK"],
+["Review","ELEŞTİRİ","Involve","İÇERMEK"],
+["Spell","BÜYÜ","Competitor","RAKİP"],
+["Polluted","KİRLİ","Belongings","EŞYA"],
+["Belief","İNANÇ","Progress","İLERLEME"],
+["Permanent","KALICI","Steep","DİK"],
+["Solve","ÇÖZMEK","Gain","KAZANÇ"],
+["Otherwise","YOKSA","Skill","BECERİ"],
+["Achieve","BAŞARMAK","Turn Up","ORTAYA ÇIKMAK"],
+["Submit","GÖNDERMEK","Attitude","TAVIR"],
+["Architect","MİMAR","Invent","İCAT ETMEK"],
+["Tool","ALET","Article","MAKALE"],
+["Compile","DERLEMEK","Promote","TEŞVİK ETMEK"],
+["Instruction","TALİMAT","Stamp","PUL"],
+["Hire","İŞE ALMAK","Excuse","MAZERET"],
+["Qualified","KALİFİYE","Maintain","SÜRDÜRMEK"],
+["Interface","ARAYÜZ","Proficiency","YETERLİK"],
+["Flexible","ESNEK","Fundamental","ESAS"],
+["Rapidly","HIZLA","Pivotal","ÖNEMLİ"],
+["Interact","ETKİLEŞİM","Profound","DERİN"],
+["Multifaceted","ÇOK YÖNLÜ","Noticeable","DİKKAT ÇEKİCİ"],
+["Convenience","KOLAYLIK","Artificial","YAPAY"],
+["Productivity","VERİMLİLİK","Accessible","ERİŞİLEBİLİR"],
+["Constraint","KISITLAMA","Literacy","OKURYAZARLIK"],
+["Misuse","SUİSTİMAL","Crucial","KRİTİK"],
+["Mitigate","HAFİFLETMEK","Unprecedented","EŞİ BENZERİ OLMAYAN"],
+["Aspect","YÖN","Stimulate","TEŞVİK ETMEK"],
+["Alleviate","HAFİFLETMEK","Incorporate","DAHİL ETMEK"],
+["Enhance","GELİŞTİRMEK","Regulate","DÜZENLEMEK"],
+["Mass","KÜTLE","Contribute","KATKIDA BULUNMAK"],
+["Participate","KATILMAK","Foster","BÜYÜTMEK"],
+["Sustainable","SÜRDÜRÜLEBİLİR","Conscious","FARKINDA"],
+["Embrace","BENİMSEMEK","Consumption","TÜKETİM"],
+["Properly","GEREKEN ŞEKİLDE","Leftover","ARTIK"],
+["Resilient","DİRENÇLİ","Engagement","BAĞLILIK"],
+["Consent","KABUL","Bias","ÖNYARGI"],
+["Fairness","ADALET","Impartial","TARAFSIZ"],
+["Diversity","ÇEŞİTLİLİK","Robust","SAĞLAM"],
+["Delicate","HASSAS","Stride","ADIM"],
+["Concurrently","AYNI ANDA","Intricate","KARMAŞIK"],
+["Bustling","HAREKETLİ","Reputation","ŞÖHRET"],
+["Diligent","ÇALIŞKAN","Mobility","HAREKETLİLİK"],
+["Unique","EŞSİZ","Fertile","BEREKETLİ"],
+["Reproductive","ÜREME","Showcase","SERGİLEMEK"],
+["Prosperity","REFAH","Cultivate","YETİŞTİRMEK"],
+["Navigate","YÖN BULMAK","Diverse","ÇEŞİTLİ"],
+["Populace","NÜFUS","Reverberate","YANKILANMAK"],
+["Cohesion","BAĞLILIK","Equitable","ADİL"],
+["Phenomenon","FENOMEN","Intensify","YOĞUNLAŞTIRMAK"],
+["Disruption","BOZULMA","Alteration","DEĞİŞİKLİK"],
+["Melt","ERİTMEK","Initiative","İNİSİYATİF"],
+["Awareness","FARKINDALIK","Urgency","ACİLİYET"],
+["Flourish","GELİŞMEK","Articulately","AÇIKÇA"],
+["Autonomy","ÖZERKLİK","Peer","AKRAN"],
+["Puberty","ERGENLİK","Nurture","BESLEMEK"],
+["Library","KÜTÜPHANE","Promotion","PROMOSYON"],
+["Regularly","DÜZENLİ OLARAK","Gift","HEDİYE"],
+["Colleague","MESLEKTAŞ","Vacation","TATİL"],
+["Abroad","YURTDIŞINDA","Fatty","YAĞLI"],
+["Horror","KORKU","Relative","AKRABA"],
+["Feed","BESLEMEK","Earn","KAZANMAK"],
+["Injured","YARALI","Fix","DÜZELTMEK"],
+["Poem","ŞİİR","Migration","GÖÇ"],
+["Evaporate","BUHARLAŞMAK","Nervous","GERGİN"],
+["Hurry","ACELE ETMEK","Intelligent","AKILLI"],
+["Woods","ORMAN","Valuable","DEĞERLİ"],
+["Ceiling","TAVAN","Busy","MEŞGUL"],
+["Lift","ASANSÖR","Decide","KARAR VERMEK"],
+["Mistake","HATA","Borrow","ÖDÜNÇ ALMAK"],
+["Repair","ONARIM","Pick Up","ALMAK"],
+["Withdraw","PARA ÇEKMEK","Lie","YALAN"],
+["Retire","EMEKLİ OLMAK","Exhibition","SERGİ"],
+["Purse","KADIN ÇANTASI","Rule","KURAL"],
+["File","DOSYA","Invite","DAVET ETMEK"],
+["Save","KURTARMAK","Digestion","SİNDİRİM"],
+["Prohibited","YASAK","Improve","İLERLETMEK"],
+["Cross","HAÇ","Background","ARKA PLAN"],
+["District","BÖLGE","Accident","KAZA"],
+["Definitely","KESİNLİKLE","Wealthy","ZENGİN"],
+["Speech","KONUŞMA","Crowded","KALABALIK"],
+["Divorced","BOŞANMIŞ","Novel","ROMAN"],
+["Dress","ELBİSE","Flight","UÇUŞ"],
+["Facility","TESİS","Deer","GEYİK"],
+["Delicious","LEZZETLİ","Advice","ÖĞÜT"],
+["Ancient","ANTİK","Triangular","ÜÇGEN"],
+["Wooden","AHŞAP","Silk","İPEK"],
+["Spoilt","ŞIMARIK","Poisonous","ZEHİRLİ"],
+["Absent","DEVAMSIZ","Seriously","CİDDEN"]
+];
+/* Not: "Different / FARKLI" destede iki kez basılıdır (Set 1, Kart 40 ve 90);
+   aşağıdaki tekilleştirme sayesinde sitede tek kez görünür. */
+
+/* Fiziksel setlerdeki kart sayıları (Set 1, Set 2, Set 3) */
+const SET_BOYUTLARI = [91, 104, 162];
+
+/* Düzleştir + aynı kelime AYNI anlamla tekrar ediyorsa teke indir.
+   Aynı İngilizce kelime FARKLI bir Türkçe anlamla geliyorsa ikisi de kalır. */
+const WORDS = [];
+{
+  const seen = new Set();
+  KARTLAR.forEach((row, i) => {
+    let set = 1, lokal = i + 1, kalan = i;
+    for (let s = 0; s < SET_BOYUTLARI.length; s++) {
+      if (kalan < SET_BOYUTLARI[s]) { set = s + 1; lokal = kalan + 1; break; }
+      kalan -= SET_BOYUTLARI[s];
+    }
+    [[row[0],row[1]],[row[2],row[3]]].forEach(([en,tr]) => {
+      const key = en.toLowerCase() + "|" + tr;
+      if (seen.has(key)) return;
+      seen.add(key);
+      WORDS.push({ en, tr, kart: i + 1, set, lokal });
+    });
+  });
+}
+
+/* =========================================================
+   HER KELİMEYE ÖZEL ADRES (slug)
+   ör. "Learn" → #k/learn , "Fair Share" → #k/fair-share
+   Aynı İngilizce kelime farklı anlamla iki kez varsa
+   ikincisi -2 alır (ör. except → except, except-2).
+   Sıra kart verisinden geldiği için bağlantılar KALICIDIR —
+   listeye kelime EKLEMEK sorun olmaz; aradan SİLMEK ya da
+   sırayı değiştirmek -2'li adresleri kaydırabilir.
+   ========================================================= */
+const SLUG2IDX = {};
+{
+  const sayac = {};
+  WORDS.forEach((w, i) => {
+    let s = w.en.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    if (sayac[s]) { sayac[s]++; s = s + "-" + sayac[s]; }
+    else sayac[s] = 1;
+    w.slug = s;
+    SLUG2IDX[s] = i;
+  });
+}
+function kelimeURL(w) {
+  const kok = (location.origin && location.origin !== "null" ? location.origin : "") + location.pathname;
+  return kok + "#k/" + w.slug;
+}
+
+/* ---------- DOM ---------- */
+const $ = s => document.querySelector(s);
+const grid = $("#grid"), q = $("#q"), countEl = $("#count");
+const modal = $("#modal"), mEn = $("#mEn"), mTr = $("#mTr"), mKart = $("#mKart");
+const ygBox = $("#yg"), ygStatus = $("#ygStatus");
+const ytWrap = $("#ytWrap"), ytFrame = $("#ytFrame"), ygWrap = $("#ygWrap");
+const prevBtn = $("#prevBtn"), nextBtn = $("#nextBtn"), nextWordEl = $("#nextWord");
+
+/* Görünüm modu: "public" (QR'sız ziyaretçi — liste YOK),
+   "solo" (QR ile gelen — tek kelime), "admin" (sen — her şey) */
+let MODE = "public";
+
+$("#stCards").textContent = KARTLAR.length;
+$("#stCards2").textContent = KARTLAR.length;
+$("#stWords").textContent = WORDS.length;
+
+/* ---------- ARAMA + IZGARA ---------- */
+let filtered = WORDS.map((_, i) => i);
+
+const trLower = s => s.toLocaleLowerCase("tr");
+function applyFilter() {
+  const term = q.value.trim();
+  if (!term) {
+    filtered = WORDS.map((_, i) => i);
+  } else {
+    const tEn = term.toLowerCase(), tTr = trLower(term);
+    filtered = WORDS.reduce((acc, w, i) => {
+      if (w.en.toLowerCase().includes(tEn) || trLower(w.tr).includes(tTr)) acc.push(i);
+      return acc;
+    }, []);
+  }
+  renderGrid();
+}
+
+function renderGrid() {
+  grid.innerHTML = "";
+  /* Kelime ızgarası yalnızca yönetici modunda oluşturulur —
+     halka açık modda kelimeler sayfa kaynağına dahi yazılmaz. */
+  if (MODE !== "admin") { countEl.textContent = ""; return; }
+  countEl.textContent = filtered.length + " kelime";
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty"><b>Kelime bulunamadı</b>Farklı bir arama dene — İngilizce ya da Türkçe yazabilirsin.</div>';
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  filtered.forEach((idx, pos) => {
+    const w = WORDS[idx];
+    const cell = document.createElement("div");
+    cell.className = "cell";
+    const b = document.createElement("button");
+    b.className = "tile " + (pos % 2 === 0 ? "dark" : "light");
+    b.setAttribute("aria-label", w.en + " kelimesini videolarda dinle");
+    b.innerHTML =
+      '<span class="no">' + w.set + "·" + w.lokal + "</span>" +
+      '<span class="en">' + w.en + "</span>" +
+      '<span class="tr">' + w.tr + "</span>";
+    b.addEventListener("click", () => openWord(pos));
+    const yt = document.createElement("a");
+    yt.className = "ytmini";
+    yt.href = "https://www.youtube.com/results?search_query=%22" + encodeURIComponent(w.en.toLowerCase()) + "%22+pronunciation";
+    yt.target = "_blank"; yt.rel = "noopener";
+    yt.title = '"' + w.en + '" telaffuz videoları — YouTube';
+    yt.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>YouTube';
+    cell.appendChild(b); cell.appendChild(yt);
+    frag.appendChild(cell);
+  });
+  grid.appendChild(frag);
+}
+
+q.addEventListener("input", applyFilter);
+
+/* ---------- YOUGLISH OYNATICI ---------- */
+let yg = null, ygReady = false, widgetBuilt = false;
+let accent = "us";
+let currentPos = -1;          // filtrelenmiş listedeki konum
+let pendingFetch = null;
+
+window.onYouglishAPIReady = function () {
+  ygReady = true;
+  if (modal.classList.contains("open") && !ygWrap.hidden) buildWidget();
+};
+
+function buildWidget() {
+  if (widgetBuilt || !ygReady) return;
+  widgetBuilt = true;
+  ygBox.innerHTML = "";
+  yg = new YG.Widget("yg", {
+    width: Math.max(280, Math.min(700, (ygWrap.clientWidth || window.innerWidth - 40))),
+    components: 8415, /* arama kutusu + başlık + altyazı + aksan paneli + hız */
+    events: {
+      onFetchDone: e => {
+        ygStatus.textContent = e.totalResult > 0
+          ? "≈ " + e.totalResult.toLocaleString("tr-TR") + " gerçek kesit — her kesit, kelimenin geçtiği cümlenin sonuna kadar oynar ve orada durur."
+          : "Bu kelime için kesit bulunamadı. Alttaki kaynak bağlantılarını dene.";
+      },
+      onVideoChange: () => { resetClipTimer(); pauseArmed = sentenceMode; hedefte = false; clearSentence(); },
+      onPlayerStateChange: e => { if (e.state === YG.PlayerState.PLAYING) armClipTimer(); else holdClipTimer(); },
+      onCaptionChange: e => { onCaption(e); },
+      onCaptionConsumed: () => { onConsumed(); },
+      onError: () => {
+        ygStatus.textContent = "Oynatıcı şu an yanıt vermiyor (günlük ücretsiz limit dolmuş olabilir). Aşağıdaki bağlantılardan dinleyebilirsin.";
+      }
+    }
+  });
+  if (pendingFetch) { doFetch(pendingFetch); pendingFetch = null; }
+}
+
+function doFetch(word) {
+  if (!yg) { pendingFetch = word; return; }
+  ygStatus.textContent = "“" + word + "” için kesitler getiriliyor…";
+  if (accent === "all") yg.fetch(word, "english");
+  else yg.fetch(word, "english", accent);
+}
+
+/* ---------- MODAL ---------- */
+function openWord(pos) {
+  currentPos = pos;
+  const w = WORDS[filtered[pos]];
+  mEn.textContent = w.en;
+  mTr.textContent = w.tr;
+  mKart.textContent = "SET " + w.set + " · KART " + w.lokal;
+
+  const enc = encodeURIComponent(w.en.toLowerCase());
+  const ytq = ek => "https://www.youtube.com/results?search_query=%22" + enc + "%22+" + ek;
+  $("#srcFilm").href   = "https://www.playphrase.me/#/search?q=" + enc;
+  $("#srcTed").href    = ytq("ted");
+  $("#srcSpeech").href = ytq("speech");
+  $("#srcToon").href   = ytq("cartoon");
+  $("#srcViral").href  = ytq("shorts");
+  $("#lnkYT").href     = ytq("pronunciation");
+  $("#lnkYg").href = "https://youglish.com/pronounce/" + enc + "/english" + (accent !== "all" ? "/" + accent : "");
+  $("#lnkDict").href = "https://dictionary.cambridge.org/dictionary/english/" + enc;
+
+  clearSentence();
+  resetClipTimer();
+  sentPanel.hidden = false;
+  pauseArmed = sentenceMode;
+  curCaption = "";
+  hedefte = false;
+  anlamDeneme = 0;
+  sonAnlamKontrol = "";
+
+  prevBtn.disabled = pos === 0;
+  nextBtn.disabled = pos >= filtered.length - 1;
+  nextWordEl.textContent = pos < filtered.length - 1 ? WORDS[filtered[pos + 1]].en : "—";
+  /* QR ile gelen ziyaretçi diğer kelimeleri GÖREMEZ:
+     önceki/sonraki gezinmesi yalnızca yönetici modunda görünür */
+  document.querySelector(".sheet-nav").style.display = MODE === "admin" ? "" : "none";
+
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  const ozel = OZEL_VIDEOLAR[w.en.toLowerCase()];
+  const embedUrl = ozel ? ytEmbed(ozel) : null;
+  if (embedUrl) {
+    ytWrap.hidden = false;
+    ygWrap.hidden = true;
+    ytFrame.src = embedUrl;
+    ygStatus.textContent = "Senin seçtiğin kesit oynatılıyor — cümlenin bittiği saniyeyi linke &end= ile ekleyebilirsin.";
+  } else {
+    showYouglish(w.en);
+  }
+}
+
+let loadTimer = null;
+function showYouglish(word) {
+  ytWrap.hidden = true;
+  ytFrame.src = "";
+  ygWrap.hidden = false;
+  if (ygReady) { buildWidget(); doFetch(word); }
+  else pendingFetch = word;
+  clearTimeout(loadTimer);
+  loadTimer = setTimeout(() => {
+    if (!widgetBuilt) ygStatus.textContent = "Gömülü oynatıcı yüklenemedi (bağlantı ya da günlük limit). Kırmızı YouTube düğmesi her kelimede çalışır.";
+  }, 8000);
+}
+
+function kapatIc() { /* oynatıcıyı ve pencereyi kapatır (adres değişmez) */
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+  ytFrame.src = "";
+  clearSentence();
+  sentPanel.hidden = true;
+  if (yg) try { yg.pause(); } catch (e) {}
+  speechSynthesis.cancel();
+}
+function closeModal() { /* kullanıcı ✕ ile kapattı */
+  kapatIc();
+  if (MODE === "solo") {
+    /* QR sayfası kapatılınca kelime listesi OLMAYAN ana sayfaya dön */
+    history.replaceState(null, "", location.pathname + location.search);
+    setMode("public");
+  }
+}
+
+$("#moreClips").addEventListener("click", () => {
+  if (currentPos >= 0) showYouglish(WORDS[filtered[currentPos]].en);
+});
+
+/* ---------- CÜMLE MODU (kesit, cümle bitince durur) ---------- */
+const sentPanel = $("#sentPanel"), sentEn = $("#sentEn"), sentTr = $("#sentTr"),
+      sentState = $("#sentState"), sentAnlam = $("#sentAnlam");
+let sentenceMode = true, pauseArmed = true, curCaption = "", hedefte = false;
+/* 🎯 Anlam filtresi: kesitteki cümle karttaki anlamla eşleşmiyorsa otomatik atla */
+let anlamFiltresi = true, anlamDeneme = 0, sonAnlamKontrol = "";
+const ANLAM_DENEME_MAX = 15; /* üst sınır: sonsuz atlamayı önlemek için (dilbilgisi denetimi ağa yük bindirmez) */
+let clipTimer = null, clipPlayedMs = 0, clipPlayStart = 0;
+const trCache = new Map(), kelimeCevirCache = new Map();
+
+function resetClipTimer() { clearTimeout(clipTimer); clipTimer = null; clipPlayedMs = 0; clipPlayStart = 0; }
+function holdClipTimer() {
+  if (clipPlayStart) { clipPlayedMs += Date.now() - clipPlayStart; clipPlayStart = 0; }
+  clearTimeout(clipTimer);
+}
+/* Emniyet freni: cümle sonu sinyali hiç gelmezse video sonsuza dek oynamasın */
+function armClipTimer() {
+  if (!sentenceMode || !pauseArmed || ygWrap.hidden) return;
+  clipPlayStart = Date.now();
+  clearTimeout(clipTimer);
+  const kalan = Math.max(0, EMNIYET_SANIYE * 1000 - clipPlayedMs);
+  clipTimer = setTimeout(() => {
+    try { yg.pause(); } catch (e) {}
+    sentState.textContent = "⏸ DURDURULDU";
+    if (curCaption) autoTranslate(curCaption);
+  }, kalan);
+}
+
+function clearSentence() { sentEn.textContent = ""; sentTr.textContent = ""; sentState.textContent = ""; sentAnlam.hidden = true; sentAnlam.textContent = ""; }
+/* YouGlish altyazıyı URL-kodlu gönderebiliyor (%20 = boşluk) — çöz */
+function decodeCaption(s) {
+  s = String(s || "");
+  if (/%[0-9A-Fa-f]{2}/.test(s)) {
+    try { s = decodeURIComponent(s.replace(/\+/g, " ")); }
+    catch (e) { s = s.replace(/%20/g, " "); }
+  }
+  return s;
+}
+/* Altyazı birden çok cümle içerebilir; yalnızca [[[kelime]]] geçen cümleyi al */
+function hedefCumle(t) {
+  if (t.indexOf("[[[") === -1) return t;
+  const parcalar = t.match(/[^.!?…]+[.!?…]+["')\]]*\s*|[^.!?…]+$/g);
+  if (!parcalar || parcalar.length < 2) return t;
+  /* kısaltma bölünmelerini birleştir (Mr. / Dr. ...) */
+  const birlesik = [];
+  for (let i = 0; i < parcalar.length; i++) {
+    let p = parcalar[i];
+    while (/\b(?:Mr|Mrs|Ms|Dr|Jr|Sr|St|vs|No)\.\s*$/i.test(p) && i + 1 < parcalar.length) {
+      p += parcalar[++i];
+    }
+    birlesik.push(p);
+  }
+  const hedef = birlesik.find(p => p.indexOf("[[[") !== -1);
+  return hedef ? hedef.trim() : t;
+}
+function onCaption(e) {
+  if (ygWrap.hidden) return;
+  const raw = hedefCumle(decodeCaption(e.caption));
+  hedefte = raw.indexOf("[[[") !== -1;
+  /* Altyazı akıyorsa emniyet sayacını sıfırla — fren yalnızca sinyal tamamen kesilirse devreye girer */
+  clipPlayedMs = 0;
+  if (clipPlayStart) armClipTimer();
+  /* Kartın kelimesini içermeyen altyazılar paneli DEĞİŞTİREMEZ */
+  if (!hedefte) return;
+  sentPanel.hidden = false;
+  const duz = raw.replace(/\[\[\[|\]\]\]/g, "").trim();
+  if (duz !== curCaption) { sentTr.textContent = ""; sentState.textContent = ""; sentAnlam.hidden = true; sentAnlam.textContent = ""; }
+  curCaption = duz;
+  sentEn.innerHTML = "";
+  raw.split(/\[\[\[|\]\]\]/).forEach((part, i) => {
+    if (i % 2) { const m = document.createElement("mark"); m.textContent = part; sentEn.appendChild(m); }
+    else sentEn.appendChild(document.createTextNode(part));
+  });
+  /* 🎯 hedef cümle göründüğü anda anlamı denetle;
+     eşleşmiyorsa kesitin bitmesini beklemeden sonrakine geç */
+  if (anlamFiltresi && duz && duz !== sonAnlamKontrol) {
+    sonAnlamKontrol = duz;
+    const w = WORDS[filtered[currentPos]];
+    if (w) {
+      /* 1) Anında dilbilgisi denetimi (çevirisiz, sıfır bekleme):
+         kart FİİL ama kullanım İSİM (ya da tersi) ise hemen atla */
+    if (hizliUyusmazlik(raw, w)) { anlamAtla(w); return; }
+      /* 2) Çeviri denetimi (arka planda) */
+      anlamKontrol(duz, w);
+    }
+  }
+}
+
+/* ---------- 🎯 ANLAM FİLTRESİ ---------- */
+/* Ortak atlayıcı: sınır dolmadıysa sonraki kesite geçer */
+function anlamAtla(w) {
+  if (anlamDeneme >= ANLAM_DENEME_MAX) {
+    ygStatus.textContent = "🎯 " + ANLAM_DENEME_MAX + " kesit denendi, birebir eşleşme bulunamadı — bu kesitte kelime farklı anlamda olabilir.";
+    return;
+  }
+  anlamDeneme++;
+  ygStatus.textContent = "🎯 Anlam eşleşmedi — karttaki \u201C" + w.tr + "\u201D anlamı aranıyor (" + anlamDeneme + "/" + ANLAM_DENEME_MAX + ")…";
+  resetClipTimer();
+  pauseArmed = sentenceMode;
+  clearSentence();
+  if (yg) try { yg.next(); } catch (e) {}
+}
+
+/* Anlık dilbilgisi denetimi — çeviri gerekmeden bariz uyuşmazlıkları yakalar.
+   Örn. kartta ADIM (isim) ama cümlede "to [[[stride]]]" / "striding" (fiil).
+   Yalnızca KESİN ipuçlarında karar verir; emin değilse çeviri denetimine bırakır. */
+function hizliUyusmazlik(raw, w) {
+  const i = raw.indexOf("[[[");
+  const j = raw.indexOf("]]]");
+  if (i < 0 || j < 0) return false;
+  const oncekiler = raw.slice(0, i).toLowerCase().split(/[^a-z'’]+/).filter(Boolean);
+  const prev = oncekiler[oncekiler.length - 1] || "";
+  const token = raw.slice(i + 3, j).trim().toLowerCase();
+  const base = w.en.toLowerCase();
+  const kartFiil = /(mek|mak)$/.test(trLower(w.tr).replace(/\s+/g, ""));
+  /* isim işaretçileri: belirteç/iyelik hemen önündeyse kullanım isimdir */
+  const ISIM_ONCU = ["a","an","the","this","that","these","those","my","your","his","her","its","our","their","some","any","no","every","each","another"];
+  /* fiil işaretçileri: kip/özne zamiri hemen önündeyse kullanım fiildir */
+  const FIIL_ONCU = ["will","would","can","could","shall","should","may","must",
+    "don't","doesn't","didn't","won't","can't","couldn't","wouldn't","shouldn't",
+    "i","you","we","they","he","she"];
+  /* -ing / -ed çekimi almışsa fiil kullanımıdır (striding, strided) */
+  const cekimli = token !== base &&
+    token.startsWith(base.slice(0, Math.max(3, base.length - 1))) &&
+    /(ing|ed)$/.test(token);
+  if (kartFiil && ISIM_ONCU.includes(prev)) return true;        /* kart fiil, kullanım isim */
+  if (!kartFiil && (FIIL_ONCU.includes(prev) || cekimli)) return true; /* kart isim/sıfat, kullanım fiil */
+  return false;
+}
+
+async function anlamKontrol(duz, w) {
+  if (!w || ygWrap.hidden) return;
+  const ceviri = await ceviriGetir(duz);
+  /* bu arada kesit/kelime değiştiyse ya da filtre kapatıldıysa vazgeç */
+  if (!anlamFiltresi || duz !== curCaption || ygWrap.hidden) return;
+  if (!ceviri) return; /* çeviri alınamadıysa eleme YAPMA — kesit oynamaya devam etsin */
+  const anlamlar = [w.tr].concat(
+    WORDS.filter(x => x.en.toLowerCase() === w.en.toLowerCase() && x.tr !== w.tr).map(x => x.tr)
+  );
+  if (anlamAra(ceviri, anlamlar)) {
+    anlamDeneme = 0;
+    ygStatus.textContent = "🎯 Kesit, karttaki \u201C" + w.tr + "\u201D anlamıyla eşleşti.";
+    return;
+  }
+  anlamAtla(w);
+}
+function onConsumed() {
+  if (ygWrap.hidden || !sentenceMode || !pauseArmed) return;
+  if (!hedefte) return; /* hedef cümle henüz gelmedi — kelimenin cümlesine kadar oynamaya devam */
+  holdClipTimer();
+  try { yg.pause(); } catch (err) {}
+  sentState.textContent = "⏸ CÜMLE BİTTİ — DURDU";
+  if (curCaption) autoTranslate(curCaption);
+}
+/* ---- Türkçe eşleştirme: karttaki anlamın çevirideki karşılığını bul ---- */
+function kok(t) {
+  t = trLower(t).replace(/[^a-zçğıöşüâ]/g, "");
+  return t.replace(/(mek|mak)$/, "");
+}
+function tokenEslesir(a, b) { /* a: çevirideki kelimenin kökü, b: anlamın kökü */
+  if (!a || !b) return false;
+  if (b.length <= 2) return a === b || (a.startsWith(b) && a.length <= b.length + 3);
+  return a.startsWith(b.slice(0, Math.min(b.length, 4)));
+}
+function anlamAra(ceviri, anlamlar) {
+  const parcalar = ceviri.split(/(\s+)/);           /* boşlukları koruyarak böl */
+  const kokler = parcalar.map(p => kok(p));
+  for (const anlam of anlamlar) {
+    for (const tok of anlam.split(/\s+/)) {
+      const b = kok(tok);
+      if (b.length < 2 || b === "et" || b === "ol" || b === "bir") continue;
+      const hits = [];
+      kokler.forEach((s, i) => { if (parcalar[i].trim() && tokenEslesir(s, b)) hits.push(i); });
+      if (hits.length) return { hits, anlam, parcalar };
+    }
+  }
+  return null;
+}
+function ceviriyiGoster(ceviri) {
+  const w = WORDS[filtered[currentPos]];
+  sentTr.innerHTML = ""; sentAnlam.hidden = true; sentAnlam.textContent = "";
+  if (!w) { sentTr.textContent = ceviri; return; }
+  /* önce bu kartın anlamı, sonra aynı kelimenin diğer kartlardaki anlamları */
+  const anlamlar = [w.tr].concat(
+    WORDS.filter(x => x.en.toLowerCase() === w.en.toLowerCase() && x.tr !== w.tr).map(x => x.tr)
+  );
+  const es = anlamAra(ceviri, anlamlar);
+  if (es) {
+    es.parcalar.forEach((p, i) => {
+      if (es.hits.includes(i)) { const m = document.createElement("mark"); m.textContent = p; sentTr.appendChild(m); }
+      else sentTr.appendChild(document.createTextNode(p));
+    });
+    sentAnlam.hidden = false;
+    sentAnlam.append("💡 Bu cümlede ");
+    const b1 = document.createElement("b"); b1.textContent = w.en; sentAnlam.append(b1);
+    sentAnlam.append(" → ");
+    const b2 = document.createElement("b"); b2.textContent = es.anlam; sentAnlam.append(b2);
+    sentAnlam.append(" anlamında kullanılmış.");
+  } else {
+    sentTr.textContent = ceviri;
+    farkliAnlam(w);
+  }
+}
+/* Karttaki anlam çeviride bulunamadıysa: kelimenin genel karşılığını göster */
+async function farkliAnlam(w) {
+  sentAnlam.hidden = false;
+  sentAnlam.textContent = "💡 Anlam inceleniyor…";
+  let genel = kelimeCevirCache.get(w.en);
+  if (genel === undefined) {
+    genel = (await ceviriGetir(w.en.toLowerCase()) || "").trim();
+    kelimeCevirCache.set(w.en, genel);
+  }
+  sentAnlam.textContent = "";
+  sentAnlam.append("💡 ");
+  const b1 = document.createElement("b"); b1.textContent = w.en; sentAnlam.append(b1);
+  sentAnlam.append(" bu cümlede karttaki \u201C" + w.tr + "\u201D anlamıyla birebir eşleşmedi");
+  if (genel && trLower(genel) !== w.en.toLowerCase()) {
+    sentAnlam.append(" — burada büyük olasılıkla farklı bir anlamda: ");
+    const b2 = document.createElement("b"); b2.textContent = genel; sentAnlam.append(b2);
+    sentAnlam.append(".");
+  } else {
+    sentAnlam.append(" — farklı bir anlamda ya da kalıp içinde kullanılmış olabilir.");
+  }
+}
+/* Çeviri isteğini tekilleştir: aynı cümle için tek istek (Promise önbelleği)
+   Önce Google çeviri uç noktası (çok daha isabetli), olmazsa MyMemory yedeği */
+function ceviriGetir(text) {
+  if (trCache.has(text)) return trCache.get(text);
+  const p = (async () => {
+    try {
+      const r = await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=" + encodeURIComponent(text.slice(0, 480)));
+      if (r.ok) {
+        const d = await r.json();
+        const out = (d && d[0] || []).map(x => (x && x[0]) || "").join("").trim();
+        if (out) return out;
+      }
+    } catch (e) {}
+    try {
+      const r = await fetch("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text.slice(0, 480)) + "&langpair=en|tr");
+      const d = await r.json();
+      const out = (d && d.responseData && d.responseData.translatedText || "");
+      return out.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&").trim();
+    } catch (e) { return ""; }
+  })();
+  trCache.set(text, p);
+  return p;
+}
+async function autoTranslate(text) {
+  sentTr.textContent = "Türkçeye çevriliyor…";
+  sentAnlam.hidden = true;
+  const out = await ceviriGetir(text);
+  if (text !== curCaption) return;
+  if (out) ceviriyiGoster(out);
+  else sentTr.textContent = "Çeviri alınamadı — 🇹🇷 Çevir'e tekrar bas.";
+}
+$("#trBtn").addEventListener("click", () => { const t = sentEn.textContent.trim(); if (t) autoTranslate(t); });
+$("#replayBtn").addEventListener("click", () => {
+  sentState.textContent = "";
+  resetClipTimer();
+  pauseArmed = sentenceMode;
+  if (yg) try { yg.replay(); } catch (e) {}
+});
+$("#nextClipBtn").addEventListener("click", () => {
+  resetClipTimer();
+  pauseArmed = sentenceMode;
+  anlamDeneme = 0; /* kullanıcı devraldı — filtre sayacı baştan başlasın */
+  clearSentence();
+  if (yg) try { yg.next(); } catch (e) {}
+});
+$("#anlamBtn").addEventListener("click", e => {
+  anlamFiltresi = !anlamFiltresi;
+  anlamDeneme = 0;
+  e.currentTarget.textContent = "🎯 Anlam filtresi: " + (anlamFiltresi ? "AÇIK" : "KAPALI");
+  e.currentTarget.classList.toggle("on", anlamFiltresi);
+  if (anlamFiltresi && curCaption) { sonAnlamKontrol = curCaption; anlamKontrol(curCaption, WORDS[filtered[currentPos]]); }
+});
+$("#sentModeBtn").addEventListener("click", e => {
+  sentenceMode = !sentenceMode; pauseArmed = sentenceMode;
+  if (!sentenceMode) holdClipTimer();
+  e.currentTarget.textContent = "✂️ Tek cümle: " + (sentenceMode ? "AÇIK" : "KAPALI");
+  e.currentTarget.classList.toggle("on", sentenceMode);
+});
+
+$("#mClose").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+prevBtn.addEventListener("click", () => { if (currentPos > 0) openWord(currentPos - 1); });
+nextBtn.addEventListener("click", () => { if (currentPos < filtered.length - 1) openWord(currentPos + 1); });
+
+document.addEventListener("keydown", e => {
+  if (!modal.classList.contains("open")) return;
+  if (e.key === "Escape") closeModal();
+  if (e.key === "ArrowRight" && !nextBtn.disabled) openWord(currentPos + 1);
+  if (e.key === "ArrowLeft" && !prevBtn.disabled) openWord(currentPos - 1);
+});
+
+/* Telefon döndürülünce oynatıcı yeni genişliğe göre yeniden kurulur
+   (yeniden kurulum 1 arama hakkı kullanır; döndürme nadir olduğundan kabul edilebilir) */
+window.addEventListener("orientationchange", () => {
+  setTimeout(() => {
+    if (!modal.classList.contains("open") || ygWrap.hidden || !ygReady) return;
+    widgetBuilt = false; yg = null;
+    ygBox.innerHTML = "";
+    const w = WORDS[filtered[currentPos]];
+    if (w) showYouglish(w.en);
+  }, 350);
+});
+
+/* Aksan çipleri */
+document.querySelectorAll(".chip[data-acc]").forEach(ch => {
+  ch.addEventListener("click", () => {
+    document.querySelectorAll(".chip[data-acc]").forEach(c => c.classList.remove("on"));
+    ch.classList.add("on");
+    accent = ch.dataset.acc;
+    if (currentPos >= 0) showYouglish(WORDS[filtered[currentPos]].en);
+  });
+});
+
+/* Hızlı telaffuz (tarayıcı sesi) */
+$("#ttsBtn").addEventListener("click", () => {
+  const w = WORDS[filtered[currentPos]];
+  if (!w || !("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(w.en);
+  u.lang = "en-US";
+  u.rate = 0.85;
+  const v = speechSynthesis.getVoices().find(v => v.lang.startsWith("en"));
+  if (v) u.voice = v;
+  speechSynthesis.speak(u);
+});
+
+/* Hero kartı → örnek kelime (Learn)
+   Yönetici modunda tam liste açılır; halka açık modda yalnızca
+   bu tek örnek açılır, başka kelimeye geçilemez. */
+$("#heroCard").addEventListener("click", () => {
+  if (MODE === "admin") {
+    q.value = "";
+    applyFilter();
+    openWord(0);
+  } else {
+    filtered = [0];
+    openWord(0);
+  }
+});
+
+/* Satın al */
+$("#buyBtn").addEventListener("click", () => {
+  if (SATIN_ALMA_LINKI) window.open(SATIN_ALMA_LINKI, "_blank");
+  else alert("Satış bağlantısı henüz eklenmedi.\n\nDosyayı bir metin düzenleyicide aç ve en üstteki SATIN_ALMA_LINKI değişkenine mağaza linkini yapıştır (Shopier, Trendyol, Instagram vb.).");
+});
+
+/* =========================================================
+   ROTALAR
+   #k/<kelime>            → tek kelime sayfası (QR hedefi)
+   #liste-<ANAHTAR>       → yönetici: tam liste + QR bağlantıları
+   (boş)                  → halka açık tanıtım sayfası, liste YOK
+   ========================================================= */
+function setMode(m) {
+  MODE = m;
+  const adminMi = m === "admin";
+  document.querySelector(".toolbar").style.display = adminMi ? "" : "none";
+  grid.style.display = adminMi ? "" : "none";
+  $("#adminPanel").hidden = !adminMi;
+  if (adminMi) {
+    q.value = "";
+    applyFilter();          /* ızgarayı doldurur */
+    buildAdminPanel();
+  } else {
+    grid.innerHTML = "";    /* kelimeler DOM'dan tamamen çıkar */
+    countEl.textContent = "";
+    filtered = [];
+  }
+}
+
+function route() {
+  let h = "";
+  try { h = decodeURIComponent(location.hash || ""); } catch (e) { h = location.hash || ""; }
+
+  /* Tek kelime sayfası (QR yönlendirmesi buraya gelir) */
+  if (h.startsWith("#k/")) {
+    const idx = SLUG2IDX[h.slice(3).toLowerCase().trim()];
+    if (idx !== undefined) {
+      if (modal.classList.contains("open")) kapatIc();
+      setMode("solo");
+      filtered = [idx];
+      openWord(0);
+      return;
+    }
+  }
+
+  /* Yönetici görünümü */
+  if (h === "#liste-" + YONETICI_ANAHTARI) {
+    if (modal.classList.contains("open")) kapatIc();
+    setMode("admin");
+    return;
+  }
+
+  /* Varsayılan: halka açık sayfa */
+  if (modal.classList.contains("open")) kapatIc();
+  setMode("public");
+}
+
+/* ---------- YÖNETİCİ PANELİ ---------- */
+let adminBuilt = false;
+function buildAdminPanel() {
+  if (adminBuilt) return;
+  adminBuilt = true;
+  const list = $("#adminList");
+  const frag = document.createDocumentFragment();
+  WORDS.forEach(w => {
+    const row = document.createElement("div");
+    row.className = "admin-row";
+    const no = document.createElement("span"); no.className = "no2"; no.textContent = w.set + "·" + w.lokal;
+    const en = document.createElement("b"); en.textContent = w.en;
+    const tr = document.createElement("span"); tr.className = "anlam"; tr.textContent = w.tr;
+    const u  = document.createElement("span"); u.className = "u"; u.textContent = kelimeURL(w);
+    const cp = document.createElement("button"); cp.className = "chip"; cp.type = "button"; cp.textContent = "Kopyala";
+    cp.addEventListener("click", () => kopyala(kelimeURL(w), cp));
+    const ac = document.createElement("a"); ac.className = "chip"; ac.textContent = "Aç →";
+    ac.href = "#k/" + w.slug;
+    row.append(no, en, tr, u, cp, ac);
+    frag.appendChild(row);
+  });
+  list.appendChild(frag);
+}
+function kopyala(metin, btn) {
+  const eski = btn.textContent;
+  const tamam = () => { btn.textContent = "✓ Kopyalandı"; setTimeout(() => btn.textContent = eski, 1400); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(metin).then(tamam).catch(() => prompt("Kopyala:", metin));
+  } else prompt("Kopyala:", metin);
+}
+$("#copyAllBtn").addEventListener("click", () => {
+  /* Sekmeyle ayrılmış: Excel'e / toplu QR aracına doğrudan yapıştırılır */
+  const t = WORDS.map(w => w.set + "·" + w.lokal + "\t" + w.en + "\t" + w.tr + "\t" + kelimeURL(w)).join("\n");
+  kopyala(t, $("#copyAllBtn"));
+});
+
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
