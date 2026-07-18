@@ -786,6 +786,17 @@ footer.af{max-width:none;margin:0;padding:0;border-top:none;background:var(--mis
   transition:background .15s ease,color .15s ease;
 }
 .nasil-cta:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- OYNATICI İÇİ TANITIM TEMİZLİĞİ ----------
+   YouGlish betiğinin sayfaya ekleyebildiği üçüncü taraf tanıtım kutularını gizler.
+   (Oynatıcının kendi iframe'inin İÇİNE hiçbir site kodu dokunamaz.) */
+#yg a[href*="fluent" i],#ygWrap a[href*="fluent" i],
+#yg [class*="promo" i],#ygWrap [class*="promo" i],
+#yg [id*="promo" i],#ygWrap [id*="promo" i],
+#yg [class*="sponsor" i],#ygWrap [class*="sponsor" i],
+#yg [class*="advert" i],#ygWrap [class*="advert" i]{
+  display:none!important;visibility:hidden!important;height:0!important;overflow:hidden!important;
+}
 </style>
 </head>
 <body>
@@ -2663,6 +2674,31 @@ $("#copyAllBtn").addEventListener("click", () => {
   const t = WORDS.map(w => w.set + "·" + w.lokal + "\t" + w.en + "\t" + w.tr + "\t" + kelimeURL(w)).join("\n");
   kopyala(t, $("#copyAllBtn"));
 });
+
+
+/* ---------- TANITIM TEMİZLEYİCİ ----------
+   Oynatıcı alanına sonradan eklenen üçüncü taraf tanıtım kutularını
+   (ör. "Fluently: AI English Coach") sayfa DOM'undan kaldırır.
+   Oynatıcının kendi iframe'inin içine teknik olarak erişilemez. */
+(function () {
+  var IZLER = ["fluently", "ai english coach", "tap and read"];
+  function temizle(kok) {
+    if (!kok || !kok.querySelectorAll) return;
+    kok.querySelectorAll("a,div,section,aside,span").forEach(function (el) {
+      if (el.closest("iframe")) return;
+      if (el.querySelector("iframe")) return;            /* oynatıcıyı asla silme */
+      var t = (el.textContent || "").toLowerCase();
+      var href = (el.getAttribute && (el.getAttribute("href") || "")).toLowerCase();
+      var vurdu = IZLER.some(function (k) { return t.indexOf(k) !== -1 || href.indexOf(k) !== -1; });
+      if (vurdu && t.length < 400) el.remove();          /* kısa tanıtım kutusu: kaldır */
+    });
+  }
+  var hedef = document.getElementById("ygWrap");
+  if (hedef) {
+    new MutationObserver(function () { temizle(hedef); }).observe(hedef, { childList: true, subtree: true });
+    temizle(hedef);
+  }
+})();
 
 window.addEventListener("hashchange", route);
 route();
