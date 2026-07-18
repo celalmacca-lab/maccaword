@@ -4,19 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0E3B43">
-<title>MACCA · İngilizce Kelime Kartları — Kelimeyi Filmde Duy</title>
-<meta name="description" content="MACCA kelime kartlarındaki 713 İngilizce kelimenin telaffuzunu gerçek YouTube film ve video kesitleriyle dinle.">
+<title>MACCA · Kelimeyi Gör. Duy. Yaşa. — İngilizce Kelime Kartları</title>
+<meta name="description" content="İngilizceyi ezberleyerek değil, görerek ve duyarak öğren. MACCA kartlarındaki 713 kelimenin gerçek telaffuzunu film sahnelerinde ve doğal konuşmalarda dinle. Kelimeyi Gör. Duy. Yaşa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0E3B43;        /* kartlardaki koyu petrol yeşili */
-  --ink-deep:#092A31;
-  --paper:#FFFFFF;
-  --mist:#E8F0F0;       /* sayfa zemini: hafif petrol tonu */
-  --bulb:#F4C63F;       /* 1. karttaki ampul sarısı — sadece "dinle" anları için */
-  --line:rgba(14,59,67,.14);
+  /* ================= TEMA BAŞLANGIÇ =================
+     Temayı değiştirmek için SADECE bu bloğu değiştir. */
+  --ink:#0E3B43;        /* ana koyu renk (kart zemini, başlıklar) */
+  --ink-deep:#092A31;   /* daha koyusu (hover, vurgu) */
+  --paper:#FFFFFF;      /* açık zemin */
+  --mist:#E8F0F0;       /* sayfa zemini: ana rengin çok açık tonu */
+  --bulb:#F4C63F;       /* vurgu/işaret rengi (fosforlu) */
+  --line:rgba(14,59,67,.14);   /* ince çizgiler */
+  --tx2:#33595F;        /* ikincil metin */
+  --tx3:#2C555D;        /* üçüncül metin (çeviri vb.) */
+  --muted:#8AA4AA;      /* soluk metin/etiket */
+  --ph:#9DB4B9;         /* placeholder */
+  --err:#E4372E;        /* hata/kayıt kırmızısı */
+  --okc:#0E7A3C;        /* başarı yeşili */
+  --warn:#B07A00;       /* uyarı/sarı metin */
+  /* ================= TEMA BİTİŞ ================= */
   --radius:16px;
   --shadow:0 10px 30px rgba(9,42,49,.14);
 }
@@ -69,7 +79,7 @@ body{
   max-width:640px;
 }
 .hero h1 em{font-style:normal;box-shadow:inset 0 -0.42em var(--bulb)}
-.hero p.sub{margin-top:12px;max-width:560px;font-size:clamp(15px,1.8vw,17px);color:#2C555D;line-height:1.6}
+.hero p.sub{margin-top:12px;max-width:560px;font-size:clamp(15px,1.8vw,17px);color:var(--tx3);line-height:1.6}
 
 .deck{position:relative;margin-top:clamp(24px,4vw,40px);max-width:760px}
 .deck::before{ /* arkadaki ikinci kart */
@@ -106,7 +116,7 @@ body{
 .playhint .btnplay svg{width:20px;height:20px;fill:var(--ink-deep);margin-left:3px}
 .half.light small{color:#4A6E75;font-weight:500;font-family:'Manrope';font-size:13px;line-height:1.5}
 
-.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.04em;color:#33595F}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--tx2)}
 .stats span b{color:var(--ink);font-size:16px;margin-right:4px}
 
 /* ---------- ARAÇ ÇUBUĞU ---------- */
@@ -123,8 +133,8 @@ body{
 .search input{
   border:0;outline:0;flex:1;font-family:'Manrope';font-size:16px;color:var(--ink);background:transparent;
 }
-.search input::placeholder{color:#7C9AA0}
-#count{font-family:'Montserrat';font-weight:700;font-size:13px;color:#33595F;letter-spacing:.04em}
+.search input::placeholder{color:var(--muted)}
+#count{font-family:'Montserrat';font-weight:700;font-size:13px;color:var(--tx2);letter-spacing:.04em}
 
 /* ---------- KELİME IZGARASI ---------- */
 .grid{
@@ -159,7 +169,7 @@ body{
   position:absolute;bottom:10px;right:10px;z-index:2;
   display:inline-flex;align-items:center;gap:5px;text-decoration:none;
   font-family:'Montserrat';font-weight:800;font-size:10px;letter-spacing:.04em;
-  background:#E4372E;color:#fff;padding:5px 9px;border-radius:7px;
+  background:var(--err);color:#fff;padding:5px 9px;border-radius:7px;
   box-shadow:0 3px 8px rgba(228,55,46,.35);transition:transform .12s ease;
 }
 .ytmini:hover{transform:scale(1.07)}
@@ -241,7 +251,7 @@ footer b{font-family:'Montserrat';letter-spacing:.2em;color:var(--ink)}
 .chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .chip.tts{background:var(--bulb);border-color:var(--bulb);color:var(--ink-deep)}
 .chip.tts:hover{filter:brightness(1.05)}
-.ctrl-label{font-size:11px;font-family:'Montserrat';font-weight:700;letter-spacing:.1em;color:#7C9AA0;margin-right:2px}
+.ctrl-label{font-size:11px;font-family:'Montserrat';font-weight:700;letter-spacing:.1em;color:var(--muted);margin-right:2px}
 
 #ygStatus{padding:4px clamp(18px,4vw,30px) 0;font-size:13px;color:#4A6E75;min-height:20px}
 .player{padding:10px clamp(18px,4vw,30px) 4px}
@@ -251,8 +261,8 @@ footer b{font-family:'Montserrat';letter-spacing:.2em;color:var(--ink)}
 .ytframe{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
 .ytframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 #ytWrap .chip{margin-top:10px}
-.alt a.yt{border-color:#E4372E;color:#E4372E}
-.alt a.yt:hover{background:#FCEBEA;border-color:#E4372E}
+.alt a.yt{border-color:var(--err);color:var(--err)}
+.alt a.yt:hover{background:#FCEBEA;border-color:var(--err)}
 
 .alt{
   display:flex;flex-wrap:wrap;gap:8px;padding:12px clamp(18px,4vw,30px) 6px;
@@ -263,7 +273,7 @@ footer b{font-family:'Montserrat';letter-spacing:.2em;color:var(--ink)}
   transition:all .12s ease;display:inline-flex;align-items:center;gap:6px;
 }
 .alt a:hover{border-color:var(--ink);background:var(--mist)}
-.alt-note{padding:2px clamp(18px,4vw,30px) 14px;font-size:12px;color:#7C9AA0;line-height:1.5}
+.alt-note{padding:2px clamp(18px,4vw,30px) 14px;font-size:12px;color:var(--muted);line-height:1.5}
 
 .sheet-nav{
   display:flex;justify-content:space-between;gap:10px;
@@ -280,18 +290,31 @@ footer b{font-family:'Montserrat';letter-spacing:.2em;color:var(--ink)}
 /* ---------- CÜMLE PANELİ ---------- */
 .sent{margin:10px clamp(18px,4vw,30px) 4px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
 .sent[hidden]{display:none}
-.sent .cap{background:var(--mist);padding:8px 14px;font-family:'Montserrat';font-weight:700;font-size:10.5px;letter-spacing:.14em;color:#33595F;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.sent .cap .st{color:#E4372E}
+.sent .cap{background:var(--mist);padding:8px 14px;font-family:'Montserrat';font-weight:700;font-size:10.5px;letter-spacing:.14em;color:var(--tx2);display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.sent .cap .st{color:var(--err)}
 .sent-en{padding:12px 14px 4px;font-size:17px;line-height:1.55;color:var(--ink);outline:none}
-.sent-en:empty::before{content:"Cümle burada görünecek…";color:#9DB4B9;font-size:14px}
+.sent-en:empty::before{content:"Cümle burada görünecek…";color:var(--ph);font-size:14px}
 .sent-en mark{background:var(--bulb);padding:1px 4px;border-radius:4px;font-weight:700}
-.sent-tr{padding:2px 14px 10px;font-size:15px;line-height:1.5;color:#2C555D;font-style:italic;min-height:18px}
+.sent-tr{padding:2px 14px 10px;font-size:15px;line-height:1.5;color:var(--tx3);font-style:italic;min-height:18px}
 .sent-tr mark{background:var(--bulb);padding:1px 4px;border-radius:4px;font-style:normal;font-weight:700;color:var(--ink)}
-.sent-anlam{padding:0 14px 12px;font-size:13px;line-height:1.55;color:#33595F}
+.sent-anlam{padding:0 14px 12px;font-size:13px;line-height:1.55;color:var(--tx2)}
 .sent-anlam[hidden]{display:none}
 .sent-anlam b{color:var(--ink)}
+/* 🎤 Telaffuz testi */
+.sent .cap .st2{color:var(--okc);font-size:11px}
+.tst-akis{padding:10px 14px 2px;font-size:13.5px;color:var(--tx2);line-height:1.55}
+.tst-akis b{color:var(--ink)}
+.chip.mic{background:var(--err);border-color:var(--err);color:#fff}
+.chip.mic:hover{filter:brightness(1.07)}
+.chip.mic.rec{animation:micpulse 1.1s infinite}
+@keyframes micpulse{0%,100%{box-shadow:0 0 0 0 rgba(228,55,46,.45)}50%{box-shadow:0 0 0 10px rgba(228,55,46,0)}}
+.tst-sonuc{padding:2px 14px 12px;font-size:15px;line-height:1.6}
+.tst-sonuc:empty{padding:0 14px 10px}
+.tst-sonuc .ok{color:var(--okc);font-weight:800}
+.tst-sonuc .yakin{color:var(--warn);font-weight:800}
+.tst-sonuc .yanlis{color:var(--err);font-weight:800}
+.tst-sonuc .duyulan{background:var(--mist);padding:1px 7px;border-radius:6px;font-weight:700;color:var(--ink)}
 .sent-btns{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 12px}
-.srclabel{font-size:10.5px;font-family:'Montserrat';font-weight:700;letter-spacing:.12em;color:#7C9AA0;width:100%;margin-bottom:-2px}
 footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px solid var(--line)}
 .sheet-nav .nx b{font-family:'Montserrat'}
 
@@ -321,40 +344,491 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px
   background:var(--paper);border:1.5px solid var(--line);border-radius:10px;
   padding:10px 14px;margin-bottom:8px;font-size:13px}
 .admin-row b{font-family:'Montserrat';min-width:120px;font-size:14px}
-.admin-row .no2{font-family:'Montserrat';font-weight:700;font-size:10.5px;color:#7C9AA0;min-width:44px}
-.admin-row .anlam{color:#7C9AA0;min-width:120px;font-size:11.5px;letter-spacing:.06em;font-family:'Montserrat';font-weight:700}
-.admin-row .u{flex:1;min-width:220px;word-break:break-all;color:#33595F;font-family:monospace;font-size:12px}
+.admin-row .no2{font-family:'Montserrat';font-weight:700;font-size:10.5px;color:var(--muted);min-width:44px}
+.admin-row .anlam{color:var(--muted);min-width:120px;font-size:11.5px;letter-spacing:.06em;font-family:'Montserrat';font-weight:700}
+.admin-row .u{flex:1;min-width:220px;word-break:break-all;color:var(--tx2);font-family:monospace;font-size:12px}
 .admin-row a.chip{text-decoration:none}
+
+/* Marka metinleri */
+.kicker{font-family:'Montserrat';font-weight:800;font-size:11.5px;letter-spacing:.42em;color:var(--muted);margin-bottom:14px}
+.story{background:var(--paper);border-top:1.5px solid var(--line)}
+.story-inner{max-width:960px;margin:0 auto;padding:56px clamp(18px,5vw,40px) 60px}
+.story-inner h2{font-family:'Montserrat';font-weight:800;font-size:clamp(24px,3.4vw,34px);color:var(--ink);margin:0 0 14px}
+.story-inner .lead{font-size:clamp(16px,2vw,19px);line-height:1.65;color:var(--ink);margin:0 0 10px}
+.story-inner .lead em{font-style:italic;background:linear-gradient(transparent 62%,var(--bulb) 62%)}
+.story-inner p{font-size:15px;line-height:1.7;color:var(--tx2);margin:0 0 8px}
+/* Hikâyemiz — kısa dizeler kutusu ve kapanış manşeti */
+.story-dizeler{margin:16px 0;padding:14px 18px;border-left:3px solid var(--bulb);background:var(--mist);border-radius:0 12px 12px 0}
+.story-dizeler p{margin:0 0 4px;font-size:15px;color:var(--tx3);font-style:italic}
+.story-dizeler p:last-child{margin-bottom:0;font-style:normal;font-weight:700;color:var(--ink)}
+.story-final{margin-top:14px;font-size:15.5px;line-height:1.7;color:var(--ink);font-style:italic}
+.story-manset{
+  margin:26px auto 6px;max-width:640px;text-align:center;
+  font-family:'Montserrat';font-weight:800;color:var(--ink);
+  font-size:clamp(19px,2.8vw,26px);line-height:1.35;letter-spacing:-.01em;
+}
+.story-manset em{font-style:normal;box-shadow:inset 0 -0.4em var(--bulb)}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.mv-kart{border:1.5px solid var(--line);border-radius:14px;padding:18px 16px;background:var(--paper)}
+.mv-kart b{display:block;font-family:'Montserrat';font-weight:800;font-size:11.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
+.mv-kart p{margin:0;font-size:14px;line-height:1.65;color:var(--tx3)}
+@media(max-width:640px){.mv{grid-template-columns:1fr}}
+.ilham{padding:4px clamp(18px,4vw,30px) 12px;font-size:12.5px;font-style:italic;color:var(--muted);text-align:center}
+
+/* 🛒 Satın alma akışı */
+.buysheet{max-width:760px}
+.bstep{padding:8px clamp(18px,4vw,30px) 12px}
+.bstep[hidden]{display:none}
+.urunler{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:10px}
+.urun{border:1.5px solid var(--line);border-radius:14px;padding:16px 14px 14px;position:relative;background:var(--paper);display:flex;flex-direction:column;gap:6px}
+.urun .rozet{position:absolute;top:-10px;right:12px;background:var(--bulb);color:var(--ink-deep);font-family:'Montserrat';font-weight:800;font-size:10px;letter-spacing:.08em;padding:3px 10px;border-radius:999px}
+.urun b{font-family:'Montserrat';font-size:15.5px;color:var(--ink)}
+.urun .det{font-size:12.5px;color:var(--tx2)}
+.urun .fiy{font-family:'Montserrat';font-weight:800;font-size:21px;color:var(--ink);margin-top:2px}
+.adet{display:flex;align-items:center;gap:12px;margin-top:4px}
+.adet button{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);font-size:19px;font-weight:800;color:var(--ink);cursor:pointer;line-height:1}
+.adet button:hover{border-color:var(--ink)}
+.adet .n{min-width:24px;text-align:center;font-family:'Montserrat';font-weight:800;font-size:17px}
+.bform{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.bform label{display:flex;flex-direction:column;gap:5px;font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--tx2)}
+.bform input,.bform textarea{border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;font-size:15px;color:var(--ink);background:var(--paper)}
+.bform input:focus,.bform textarea:focus{outline:none;border-color:var(--ink)}
+.bform .genis{grid-column:1/-1}
+.bform .hata{border-color:var(--err)!important}
+@media(max-width:560px){.bform{grid-template-columns:1fr}}
+.ozet{border:1.5px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px}
+.ozet .satir{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;font-size:14.5px;border-bottom:1px solid var(--line)}
+.ozet .satir:last-child{border-bottom:none}
+.ozet .satir.top{font-family:'Montserrat';font-weight:800;background:var(--mist)}
+.onay{display:flex;gap:10px;align-items:flex-start;margin:12px 2px 4px;font-size:13.5px;line-height:1.55;color:var(--tx2)}
+.onay input{width:18px;height:18px;margin-top:2px;accent-color:var(--ink)}
+.onay a{color:var(--ink);font-weight:700}
+.pay-alan{margin-top:12px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.pay-alan[hidden]{display:none}
+.pay-alan iframe{width:100%;border:0;min-height:540px;display:block}
+.pay-not{padding:16px;font-size:13.5px;line-height:1.65;color:var(--tx2);background:var(--mist)}
+.pay-not b{color:var(--ink)}
+.sonuc{padding:30px 10px;text-align:center;font-size:16px;line-height:1.75}
+.sonuc .big{font-size:46px;margin-bottom:6px}
+.sonuc b{font-family:'Montserrat';color:var(--ink)}
+.soz-metin{padding:4px clamp(18px,4vw,30px) 20px;font-size:13.5px;line-height:1.7;color:var(--tx3);max-height:62vh;overflow:auto}
+.soz-metin h4{font-family:'Montserrat';margin:14px 0 4px;color:var(--ink);font-size:12.5px;letter-spacing:.08em}
+.soz-metin b{color:var(--ink)}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important}
 }
+
+/* ================= ŞABLON: SOFT UYGULAMA (kalıcı) ================= */
+:root{--radius:24px;--shadow:0 18px 44px rgba(9,42,49,.16)}
+body{background:linear-gradient(180deg,#F3F8F8 0%,var(--mist) 45%,#EAF3F2 100%)}
+.nav{position:sticky;top:12px;width:min(1060px,calc(100% - 24px));margin:12px auto 0;
+  border-radius:999px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(9,42,49,.12);padding:10px 20px}
+.hero{text-align:center;padding-top:clamp(30px,5vw,56px)}
+.hero h1{margin:0 auto}
+.hero h1 em{box-shadow:none;background:var(--bulb);border-radius:14px;padding:0 12px;display:inline-block}
+.hero p.sub{margin:14px auto 30px}
+.hero .herocard{margin:0 auto;border-radius:26px;overflow:hidden;
+  box-shadow:0 26px 60px rgba(9,42,49,.2);transition:transform .22s ease}
+.hero .herocard:hover{transform:translateY(-5px)}
+.hero .stats{justify-content:center;margin-top:26px}
+.story{background:transparent;border-top:none}
+.mv-kart{border:none;border-radius:20px;background:#fff;box-shadow:0 12px 30px rgba(9,42,49,.09)}
+.buy-strip{width:min(1080px,calc(100% - 28px));margin:14px auto 46px;border-radius:28px;overflow:hidden;
+  box-shadow:0 22px 50px rgba(9,42,49,.22)}
+.cta{border-radius:999px;box-shadow:0 12px 26px rgba(9,42,49,.25)}
+.sheet{border-radius:26px}
+.urun{border:none;border-radius:20px;box-shadow:0 10px 26px rgba(9,42,49,.08);background:#fff}
+.bform input,.bform textarea{border-radius:14px}
+.ozet,.sent,.pay-alan{border-radius:16px}
+.adet button{border-radius:12px}
+.sheet-nav button{border-radius:999px}
+footer{border-top:none;background:transparent}
+
+
+/* ================= KART VİTRİNİ HERO ================= */
+.hero.vitrin{position:relative;text-align:center;max-width:none;overflow:hidden;
+  padding-bottom:clamp(30px,4vw,54px)}
+.hero.vitrin::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(46% 34% at 50% 62%, rgba(244,198,63,.32), transparent 70%),
+    radial-gradient(rgba(14,59,67,.10) 1.2px, transparent 1.2px);
+  background-size:auto, 26px 26px;
+  mask-image:radial-gradient(80% 80% at 50% 55%, #000 55%, transparent 100%)}
+.hero.vitrin .kicker,.hero.vitrin h1,.hero.vitrin .sub{position:relative}
+.hero.vitrin .sub{margin-bottom:6px}
+.fan{position:relative;display:flex;justify-content:center;align-items:center;
+  padding:clamp(26px,4vw,46px) 0 12px;perspective:1100px}
+.fkart{
+  position:relative;width:clamp(150px,21vw,236px);aspect-ratio:240/141;
+  display:flex;border:0;padding:0;cursor:pointer;border-radius:14px;overflow:hidden;
+  background:var(--paper);box-shadow:0 20px 44px rgba(9,42,49,.26);
+  margin:0 clamp(-34px,-3vw,-22px);
+  transition:transform .22s ease, box-shadow .22s ease, z-index 0s;
+}
+.fkart:nth-child(1){transform:rotate(-13deg) translateY(26px);z-index:1}
+.fkart:nth-child(2){transform:rotate(-6.5deg) translateY(7px);z-index:2}
+.fkart:nth-child(3){transform:rotate(0) translateY(0);z-index:3;width:clamp(168px,23vw,258px)}
+.fkart:nth-child(4){transform:rotate(6.5deg) translateY(7px);z-index:2}
+.fkart:nth-child(5){transform:rotate(13deg) translateY(26px);z-index:1}
+.fkart:hover,.fkart:focus-visible{transform:rotate(0) translateY(-16px) scale(1.05);z-index:9;
+  box-shadow:0 34px 70px rgba(9,42,49,.36);outline:none}
+.fkart .fy{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  gap:6px;padding:8%}
+.fkart .fy.koyu{background:var(--ink);color:var(--paper)}
+.fkart .fy.acik{background:var(--paper);color:var(--ink)}
+.fkart .fw{font-family:'Montserrat';font-weight:800;font-size:clamp(13px,1.7vw,19px);line-height:1;text-align:left}
+.fkart .fb{font-family:'Montserrat';font-weight:800;font-size:clamp(7px,.9vw,10px);letter-spacing:.1em;padding:3px 7px}
+.fkart .fy.koyu .fb{background:var(--paper);color:var(--ink)}
+.fkart .fy.acik .fb{background:var(--ink);color:var(--paper)}
+.fkart .flogo{position:absolute;left:50%;bottom:7%;translate:-50% 0;
+  width:12%;aspect-ratio:1;border:2px solid var(--ink);background:var(--paper);
+  display:grid;place-items:center;font-family:'Montserrat';font-weight:800;
+  font-size:clamp(9px,1.1vw,13px);color:var(--ink)}
+.fkart.arka{background:var(--ink);align-items:center;justify-content:center;gap:6%;
+  display:flex;flex-direction:row}
+.fkart.arka .fqr{background:#fff;border-radius:10px;padding:3.2%;display:flex;width:34%}
+.fkart.arka .fqr svg{width:100%;height:auto;display:block}
+.fkart.arka .fqy{display:flex;flex-direction:column;gap:5px;text-align:left;color:var(--paper)}
+.fkart.arka .fqy b{font-family:'Montserrat';font-weight:800;font-size:clamp(7.5px,.95vw,11px);letter-spacing:.1em;color:var(--bulb)}
+.fkart.arka .fqy span{font-family:'Montserrat';font-weight:700;font-size:clamp(6px,.75vw,8.5px);letter-spacing:.06em;opacity:.85}
+.fkart.arka .fqy i{font-style:normal;font-size:clamp(5.5px,.7vw,8px);opacity:.55}
+.fanipucu{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;
+  margin-top:16px;font-family:'Montserrat';font-weight:700;font-size:clamp(13px,1.7vw,16px);color:var(--ink)}
+.fanipucu .btnplay{width:46px;height:46px;border-radius:50%;background:var(--bulb);
+  display:grid;place-items:center;box-shadow:0 10px 24px rgba(9,42,49,.22)}
+.fanipucu .btnplay svg{width:19px;height:19px;fill:var(--ink-deep);margin-left:3px}
+.hero.vitrin .stats{justify-content:center;position:relative}
+@media(max-width:640px){
+  .fkart:nth-child(1),.fkart:nth-child(5){display:none}
+  .fkart{margin:0 -16px;width:clamp(140px,30vw,190px)}
+  .fkart:nth-child(3){width:clamp(158px,34vw,210px)}
+}
+
+/* ================= ÜRÜN GÖRSELLERİ (kutu + kartlar) ================= */
+.urungorsel{width:min(1080px,calc(100% - 28px));margin:0 auto 10px;padding:6px 0 30px}
+.ug-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:38px;align-items:center}
+@media(max-width:880px){.ug-grid{grid-template-columns:1fr;gap:16px}}
+.sahne{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center}
+.sahne svg.kutu{width:min(300px,70%);filter:drop-shadow(0 30px 40px rgba(9,42,49,.28))}
+.mkart{position:absolute;width:232px;height:136px;border-radius:12px;overflow:hidden;
+  box-shadow:0 18px 40px rgba(9,42,49,.28);background:var(--paper)}
+.mkart.on{left:calc(50% - 210px);bottom:22px;transform:rotate(-7deg);display:flex;
+  animation:kfloat 6s ease-in-out infinite}
+.mkart.arka{right:calc(50% - 216px);bottom:2px;transform:rotate(6deg);background:var(--ink);
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  animation:kfloat 6s ease-in-out 1.4s infinite}
+@media(max-width:520px){.mkart{transform:scale(.82) rotate(-7deg)}
+  .mkart.arka{transform:scale(.82) rotate(6deg)}}
+@keyframes kfloat{0%,100%{margin-bottom:0}50%{margin-bottom:12px}}
+@media (prefers-reduced-motion:reduce){.mkart{animation:none}}
+.mkart .yarim{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:12px}
+.mkart .yarim.koyu{background:var(--ink);color:var(--paper)}
+.mkart .yarim.acik{background:var(--paper);color:var(--ink)}
+.mkart .mw{font-family:'Montserrat';font-weight:800;font-size:17px;line-height:1}
+.mkart .mbar{font-family:'Montserrat';font-weight:800;font-size:9.5px;letter-spacing:.1em;padding:3px 7px}
+.mkart .yarim.koyu .mbar{background:var(--paper);color:var(--ink)}
+.mkart .yarim.acik .mbar{background:var(--ink);color:var(--paper)}
+.mkart .qrkutu{background:#fff;border-radius:10px;padding:8px;display:flex}
+.mkart .qrkutu svg{width:86px;height:86px;display:block}
+.mkart .qryazi{display:flex;flex-direction:column;gap:6px;color:var(--paper)}
+.mkart .qryazi b{font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--bulb)}
+.mkart .qryazi span{font-family:'Montserrat';font-weight:700;font-size:9.5px;letter-spacing:.06em;opacity:.85}
+.mkart .qryazi .minik{font-size:8.5px;opacity:.6;letter-spacing:.04em}
+.ug-copy .kicker{margin-bottom:10px}
+.ug-copy h2{font-family:'Montserrat';font-weight:800;font-size:clamp(24px,3.2vw,32px);color:var(--ink);margin:0 0 14px}
+.ug-copy ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 14px}
+.ug-copy li{background:#fff;border-radius:16px;padding:12px 16px;font-size:14.5px;color:var(--tx2);
+  box-shadow:0 8px 22px rgba(9,42,49,.07)}
+.ug-copy li b{color:var(--ink)}
+.ug-copy .not{font-size:13px;color:var(--muted);font-style:italic}
+
+
+/* ================= APPLE STİLİ ================= */
+body,button,input,textarea{font-family:'Inter','Manrope',sans-serif}
+body{background:#fff}
+.nav{position:sticky;top:0;width:100%;max-width:none;margin:0;border-radius:0;
+  background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  box-shadow:none;border-bottom:1px solid rgba(14,59,67,.12);
+  padding:10px clamp(16px,4vw,28px)}
+.brand b{font-size:15px;letter-spacing:.04em}
+.mark{width:26px;height:26px;border-width:2.5px}
+.navlinks{display:flex;gap:28px}
+.navlinks a{font-size:12.5px;font-weight:600;color:var(--tx2);text-decoration:none;transition:color .15s}
+.navlinks a:hover{color:var(--ink)}
+.nav a.buy{font-size:12.5px;padding:7px 15px;border-radius:999px}
+@media(max-width:700px){.navlinks{display:none}}
+
+.hero.vitrin{padding-top:clamp(56px,8vw,96px)}
+.hero.vitrin::before{background:radial-gradient(42% 30% at 50% 72%, rgba(244,198,63,.20), transparent 72%);
+  background-size:auto;mask-image:none}
+.hero.vitrin .kicker{font-family:'Inter';font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--muted);margin-bottom:16px}
+.hero.vitrin h1{font-family:'Inter';font-weight:700;letter-spacing:-.03em;line-height:1.04;
+  font-size:clamp(40px,7.4vw,84px);max-width:920px;margin:0 auto}
+.hero.vitrin h1 em{background:none;padding:0;border-radius:0;display:inline;
+  box-shadow:inset 0 -.14em var(--bulb)}
+.hero.vitrin .sub{font-size:clamp(17px,2.3vw,23px);line-height:1.5;font-weight:500;
+  color:var(--tx2);max-width:680px;margin:18px auto 20px}
+.hlinks{display:flex;gap:32px;justify-content:center;margin-bottom:6px;font-size:clamp(15px,1.9vw,18px)}
+.aln{color:#0C7C8C;font-weight:600;text-decoration:none}
+.aln::after{content:" ›"}
+.aln:hover{text-decoration:underline}
+.fan{padding-top:clamp(30px,5vw,58px)}
+.fanipucu{color:var(--tx2);font-family:'Inter';font-weight:600}
+.hero.vitrin .stats{font-family:'Inter';color:var(--muted);margin-top:30px}
+.hero.vitrin .stats span b{font-size:17px}
+
+.story{padding:0;background:#fff}
+.story-inner{max-width:980px;padding:clamp(80px,10vw,130px) 22px;text-align:center}
+.story-inner h2{font-family:'Inter';font-weight:700;letter-spacing:-.025em;font-size:clamp(30px,4.6vw,54px);margin-bottom:16px}
+.story-inner .lead{font-size:clamp(17px,2.2vw,23px);line-height:1.5;max-width:760px;margin:0 auto 10px}
+.story-inner .lead em{background:none;box-shadow:inset 0 -.14em var(--bulb)}
+.story-inner p{max-width:700px;margin:0 auto 10px;font-size:16px;line-height:1.65}
+.mv{max-width:980px;margin:38px auto 0;gap:18px}
+.mv-kart{border-radius:26px;background:var(--mist);box-shadow:none;padding:34px 30px;text-align:left}
+.mv-kart b{font-family:'Inter';letter-spacing:.16em}
+.mv-kart p{font-size:15px}
+
+.urungorsel{width:100%;background:var(--mist);margin:0;padding:clamp(80px,10vw,120px) 22px}
+.ug-grid{display:flex;flex-direction:column-reverse;max-width:980px;margin:0 auto;gap:30px;align-items:center}
+.ug-copy{text-align:center;max-width:840px}
+.ug-copy .kicker{font-family:'Inter';color:var(--muted)}
+.ug-copy h2{font-family:'Inter';font-weight:700;letter-spacing:-.025em;font-size:clamp(30px,4.4vw,50px)}
+.ug-copy ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;text-align:left;margin:24px 0 12px}
+.ug-copy li{background:#fff;box-shadow:none;border-radius:20px;padding:18px;font-size:14px;line-height:1.6}
+.sahne{min-height:auto}
+
+.buy-strip{width:100%;max-width:none;margin:0;border-radius:0;box-shadow:none}
+.buy-inner{max-width:840px;margin:0 auto;display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:16px;padding:clamp(80px,10vw,120px) 22px}
+.buy-inner h2{font-family:'Inter';font-weight:700;letter-spacing:-.03em;font-size:clamp(32px,5vw,58px)}
+.buy-inner p{font-size:17px;line-height:1.6;max-width:640px}
+.cta{border-radius:999px;box-shadow:none;font-family:'Inter';font-weight:600;font-size:16px;padding:14px 28px}
+
+footer{max-width:980px;margin:0 auto;border-top:1px solid rgba(14,59,67,.12);font-size:12px;color:var(--muted)}
+
+/* Kaydırınca yumuşak beliriş */
+.fade{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none}}
+
+
+/* ================= İLETİŞİM KUTUSU + APPLE ALT BİLGİ ================= */
+.iletisim{background:#fff;padding:clamp(70px,9vw,110px) 22px}
+.il-ic{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,44px);
+  background:var(--mist);border-radius:28px;padding:clamp(26px,4vw,44px)}
+@media(max-width:820px){.il-ic{grid-template-columns:1fr}}
+.il-sol h2{font-family:'Inter';font-weight:700;letter-spacing:-.02em;font-size:clamp(26px,3.6vw,40px);margin:0 0 10px;color:var(--ink)}
+.il-sol p{color:var(--tx2);font-size:15.5px;line-height:1.6;max-width:400px;margin:0}
+.il-yollar{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.il-yollar a{color:#0C7C8C;font-weight:600;text-decoration:none;font-size:15px}
+.il-yollar a:hover{text-decoration:underline}
+.il-yollar .soluk{color:var(--muted);font-size:13px;font-style:italic;max-width:380px;line-height:1.55}
+.il-form{display:flex;flex-direction:column;gap:12px}
+.il-form label{display:flex;flex-direction:column;gap:5px;font-family:'Inter';font-weight:600;font-size:10.5px;letter-spacing:.1em;color:var(--tx2)}
+.il-form input,.il-form textarea{border:1.5px solid rgba(14,59,67,.16);border-radius:12px;padding:12px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.il-form input:focus,.il-form textarea:focus{outline:none;border-color:var(--ink)}
+.il-form .cta{align-self:flex-start;padding:12px 26px;font-size:15px;cursor:pointer;border:0}
+.il-not{font-size:12.5px;color:var(--tx2);min-height:16px}
+
+footer.af{max-width:none;margin:0;padding:0;border-top:none;background:var(--mist);display:block}
+.af-ic{max-width:980px;margin:0 auto;padding:34px 22px 28px;color:#5E7A80}
+.af-notlar{border-bottom:1px solid rgba(14,59,67,.14);padding-bottom:16px;margin-bottom:18px}
+.af-notlar p{font-size:11.5px;line-height:1.6;margin:0 0 6px}
+.af-notlar a{color:#5E7A80;text-decoration:underline}
+.af-kolonlar{display:grid;grid-template-columns:repeat(2,minmax(0,260px));gap:22px;padding-bottom:18px;border-bottom:1px solid rgba(14,59,67,.14)}
+.af-kolonlar details summary{list-style:none;cursor:default;font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink);margin-bottom:10px}
+.af-kolonlar summary::-webkit-details-marker{display:none}
+.af-kolonlar ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.af-kolonlar li a{color:#5E7A80;text-decoration:none;font-size:12px;cursor:pointer}
+.af-kolonlar li a:hover{color:var(--ink);text-decoration:underline}
+@media(max-width:768px){
+  .af-kolonlar{grid-template-columns:1fr;gap:0}
+  .af-kolonlar details{border-bottom:1px solid rgba(14,59,67,.12)}
+  .af-kolonlar details summary{cursor:pointer;padding:12px 0;margin:0;display:flex;justify-content:space-between;align-items:center}
+  .af-kolonlar details summary::after{content:"+";font-size:16px;color:#5E7A80}
+  .af-kolonlar details[open] summary::after{content:"−"}
+  .af-kolonlar ul{padding:0 0 12px}
+}
+.af-orta{padding:14px 0;border-bottom:1px solid rgba(14,59,67,.14);font-size:12px}
+.af-orta a{color:#0C7C8C;text-decoration:none;font-weight:600}
+.af-orta a:hover{text-decoration:underline}
+.af-alt{display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:space-between;align-items:center;padding-top:14px;font-size:11.5px}
+.af-yasal{display:flex;flex-wrap:wrap}
+.af-yasal a{color:#5E7A80;text-decoration:none;padding:0 10px;border-right:1px solid rgba(14,59,67,.22);cursor:pointer}
+.af-yasal a:last-child{border-right:none;padding-right:0}
+.af-yasal a:first-child{padding-left:0}
+.af-yasal a:hover{text-decoration:underline}
+
+
+/* ---------- FERAH DÜZEN: BÖLÜM ARALIKLARI ----------
+   Bölümlerin birbirinden ayrışması için dikey boşluklar artırıldı.
+   Daha sıkı bir sayfa istersen bu bloğu silmen yeterli. */
+.hero.vitrin{padding-bottom:clamp(64px,9vw,110px)}
+.story{margin:clamp(32px,5vw,64px) 0}
+.story-inner{padding:clamp(96px,12vw,150px) 22px}
+.story-inner .lead{margin-bottom:18px}
+.story-inner p{margin-bottom:14px}
+.story-dizeler{margin:26px auto;max-width:560px;text-align:left}
+.story-manset{margin:clamp(44px,6vw,68px) auto 12px}
+.mv{margin-top:clamp(48px,6vw,76px)}
+.urungorsel{padding:clamp(96px,12vw,150px) 22px}
+.ug-grid{gap:clamp(40px,6vw,64px)}
+.ug-copy ul{margin:34px 0 18px;gap:16px}
+.buy-strip{margin:clamp(56px,8vw,96px) auto}
+.iletisim{margin-top:clamp(32px,5vw,64px);padding:clamp(90px,11vw,140px) 22px}
+.af-ic{padding:56px 22px 40px}
+.af-notlar{padding-bottom:22px;margin-bottom:26px}
+.af-kolonlar{padding-bottom:26px}
+.af-orta{padding:18px 0}
+
+/* ============ YENİ TANITIM DÜZENİ ============
+   Vitrin (5 kartlık yelpaze) kaldırıldı; yerine ürünü tek nesneyle anlatan
+   dönen kart + üç adımlık Nasıl Çalışır bölümü geldi. */
+
+/* --- Hero düzeni: metin + kart --- */
+.hero-duzen{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:clamp(18px,3vw,30px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;margin-bottom:10px}
+.cta-buyuk{
+  font-family:'Inter';font-weight:700;font-size:clamp(15px,1.9vw,17px);
+  background:var(--ink);color:var(--paper);text-decoration:none;
+  padding:15px 30px;border-radius:999px;transition:transform .15s ease,background .15s ease;
+  box-shadow:0 10px 26px rgba(9,42,49,.22);
+}
+.cta-buyuk:hover{background:var(--ink-deep);transform:translateY(-2px)}
+.cta-ikincil{font-family:'Inter';font-weight:600;font-size:clamp(14px,1.8vw,16px);color:var(--tx2);text-decoration:none;padding:12px 6px}
+.cta-ikincil:hover{color:var(--ink);text-decoration:underline}
+.hero-guven{font-family:'Inter';font-weight:500;font-size:13px;color:var(--muted);margin-bottom:6px}
+
+/* --- İMZA ÖĞE: iki yüzünü gösteren gerçek kart --- */
+.fcard3d{
+  position:relative;border:0;background:none;padding:0;cursor:pointer;
+  width:clamp(230px,32vw,300px);margin-top:clamp(18px,3vw,30px);
+  perspective:1200px;-webkit-tap-highlight-color:transparent;
+}
+.fcard3d:focus-visible{outline:3px solid var(--bulb);outline-offset:6px;border-radius:20px}
+.fcard3d-ic{
+  position:relative;display:block;width:100%;aspect-ratio:5/7;
+  transform-style:preserve-3d;
+  animation:kartCevir 7s cubic-bezier(.6,0,.2,1) infinite;
+}
+.fcard3d:hover .fcard3d-ic{animation-play-state:paused}
+@keyframes kartCevir{
+  0%,38%   {transform:rotateY(0deg)}      /* ön yüz: kelime */
+  50%,88%  {transform:rotateY(180deg)}    /* arka yüz: QR   */
+  100%     {transform:rotateY(360deg)}
+}
+.fyuz{
+  position:absolute;inset:0;border-radius:20px;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 24px 54px rgba(9,42,49,.24);display:flex;flex-direction:column;
+}
+.fyuz.on .fy{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}
+.fyuz.on .fy.koyu{background:var(--ink);color:var(--paper)}
+.fyuz.on .fy.acik{background:var(--paper);color:var(--ink)}
+.fyuz.on .fw{font-family:'Montserrat';font-weight:800;font-size:clamp(26px,4vw,34px);line-height:1}
+.fyuz.on .fb{font-family:'Montserrat';font-weight:700;font-size:10.5px;letter-spacing:.16em;padding:5px 10px}
+.fyuz.on .fy.koyu .fb{background:var(--paper);color:var(--ink)}
+.fyuz.on .fy.acik .fb{background:var(--ink);color:var(--paper)}
+.fyuz.on .flogo{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:34px;height:34px;border:2.5px solid var(--paper);background:var(--ink);
+  display:grid;place-items:center;font-family:'Montserrat';font-weight:800;color:var(--paper);font-size:17px;
+}
+.fyuz.arka2{background:var(--paper);transform:rotateY(180deg);align-items:center;justify-content:center;gap:14px;border:1px solid var(--line)}
+.fqr2{width:56%;aspect-ratio:1}
+.fqr2 svg{width:100%;height:100%}
+.fqy2{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.fqy2 b{font-family:'Montserrat';font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--ink)}
+.fqy2 span{font-family:'Inter';font-weight:600;font-size:10px;letter-spacing:.12em;color:var(--muted)}
+.fcard3d-ipucu{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  font-family:'Inter';font-weight:600;font-size:13px;color:var(--tx2);
+  background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  box-shadow:0 6px 18px rgba(9,42,49,.10);transition:transform .15s ease;
+}
+.fcard3d:hover .fcard3d-ipucu{transform:translateY(-2px)}
+.fcard3d-ipucu svg{width:13px;height:13px;fill:var(--bulb)}
+@media (prefers-reduced-motion:reduce){
+  .fcard3d-ic{animation:none}
+}
+
+/* --- NASIL ÇALIŞIR --- */
+.nasil{background:#fff;padding:clamp(90px,11vw,140px) 22px;margin:clamp(32px,5vw,64px) 0}
+.nasil-ic{max-width:980px;margin:0 auto;text-align:center}
+.nasil .kicker{font-family:'Inter';font-weight:700;font-size:11px;letter-spacing:.3em;color:var(--muted);margin-bottom:14px}
+.nasil h2{font-family:'Inter';font-weight:700;letter-spacing:-.025em;font-size:clamp(28px,4.2vw,48px);margin-bottom:clamp(34px,5vw,54px)}
+.nasil-adimlar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
+@media(max-width:760px){.nasil-adimlar{grid-template-columns:1fr}}
+.nasil-adim{
+  position:relative;background:var(--mist);border-radius:24px;padding:26px 22px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.nasil-adim .no{
+  position:absolute;top:18px;right:20px;
+  font-family:'Montserrat';font-weight:800;font-size:15px;color:var(--ink);
+  width:32px;height:32px;border-radius:50%;background:var(--bulb);display:grid;place-items:center;
+}
+.nasil-adim .mini{height:74px;display:flex;align-items:center;justify-content:flex-start}
+.mini-kart{flex-direction:column;align-items:flex-start!important;justify-content:center;gap:4px}
+.mini-kart i{font-style:normal;font-family:'Montserrat';font-weight:800;font-size:22px;color:var(--ink)}
+.mini-kart em{font-style:normal;font-family:'Montserrat';font-weight:700;font-size:9px;letter-spacing:.14em;background:var(--ink);color:var(--paper);padding:3px 8px}
+.mini-qr svg{width:58px;height:58px;color:var(--ink)}
+.mini-ses svg{width:46px;height:46px;fill:var(--ink);background:var(--bulb);border-radius:50%;padding:12px}
+.nasil-adim b{font-family:'Inter';font-weight:700;font-size:17px;color:var(--ink)}
+.nasil-adim p{font-size:14px;line-height:1.65;color:var(--tx2);margin:0}
+.nasil-cta{
+  display:inline-block;margin-top:clamp(30px,4vw,44px);
+  font-family:'Inter';font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;
+  border:1.5px solid var(--ink);border-radius:999px;padding:13px 26px;
+  transition:background .15s ease,color .15s ease;
+}
+.nasil-cta:hover{background:var(--ink);color:var(--paper)}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <a class="brand" href="#"><span class="mark"></span><b>MACCA</b></a>
-  <a class="buy" href="#satin-al">Kart Setini Satın Al</a>
+  <div class="navlinks">
+    <a href="#hikayemiz">Hikâyemiz</a>
+  </div>
+  <a class="buy" href="#satin-al">Satın Al</a>
 </nav>
 
-<header class="hero">
-  <h1>Kelimeyi ezberleme.<br><em>Filmde duy.</em></h1>
-  <p class="sub">Kartındaki QR kodu okut; kelimenin gerçek YouTube kesitlerinde — filmlerde, dizilerde, röportajlarda — tam söylendiği saniyeye atla ve telaffuzu ana dilinden öğren. Her kartın kendine özel sayfası vardır.</p>
+<header class="hero vitrin">
+  <div class="kicker">GÖR · DUY · YAŞA</div>
+  <h1>Kelimeleri ezberleme.<br><em>Gerçek konuşmalarda keşfet.</em></h1>
+  <p class="sub">MACCA, 357 çift taraflı karttan oluşan fiziksel bir İngilizce kelime seti. Her kartta kelime, Türkçe anlamı ve hemen yanında o kelimeyi film ve dizi sahnelerinde tam söylendiği anda dinleten bir QR kod var.</p>
 
-  <button class="herocard" id="heroCard" aria-label="Learn kelimesini videolarda dinle">
-    <span class="half dark">
-      <span class="hw">Learn</span>
-      <span class="hbar">ÖĞRENMEK</span>
-    </span>
-    <span class="half light">
-      <span class="playhint">
-        <span class="btnplay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        Karta dokun,<br>videolarda dinle
+  <div class="hero-duzen">
+    <div class="hero-metin">
+      <div class="hero-cta">
+        <a class="cta-buyuk" href="#satin-al" data-satin>Kart Setini Satın Al</a>
+        <a class="cta-ikincil" href="#nasil">Nasıl çalışır? ↓</a>
+      </div>
+      <p class="hero-guven">Kutuyu aç, kartı çek, QR'ı okut — hepsi bu.</p>
+    </div>
+
+    <!-- İmza öğe: desteden GERÇEK bir kart. Kendi kendine dönerek iki yüzünü de gösterir;
+         dokununca "Learn" kelimesi gerçek bir video kesitinde açılır. -->
+    <button class="fcard3d" type="button" data-en="learn" aria-label="Örnek kartı dene — Learn kelimesini gerçek bir kesitte dinle">
+      <span class="fcard3d-ic">
+        <span class="fyuz on">
+          <span class="fy koyu"><span class="fw">Learn</span><span class="fb">ÖĞRENMEK</span></span>
+          <span class="fy acik"><span class="fw">Billion</span><span class="fb">MİLYAR</span></span>
+          <span class="flogo">M</span>
+        </span>
+        <span class="fyuz arka2">
+          <span class="fqr2"><svg viewBox="0 0 29 29" aria-hidden="true"><path d="M0,0H1V1H0zM1,0H2V1H1zM2,0H3V1H2zM3,0H4V1H3zM4,0H5V1H4zM5,0H6V1H5zM6,0H7V1H6zM9,0H10V1H9zM10,0H11V1H10zM11,0H12V1H11zM12,0H13V1H12zM15,0H16V1H15zM16,0H17V1H16zM17,0H18V1H17zM18,0H19V1H18zM20,0H21V1H20zM22,0H23V1H22zM23,0H24V1H23zM24,0H25V1H24zM25,0H26V1H25zM26,0H27V1H26zM27,0H28V1H27zM28,0H29V1H28zM0,1H1V2H0zM6,1H7V2H6zM8,1H9V2H8zM9,1H10V2H9zM10,1H11V2H10zM13,1H14V2H13zM14,1H15V2H14zM16,1H17V2H16zM17,1H18V2H17zM18,1H19V2H18zM20,1H21V2H20zM22,1H23V2H22zM28,1H29V2H28zM0,2H1V3H0zM2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM6,2H7V3H6zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM13,2H14V3H13zM15,2H16V3H15zM19,2H20V3H19zM20,2H21V3H20zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM26,2H27V3H26zM28,2H29V3H28zM0,3H1V4H0zM2,3H3V4H2zM3,3H4V4H3zM4,3H5V4H4zM6,3H7V4H6zM8,3H9V4H8zM12,3H13V4H12zM16,3H17V4H16zM17,3H18V4H17zM19,3H20V4H19zM20,3H21V4H20zM22,3H23V4H22zM24,3H25V4H24zM25,3H26V4H25zM26,3H27V4H26zM28,3H29V4H28zM0,4H1V5H0zM2,4H3V5H2zM3,4H4V5H3zM4,4H5V5H4zM6,4H7V5H6zM9,4H10V5H9zM11,4H12V5H11zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM17,4H18V5H17zM18,4H19V5H18zM19,4H20V5H19zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM26,4H27V5H26zM28,4H29V5H28zM0,5H1V6H0zM6,5H7V6H6zM10,5H11V6H10zM11,5H12V6H11zM15,5H16V6H15zM17,5H18V6H17zM18,5H19V6H18zM20,5H21V6H20zM22,5H23V6H22zM28,5H29V6H28zM0,6H1V7H0zM1,6H2V7H1zM2,6H3V7H2zM3,6H4V7H3zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM14,6H15V7H14zM16,6H17V7H16zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM8,7H9V8H8zM11,7H12V8H11zM14,7H15V8H14zM15,7H16V8H15zM16,7H17V8H16zM20,7H21V8H20zM0,8H1V9H0zM6,8H7V9H6zM8,8H9V9H8zM9,8H10V9H9zM11,8H12V9H11zM12,8H13V9H12zM16,8H17V9H16zM17,8H18V9H17zM18,8H19V9H18zM19,8H20V9H19zM21,8H22V9H21zM22,8H23V9H22zM25,8H26V9H25zM26,8H27V9H26zM27,8H28V9H27zM2,9H3V10H2zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM10,9H11V10H10zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM27,9H28V10H27zM0,10H1V11H0zM1,10H2V11H1zM3,10H4V11H3zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM9,10H10V11H9zM13,10H14V11H13zM14,10H15V11H14zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM20,10H21V11H20zM21,10H22V11H21zM23,10H24V11H23zM0,11H1V12H0zM1,11H2V12H1zM4,11H5V12H4zM5,11H6V12H5zM8,11H9V12H8zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM24,11H25V12H24zM25,11H26V12H25zM0,12H1V13H0zM1,12H2V13H1zM2,12H3V13H2zM3,12H4V13H3zM6,12H7V13H6zM10,12H11V13H10zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM28,12H29V13H28zM0,13H1V14H0zM1,13H2V14H1zM4,13H5V14H4zM9,13H10V14H9zM10,13H11V14H10zM16,13H17V14H16zM17,13H18V14H17zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM27,13H28V14H27zM28,13H29V14H28zM0,14H1V15H0zM2,14H3V15H2zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM10,14H11V15H10zM20,14H21V15H20zM23,14H24V15H23zM25,14H26V15H25zM26,14H27V15H26zM1,15H2V16H1zM5,15H6V16H5zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM15,15H16V16H15zM18,15H19V16H18zM19,15H20V16H19zM20,15H21V16H20zM21,15H22V16H21zM24,15H25V16H24zM26,15H27V16H26zM28,15H29V16H28zM0,16H1V17H0zM1,16H2V17H1zM3,16H4V17H3zM4,16H5V17H4zM6,16H7V17H6zM9,16H10V17H9zM11,16H12V17H11zM12,16H13V17H12zM16,16H17V17H16zM17,16H18V17H17zM25,16H26V17H25zM26,16H27V17H26zM0,17H1V18H0zM1,17H2V18H1zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM8,17H9V18H8zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM24,17H25V18H24zM26,17H27V18H26zM27,17H28V18H27zM28,17H29V18H28zM0,18H1V19H0zM1,18H2V19H1zM2,18H3V19H2zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM10,18H11V19H10zM15,18H16V19H15zM17,18H18V19H17zM19,18H20V19H19zM20,18H21V19H20zM24,18H25V19H24zM25,18H26V19H25zM28,18H29V19H28zM0,19H1V20H0zM2,19H3V20H2zM3,19H4V20H3zM5,19H6V20H5zM9,19H10V20H9zM10,19H11V20H10zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM24,19H25V20H24zM0,20H1V21H0zM5,20H6V21H5zM6,20H7V21H6zM8,20H9V21H8zM9,20H10V21H9zM14,20H15V21H14zM15,20H16V21H15zM17,20H18V21H17zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM8,21H9V22H8zM14,21H15V22H14zM18,21H19V22H18zM20,21H21V22H20zM24,21H25V22H24zM25,21H26V22H25zM0,22H1V23H0zM1,22H2V23H1zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM9,22H10V23H9zM12,22H13V23H12zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM22,22H23V23H22zM24,22H25V23H24zM25,22H26V23H25zM26,22H27V23H26zM0,23H1V24H0zM6,23H7V24H6zM9,23H10V24H9zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM16,23H17V24H16zM20,23H21V24H20zM24,23H25V24H24zM28,23H29V24H28zM0,24H1V25H0zM2,24H3V25H2zM3,24H4V25H3zM4,24H5V25H4zM6,24H7V25H6zM9,24H10V25H9zM10,24H11V25H10zM11,24H12V25H11zM13,24H14V25H13zM14,24H15V25H14zM16,24H17V25H16zM19,24H20V25H19zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM0,25H1V26H0zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM6,25H7V26H6zM12,25H13V26H12zM13,25H14V26H13zM14,25H15V26H14zM21,25H22V26H21zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM0,26H1V27H0zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM6,26H7V27H6zM9,26H10V27H9zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM17,26H18V27H17zM18,26H19V27H18zM19,26H20V27H19zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM0,27H1V28H0zM6,27H7V28H6zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM18,27H19V28H18zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM28,27H29V28H28zM0,28H1V29H0zM1,28H2V29H1zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM8,28H9V29H8zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM17,28H18V29H17zM19,28H20V29H19zM21,28H22V29H21zM22,28H23V29H22zM23,28H24V29H23zM26,28H27V29H26z" fill="#0E3B43"/></svg></span>
+          <span class="fqy2"><b>QR'I TARA</b><span>DİNLE · TEKRAR ET · KONUŞ</span></span>
+        </span>
       </span>
-      <small>Kesit, kelimenin geçtiği cümlenin sonuna kadar oynar ve tam orada durur; kelime sarı işaretli, Türkçesi hemen altında.</small>
-    </span>
-  </button>
+      <span class="fcard3d-ipucu"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Karta dokun — gerçek kesitte dinle</span>
+    </button>
+  </div>
 
   <div class="stats">
     <span><b>3</b>set</span>
@@ -363,6 +837,35 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px
     <span><b>∞</b>gerçek video kesiti</span>
   </div>
 </header>
+
+<section class="nasil" id="nasil">
+  <div class="nasil-ic">
+    <div class="kicker">NASIL ÇALIŞIR</div>
+    <h2>Üç adımda yaşayan İngilizce.</h2>
+    <div class="nasil-adimlar">
+      <div class="nasil-adim">
+        <span class="no">1</span>
+        <span class="mini mini-kart" aria-hidden="true"><i>Learn</i><em>ÖĞRENMEK</em></span>
+        <b>Kartı çek</b>
+        <p>Ön yüzde İngilizce kelime, hemen altında Türkçe anlamı. Desteden her gün birkaç kart yeter.</p>
+      </div>
+      <div class="nasil-adim">
+        <span class="no">2</span>
+        <span class="mini mini-qr" aria-hidden="true"><svg viewBox="0 0 29 29"><path d="M0,0H1V1H0zM1,0H2V1H1zM2,0H3V1H2zM3,0H4V1H3zM4,0H5V1H4zM5,0H6V1H5zM6,0H7V1H6zM9,0H10V1H9zM10,0H11V1H10zM11,0H12V1H11zM12,0H13V1H12zM15,0H16V1H15zM16,0H17V1H16zM17,0H18V1H17zM18,0H19V1H18zM20,0H21V1H20zM22,0H23V1H22zM23,0H24V1H23zM24,0H25V1H24zM25,0H26V1H25zM26,0H27V1H26zM27,0H28V1H27zM28,0H29V1H28zM0,1H1V2H0zM6,1H7V2H6zM8,1H9V2H8zM9,1H10V2H9zM10,1H11V2H10zM13,1H14V2H13zM14,1H15V2H14zM16,1H17V2H16zM17,1H18V2H17zM18,1H19V2H18zM20,1H21V2H20zM22,1H23V2H22zM28,1H29V2H28zM0,2H1V3H0zM2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM6,2H7V3H6zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM13,2H14V3H13zM15,2H16V3H15zM19,2H20V3H19zM20,2H21V3H20zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM26,2H27V3H26zM28,2H29V3H28zM0,3H1V4H0zM2,3H3V4H2zM3,3H4V4H3zM4,3H5V4H4zM6,3H7V4H6zM8,3H9V4H8zM12,3H13V4H12zM16,3H17V4H16zM17,3H18V4H17zM19,3H20V4H19zM20,3H21V4H20zM22,3H23V4H22zM24,3H25V4H24zM25,3H26V4H25zM26,3H27V4H26zM28,3H29V4H28zM0,4H1V5H0zM2,4H3V5H2zM3,4H4V5H3zM4,4H5V5H4zM6,4H7V5H6zM9,4H10V5H9zM11,4H12V5H11zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM17,4H18V5H17zM18,4H19V5H18zM19,4H20V5H19zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM26,4H27V5H26zM28,4H29V5H28zM0,5H1V6H0zM6,5H7V6H6zM10,5H11V6H10zM11,5H12V6H11zM15,5H16V6H15zM17,5H18V6H17zM18,5H19V6H18zM20,5H21V6H20zM22,5H23V6H22zM28,5H29V6H28zM0,6H1V7H0zM1,6H2V7H1zM2,6H3V7H2zM3,6H4V7H3zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM14,6H15V7H14zM16,6H17V7H16zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM8,7H9V8H8zM11,7H12V8H11zM14,7H15V8H14zM15,7H16V8H15zM16,7H17V8H16zM20,7H21V8H20zM0,8H1V9H0zM6,8H7V9H6zM8,8H9V9H8zM9,8H10V9H9zM11,8H12V9H11zM12,8H13V9H12zM16,8H17V9H16zM17,8H18V9H17zM18,8H19V9H18zM19,8H20V9H19zM21,8H22V9H21zM22,8H23V9H22zM25,8H26V9H25zM26,8H27V9H26zM27,8H28V9H27zM2,9H3V10H2zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM10,9H11V10H10zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM27,9H28V10H27zM0,10H1V11H0zM1,10H2V11H1zM3,10H4V11H3zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM9,10H10V11H9zM13,10H14V11H13zM14,10H15V11H14zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM20,10H21V11H20zM21,10H22V11H21zM23,10H24V11H23zM0,11H1V12H0zM1,11H2V12H1zM4,11H5V12H4zM5,11H6V12H5zM8,11H9V12H8zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM24,11H25V12H24zM25,11H26V12H25zM0,12H1V13H0zM1,12H2V13H1zM2,12H3V13H2zM3,12H4V13H3zM6,12H7V13H6zM10,12H11V13H10zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM28,12H29V13H28zM0,13H1V14H0zM1,13H2V14H1zM4,13H5V14H4zM9,13H10V14H9zM10,13H11V14H10zM16,13H17V14H16zM17,13H18V14H17zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM27,13H28V14H27zM28,13H29V14H28zM0,14H1V15H0zM2,14H3V15H2zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM10,14H11V15H10zM20,14H21V15H20zM23,14H24V15H23zM25,14H26V15H25zM26,14H27V15H26zM1,15H2V16H1zM5,15H6V16H5zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM15,15H16V16H15zM18,15H19V16H18zM19,15H20V16H19zM20,15H21V16H20zM21,15H22V16H21zM24,15H25V16H24zM26,15H27V16H26zM28,15H29V16H28zM0,16H1V17H0zM1,16H2V17H1zM3,16H4V17H3zM4,16H5V17H4zM6,16H7V17H6zM9,16H10V17H9zM11,16H12V17H11zM12,16H13V17H12zM16,16H17V17H16zM17,16H18V17H17zM25,16H26V17H25zM26,16H27V17H26zM0,17H1V18H0zM1,17H2V18H1zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM8,17H9V18H8zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM24,17H25V18H24zM26,17H27V18H26zM27,17H28V18H27zM28,17H29V18H28zM0,18H1V19H0zM1,18H2V19H1zM2,18H3V19H2zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM10,18H11V19H10zM15,18H16V19H15zM17,18H18V19H17zM19,18H20V19H19zM20,18H21V19H20zM24,18H25V19H24zM25,18H26V19H25zM28,18H29V19H28zM0,19H1V20H0zM2,19H3V20H2zM3,19H4V20H3zM5,19H6V20H5zM9,19H10V20H9zM10,19H11V20H10zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM24,19H25V20H24zM0,20H1V21H0zM5,20H6V21H5zM6,20H7V21H6zM8,20H9V21H8zM9,20H10V21H9zM14,20H15V21H14zM15,20H16V21H15zM17,20H18V21H17zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM8,21H9V22H8zM14,21H15V22H14zM18,21H19V22H18zM20,21H21V22H20zM24,21H25V22H24zM25,21H26V22H25zM0,22H1V23H0zM1,22H2V23H1zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM9,22H10V23H9zM12,22H13V23H12zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM22,22H23V23H22zM24,22H25V23H24zM25,22H26V23H25zM26,22H27V23H26zM0,23H1V24H0zM6,23H7V24H6zM9,23H10V24H9zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM16,23H17V24H16zM20,23H21V24H20zM24,23H25V24H24zM28,23H29V24H28zM0,24H1V25H0zM2,24H3V25H2zM3,24H4V25H3zM4,24H5V25H4zM6,24H7V25H6zM9,24H10V25H9zM10,24H11V25H10zM11,24H12V25H11zM13,24H14V25H13zM14,24H15V25H14zM16,24H17V25H16zM19,24H20V25H19zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM0,25H1V26H0zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM6,25H7V26H6zM12,25H13V26H12zM13,25H14V26H13zM14,25H15V26H14zM21,25H22V26H21zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM0,26H1V27H0zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM6,26H7V27H6zM9,26H10V27H9zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM17,26H18V27H17zM18,26H19V27H18zM19,26H20V27H19zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM0,27H1V28H0zM6,27H7V28H6zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM18,27H19V28H18zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM28,27H29V28H28zM0,28H1V29H0zM1,28H2V29H1zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM8,28H9V29H8zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM17,28H18V29H17zM19,28H20V29H19zM21,28H22V29H21zM22,28H23V29H22zM23,28H24V29H23zM26,28H27V29H26z" fill="currentColor"/></svg></span>
+        <b>QR'ı okut</b>
+        <p>Kelimenin hemen yanındaki kodu telefonuna okut; kelimenin kendi sayfası açılır: film, dizi ve doğal konuşmalardan gerçek kesitler.</p>
+      </div>
+      <div class="nasil-adim">
+        <span class="no">3</span>
+        <span class="mini mini-ses" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <b>Dinle, tekrar et, konuş</b>
+        <p>Kesit, kelimenin geçtiği cümle bitince durur. Telaffuzu ana dilinden duy, kendi sesinle söyle.</p>
+      </div>
+    </div>
+    <a class="nasil-cta" href="#satin-al" data-satin>Setini seç, bugün başla →</a>
+  </div>
+</section>
+
 
 <div class="toolbar">
   <label class="search">
@@ -384,19 +887,131 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px
   <div id="adminList"></div>
 </section>
 
+
+<section class="urungorsel" id="kutu">
+  <div class="ug-grid">
+    <div class="sahne">
+      <svg class="kutu" viewBox="0 0 260 310" role="img" aria-label="MACCA kart kutusu">
+  <polygon points="30,80 180,80 230,46 80,46" fill="var(--bulb)"/>
+  <polygon points="180,80 230,46 230,256 180,290" fill="var(--ink-deep)"/>
+  <rect x="30" y="80" width="150" height="210" rx="8" fill="var(--ink)"/>
+  <rect x="83" y="118" width="44" height="44" fill="var(--paper)"/>
+  <rect x="83" y="118" width="22" height="44" fill="var(--ink-deep)" opacity=".18"/>
+  <text x="105" y="151" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="26" fill="var(--ink)">M</text>
+  <text x="105" y="196" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="21" letter-spacing="4" fill="var(--paper)">MACCA</text>
+  <text x="105" y="216" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="8.5" letter-spacing="1.6" fill="var(--bulb)">İNGİLİZCE KELİME KARTLARI</text>
+  <text x="105" y="252" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1" fill="var(--paper)" opacity=".85">357 KART · 713 KELİME</text>
+  <text x="105" y="268" text-anchor="middle" font-family="Montserrat" font-weight="700" font-size="8" letter-spacing="1.4" fill="var(--paper)" opacity=".55">GÖR · DUY · YAŞA</text>
+</svg>
+      <div class="mkart on" aria-hidden="true">
+        <span class="yarim koyu"><span class="mw">Learn</span><span class="mbar">ÖĞRENMEK</span></span>
+        <span class="yarim acik"><span class="mw">Billion</span><span class="mbar">MİLYAR</span></span>
+      </div>
+      <div class="mkart arka">
+        <span class="qrkutu"><svg viewBox="0 0 29 29" aria-label="Örnek kart QR kodu"><path d="M0,0H1V1H0zM1,0H2V1H1zM2,0H3V1H2zM3,0H4V1H3zM4,0H5V1H4zM5,0H6V1H5zM6,0H7V1H6zM9,0H10V1H9zM10,0H11V1H10zM11,0H12V1H11zM12,0H13V1H12zM15,0H16V1H15zM16,0H17V1H16zM17,0H18V1H17zM18,0H19V1H18zM20,0H21V1H20zM22,0H23V1H22zM23,0H24V1H23zM24,0H25V1H24zM25,0H26V1H25zM26,0H27V1H26zM27,0H28V1H27zM28,0H29V1H28zM0,1H1V2H0zM6,1H7V2H6zM8,1H9V2H8zM9,1H10V2H9zM10,1H11V2H10zM13,1H14V2H13zM14,1H15V2H14zM16,1H17V2H16zM17,1H18V2H17zM18,1H19V2H18zM20,1H21V2H20zM22,1H23V2H22zM28,1H29V2H28zM0,2H1V3H0zM2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM6,2H7V3H6zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM13,2H14V3H13zM15,2H16V3H15zM19,2H20V3H19zM20,2H21V3H20zM22,2H23V3H22zM24,2H25V3H24zM25,2H26V3H25zM26,2H27V3H26zM28,2H29V3H28zM0,3H1V4H0zM2,3H3V4H2zM3,3H4V4H3zM4,3H5V4H4zM6,3H7V4H6zM8,3H9V4H8zM12,3H13V4H12zM16,3H17V4H16zM17,3H18V4H17zM19,3H20V4H19zM20,3H21V4H20zM22,3H23V4H22zM24,3H25V4H24zM25,3H26V4H25zM26,3H27V4H26zM28,3H29V4H28zM0,4H1V5H0zM2,4H3V5H2zM3,4H4V5H3zM4,4H5V5H4zM6,4H7V5H6zM9,4H10V5H9zM11,4H12V5H11zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM17,4H18V5H17zM18,4H19V5H18zM19,4H20V5H19zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM26,4H27V5H26zM28,4H29V5H28zM0,5H1V6H0zM6,5H7V6H6zM10,5H11V6H10zM11,5H12V6H11zM15,5H16V6H15zM17,5H18V6H17zM18,5H19V6H18zM20,5H21V6H20zM22,5H23V6H22zM28,5H29V6H28zM0,6H1V7H0zM1,6H2V7H1zM2,6H3V7H2zM3,6H4V7H3zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM14,6H15V7H14zM16,6H17V7H16zM18,6H19V7H18zM20,6H21V7H20zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM26,6H27V7H26zM27,6H28V7H27zM28,6H29V7H28zM8,7H9V8H8zM11,7H12V8H11zM14,7H15V8H14zM15,7H16V8H15zM16,7H17V8H16zM20,7H21V8H20zM0,8H1V9H0zM6,8H7V9H6zM8,8H9V9H8zM9,8H10V9H9zM11,8H12V9H11zM12,8H13V9H12zM16,8H17V9H16zM17,8H18V9H17zM18,8H19V9H18zM19,8H20V9H19zM21,8H22V9H21zM22,8H23V9H22zM25,8H26V9H25zM26,8H27V9H26zM27,8H28V9H27zM2,9H3V10H2zM3,9H4V10H3zM4,9H5V10H4zM5,9H6V10H5zM10,9H11V10H10zM12,9H13V10H12zM13,9H14V10H13zM16,9H17V10H16zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM23,9H24V10H23zM24,9H25V10H24zM26,9H27V10H26zM27,9H28V10H27zM0,10H1V11H0zM1,10H2V11H1zM3,10H4V11H3zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM9,10H10V11H9zM13,10H14V11H13zM14,10H15V11H14zM15,10H16V11H15zM16,10H17V11H16zM17,10H18V11H17zM20,10H21V11H20zM21,10H22V11H21zM23,10H24V11H23zM0,11H1V12H0zM1,11H2V12H1zM4,11H5V12H4zM5,11H6V12H5zM8,11H9V12H8zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM24,11H25V12H24zM25,11H26V12H25zM0,12H1V13H0zM1,12H2V13H1zM2,12H3V13H2zM3,12H4V13H3zM6,12H7V13H6zM10,12H11V13H10zM13,12H14V13H13zM15,12H16V13H15zM16,12H17V13H16zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM28,12H29V13H28zM0,13H1V14H0zM1,13H2V14H1zM4,13H5V14H4zM9,13H10V14H9zM10,13H11V14H10zM16,13H17V14H16zM17,13H18V14H17zM18,13H19V14H18zM19,13H20V14H19zM20,13H21V14H20zM21,13H22V14H21zM22,13H23V14H22zM23,13H24V14H23zM24,13H25V14H24zM27,13H28V14H27zM28,13H29V14H28zM0,14H1V15H0zM2,14H3V15H2zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM10,14H11V15H10zM20,14H21V15H20zM23,14H24V15H23zM25,14H26V15H25zM26,14H27V15H26zM1,15H2V16H1zM5,15H6V16H5zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM15,15H16V16H15zM18,15H19V16H18zM19,15H20V16H19zM20,15H21V16H20zM21,15H22V16H21zM24,15H25V16H24zM26,15H27V16H26zM28,15H29V16H28zM0,16H1V17H0zM1,16H2V17H1zM3,16H4V17H3zM4,16H5V17H4zM6,16H7V17H6zM9,16H10V17H9zM11,16H12V17H11zM12,16H13V17H12zM16,16H17V17H16zM17,16H18V17H17zM25,16H26V17H25zM26,16H27V17H26zM0,17H1V18H0zM1,17H2V18H1zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM8,17H9V18H8zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM22,17H23V18H22zM23,17H24V18H23zM24,17H25V18H24zM26,17H27V18H26zM27,17H28V18H27zM28,17H29V18H28zM0,18H1V19H0zM1,18H2V19H1zM2,18H3V19H2zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM10,18H11V19H10zM15,18H16V19H15zM17,18H18V19H17zM19,18H20V19H19zM20,18H21V19H20zM24,18H25V19H24zM25,18H26V19H25zM28,18H29V19H28zM0,19H1V20H0zM2,19H3V20H2zM3,19H4V20H3zM5,19H6V20H5zM9,19H10V20H9zM10,19H11V20H10zM11,19H12V20H11zM12,19H13V20H12zM13,19H14V20H13zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM24,19H25V20H24zM0,20H1V21H0zM5,20H6V21H5zM6,20H7V21H6zM8,20H9V21H8zM9,20H10V21H9zM14,20H15V21H14zM15,20H16V21H15zM17,20H18V21H17zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM22,20H23V21H22zM23,20H24V21H23zM24,20H25V21H24zM26,20H27V21H26zM27,20H28V21H27zM28,20H29V21H28zM8,21H9V22H8zM14,21H15V22H14zM18,21H19V22H18zM20,21H21V22H20zM24,21H25V22H24zM25,21H26V22H25zM0,22H1V23H0zM1,22H2V23H1zM2,22H3V23H2zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM6,22H7V23H6zM9,22H10V23H9zM12,22H13V23H12zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM22,22H23V23H22zM24,22H25V23H24zM25,22H26V23H25zM26,22H27V23H26zM0,23H1V24H0zM6,23H7V24H6zM9,23H10V24H9zM11,23H12V24H11zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM16,23H17V24H16zM20,23H21V24H20zM24,23H25V24H24zM28,23H29V24H28zM0,24H1V25H0zM2,24H3V25H2zM3,24H4V25H3zM4,24H5V25H4zM6,24H7V25H6zM9,24H10V25H9zM10,24H11V25H10zM11,24H12V25H11zM13,24H14V25H13zM14,24H15V25H14zM16,24H17V25H16zM19,24H20V25H19zM20,24H21V25H20zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM24,24H25V25H24zM25,24H26V25H25zM0,25H1V26H0zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM6,25H7V26H6zM12,25H13V26H12zM13,25H14V26H13zM14,25H15V26H14zM21,25H22V26H21zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM0,26H1V27H0zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM6,26H7V27H6zM9,26H10V27H9zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM17,26H18V27H17zM18,26H19V27H18zM19,26H20V27H19zM22,26H23V27H22zM23,26H24V27H23zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM0,27H1V28H0zM6,27H7V28H6zM13,27H14V28H13zM14,27H15V28H14zM15,27H16V28H15zM18,27H19V28H18zM22,27H23V28H22zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM28,27H29V28H28zM0,28H1V29H0zM1,28H2V29H1zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM8,28H9V29H8zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM17,28H18V29H17zM19,28H20V29H19zM21,28H22V29H21zM22,28H23V29H22zM23,28H24V29H23zM26,28H27V29H26z" fill="#0E3B43"/></svg></span>
+        <span class="qryazi"><b>ŞİMDİ QR'I TARA</b><span>DİNLE · TEKRAR ET · KONUŞ</span><span class="minik">maccaword.com</span></span>
+      </div>
+    </div>
+    <div class="ug-copy">
+      <div class="kicker">KUTUDAN ÇIKANLAR</div>
+      <h2>Elinde kart, cebinde gerçek İngilizce.</h2>
+      <ul>
+        <li><b>357 çift taraflı kart</b> — 3 set, toplam 713 kelime</li>
+        <li><b>Cebine sığar</b> — kutusuyla çantada, cepte; kuyrukta, otobüste, mola arasında çalış</li>
+        <li><b>Şarj ve ekran gerektirmez</b> — kartlar hep hazır; videoyu ancak sen istediğinde QR ile açarsın</li>
+        <li><b>Her kartta özel QR</b> — okut, kelimenin kendi sayfası açılsın</li>
+        <li><b>Gerçek kesitler</b> — film, dizi ve doğal konuşmalarda tam söylendiği an</li>
+        <li><b>Telaffuz testi</b> — dinle, söyle, doğruluğunu anında gör</li>
+        <li><b>Günde 10 dakika yeter</b> — birkaç kart çek, dinle, tekrar et; küçük anlar birikir</li>
+      </ul>
+      <p class="not">Görseldeki QR gerçektir — telefonunla ekrandan okut, örnek kart "Learn"ü açar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="hikayemiz">
+  <div class="story-inner">
+    <h2>Hikâyemiz</h2>
+    <p class="lead">Her şey <em>sıradan bir geceyle</em> başladı.</p>
+    <p>MACCA'nın kurucusu, İngilizce öğrenen herkes gibi kelimeleri gün içinde tekrar edebilmenin bir yolunu arıyordu. Bir gece saatlerini ayırdı; İngilizce kelimeleri, Türkçe anlamlarını ve notlarını tek tek elle yazarak kendi kartlarını hazırladı. Plan basitti: kartlar cepte taşınacak, boş bulunan her anda birkaç dakika çalışılacaktı.</p>
+    <p>Sabah olduğunda kartlar hazırdı ve motivasyon yüksekti. Aylarca kullanılacağı düşünülen deste, masanın üzerinde gününü bekliyordu.</p>
+    <p><b>Fakat beklenmedik bir şey oldu.</b></p>
+    <p>Evin en meraklı üyesi olan köpek, kimse fark etmeden kartlara ulaştı. Saatler süren emek, birkaç dakika içinde parçalanmış kâğıtlara dönüştü.</p>
+    <p>İlk his üzüntüydü. Ardından gelen soru ise her şeyi değiştirdi:</p>
+    <p class="lead"><em>Neden hâlâ yıllardır aynı yöntemle kelime ezberlemeye çalışıyoruz?</em></p>
+    <div class="story-dizeler">
+      <p>Tekrar tekrar yazılan kartlar…</p>
+      <p>Kaybolan notlar…</p>
+      <p>Yıpranan kâğıtlar…</p>
+      <p>Ve en önemlisi, kelimeyi sadece anlamıyla öğrenmek…</p>
+      <p>İşte MACCA bu sorudan doğdu.</p>
+    </div>
+    <p>MACCA, kelimelerin yalnızca yazıldığı değil; duyulduğu, görüldüğü ve gerçek hayatta nasıl kullanıldığının deneyimlendiği bir öğrenme sistemi olarak tasarlandı.</p>
+    <p>Bugün her MACCA kartı, kullanıcısını tek bir QR kodla gerçek telaffuzlara, doğal konuşmalara ve yaşayan İngilizceye ulaştırıyor.</p>
+    <p>Çünkü biz, bir kelimeyi gerçekten öğrenmenin yalnızca anlamını ezberlemekle değil; onu doğru telaffuzuyla duymak, gerçek bir cümlede görmek ve tekrar tekrar deneyimlemekle mümkün olduğuna inanıyoruz.</p>
+    <p class="story-final">Belki de en güzel fikirler, hiç beklenmedik anlarda ortaya çıkar.<br>MACCA'nın hikâyesi de, parçalanan birkaç kartın arasından doğdu.</p>
+    <p class="story-manset">Bir köpek kartlarımızı parçaladı.<br>Biz ise İngilizce öğrenme deneyimini <em>baştan tasarladık.</em></p>
+    <div class="mv">
+      <div class="mv-kart"><b>MİSYONUMUZ</b><p>İngilizce öğrenmeyi daha doğal, daha etkili ve daha eğlenceli hâle getirmek; ezbere değil, kalıcı bir öğrenme deneyimine dayanan bir yol sunmak.</p></div>
+      <div class="mv-kart"><b>VİZYONUMUZ</b><p>Teknolojiyi ve eğitimi buluşturarak dünyanın en yenilikçi kelime kartlarını geliştirmek; milyonlarca insanın İngilizceyi güvenle konuşmasına katkı sağlamak.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="buy-strip" id="satin-al">
   <div class="buy-inner">
     <div>
-      <h2>Masanda dursun, cebinde konuşsun.</h2>
+      <h2>Her kart yeni bir konuşma.</h2>
       <p>3 setten oluşan, çift taraflı <span id="stCards2">—</span> kartlık MACCA serisiyle günde 10 dakikada en sık kullanılan İngilizce kelimeleri öğren. Karttaki kelimeyi bu sitede arat, telaffuzu gerçek videolardan dinle.</p>
     </div>
     <button class="cta" id="buyBtn">Kart Setini Satın Al →</button>
   </div>
 </section>
 
-<footer>
-  <span><b>MACCA</b> · İngilizce Kelime Kartları</span>
-  <span>Kesitler <a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a> &amp; YouTube ile · <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Şartları</a> · <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik</a> · Ticari kullanım için <a href="https://youglish.com/api/contact" target="_blank" rel="noopener">YouGlish izni</a></span>
+<section class="iletisim" id="iletisim">
+  <div class="il-ic">
+    <div class="il-sol">
+      <h2>Bize ulaşın.</h2>
+      <p>Sipariş, kargo, kartlar ya da site hakkında her soru için buradayız — genellikle aynı gün döneriz.</p>
+      <div class="il-yollar" id="ilYollar"></div>
+    </div>
+    <form class="il-form" id="ilForm">
+      <label>AD SOYAD<input id="iAd" autocomplete="name" required></label>
+      <label>E-POSTA<input id="iMail" type="email" autocomplete="email" required></label>
+      <label>MESAJIN<textarea id="iMesaj" rows="4" required placeholder="Merhaba MACCA…"></textarea></label>
+      <button class="cta" type="submit">Gönder</button>
+      <div class="il-not" id="ilNot"></div>
+    </form>
+  </div>
+</section>
+
+<footer class="af">
+  <div class="af-ic">
+    <div class="af-notlar">
+      <p>Video kesitleri <a href="https://youglish.com" target="_blank" rel="noopener">YouGlish</a> ve YouTube üzerinden sağlanır; kullanım <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Hizmet Şartları</a> ile <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a>'na tabidir.</p>
+    </div>
+    <nav class="af-kolonlar" aria-label="Alt bilgi bağlantıları">
+      <details open><summary>Sipariş ve Destek</summary><ul>
+        <li><a href="#satin-al" data-satin>Satın Al</a></li>
+        <li><a href="#" data-soz>Kargo ve Teslimat</a></li>
+        <li><a href="#" data-soz>İade ve Cayma Hakkı</a></li>
+        <li><a href="#iletisim">Sipariş Desteği</a></li>
+      </ul></details>
+      <details open><summary>MACCA</summary><ul>
+        <li><a href="#hikayemiz">Hikâyemiz</a></li>
+        <li><a href="#hikayemiz">Misyon &amp; Vizyon</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul></details>
+    </nav>
+    <div class="af-orta">Türkiye'nin her yerine kargo. Sorun mu var? <a href="#iletisim">Bize yaz</a> — yardımcı olalım.</div>
+    <div class="af-alt">
+      <span>Copyright © 2026 MACCA. Tüm hakları saklıdır. · <i>Kelimeyi Gör. Duy. Yaşa.</i></span>
+      <span class="af-yasal">
+        <a href="#" data-soz>Mesafeli Satış Sözleşmesi</a><a href="#" data-soz>Gizlilik ve KVKK</a><a href="#" id="afYukari">Başa Dön</a>
+      </span>
+      <span class="af-ulke">🇹🇷 Türkiye · Türkçe</span>
+    </div>
+  </div>
 </footer>
 
 <!-- ================= OYNATICI ================= -->
@@ -444,24 +1059,87 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px
       </div>
     </div>
 
-    <div class="alt">
-      <span class="srclabel">KAYNAĞA GÖRE KESİT ARA</span>
-      <a id="srcFilm" target="_blank" rel="noopener">🎬 Film &amp; Dizi</a>
-      <a id="srcTed" target="_blank" rel="noopener">🎤 TED</a>
-      <a id="srcSpeech" target="_blank" rel="noopener">🗣 Ünlü konuşmaları</a>
-      <a id="srcToon" target="_blank" rel="noopener">📺 Çizgi film</a>
-      <a id="srcViral" target="_blank" rel="noopener">🔥 Viral / Shorts</a>
+    <div class="sent" id="tstPanel">
+      <div class="cap"><span>🎤 TELAFFUZ TESTİ</span><span class="st2" id="tstScore"></span></div>
+      <div class="tst-akis" id="tstAkis"></div>
+      <div class="sent-btns">
+        <button class="chip tts" id="tstDinle">🔊 1 · Önce dinle</button>
+        <button class="chip mic" id="tstSoyle">🎤 3 · Sen söyle</button>
+      </div>
+      <div class="tst-sonuc" id="tstSonuc" aria-live="polite"></div>
     </div>
+
     <div class="alt">
-      <a id="lnkYT" class="yt" target="_blank" rel="noopener">▶ YouTube'da ara</a>
-      <a id="lnkYg" target="_blank" rel="noopener">▶ YouGlish'te aç</a>
       <a id="lnkDict" target="_blank" rel="noopener">📖 Cambridge Sözlük</a>
     </div>
-    <div class="alt-note">Gömülü oynatıcı film, dizi, TED, konuşma gibi tüm kaynaklardan karışık gerçek kesitler getirir; belirli bir kaynak istersen yukarıdaki bağlantıları kullan ya da beğendiğin kesiti dosyadaki <b>OZEL_VIDEOLAR</b> listesine ekle.</div>
+    <div class="alt-note">Gömülü oynatıcı film, dizi, TED, konuşma gibi tüm kaynaklardan karışık gerçek kesitler getirir; beğendiğin bir kesiti kalıcı yapmak istersen dosyadaki <b>OZEL_VIDEOLAR</b> listesine ekle.</div>
+
+    <div class="ilham" id="ilham"></div>
 
     <div class="sheet-nav">
       <button id="prevBtn">← <span>Önceki</span></button>
       <button id="nextBtn" class="nx"><span>Sonraki:</span> <b id="nextWord"></b> →</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyTitle">
+  <div class="sheet buysheet">
+    <div class="sheet-head">
+      <div class="kartno" id="buyStep">ADIM 1 / 3</div>
+      <div class="en" id="buyTitle">Kart Setini Satın Al</div>
+      <div class="tr">Fiziksel kartlar · kargoyla kapında</div>
+      <button class="close" id="buyClose" aria-label="Kapat">✕</button>
+    </div>
+
+    <div class="bstep" id="bs1">
+      <div class="urunler" id="urunListe"></div>
+    </div>
+
+    <div class="bstep" id="bs2" hidden>
+      <div class="bform">
+        <label>AD SOYAD<input id="fAd" autocomplete="name" placeholder="Ad Soyad"></label>
+        <label>E-POSTA<input id="fMail" type="email" autocomplete="email" placeholder="ornek@eposta.com"></label>
+        <label>TELEFON<input id="fTel" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+        <label>İL / İLÇE<input id="fIl" autocomplete="address-level1" placeholder="İzmir / Bornova"></label>
+        <label class="genis">TESLİMAT ADRESİ<textarea id="fAdres" rows="3" autocomplete="street-address" placeholder="Mahalle, sokak, bina no, daire…"></textarea></label>
+      </div>
+    </div>
+
+    <div class="bstep" id="bs3" hidden>
+      <div class="ozet" id="buyOzet"></div>
+      <label class="onay"><input type="checkbox" id="fOnay"> <span><a href="#" id="sozLink">Mesafeli satış sözleşmesi ve ön bilgilendirme formunu</a> okudum, onaylıyorum.</span></label>
+      <div class="pay-alan" id="payAlan" hidden></div>
+    </div>
+
+    <div class="bstep" id="bsSonuc" hidden><div class="sonuc" id="buySonuc"></div></div>
+
+    <div class="sheet-nav">
+      <button id="bGeri">← Geri</button>
+      <button id="bIleri" class="nx">Devam →</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="sozModal" role="dialog" aria-modal="true">
+  <div class="sheet buysheet">
+    <div class="sheet-head">
+      <div class="kartno">SÖZLEŞME</div>
+      <div class="en">Mesafeli Satış &amp; Ön Bilgilendirme</div>
+      <button class="close" id="sozClose" aria-label="Kapat">✕</button>
+    </div>
+    <div class="soz-metin">
+      <h4>SATICI</h4>
+      <p>Unvan: <b>[FİRMA UNVANINI YAZ]</b> · Adres: <b>[İŞYERİ ADRESİ]</b> · Tel: <b>[TELEFON]</b> · E-posta: <b>[E-POSTA]</b> · Vergi D./No: <b>[VERGİ BİLGİLERİ]</b></p>
+      <h4>ÜRÜN VE TESLİMAT</h4>
+      <p>Sözleşmenin konusu, sipariş özetinde adet ve bedeliyle belirtilen MACCA İngilizce kelime kartı set(ler)inin satışı ve teslimidir. Ürünler, ödemenin onaylanmasını izleyen <b>[X] iş günü</b> içinde kargoya verilir ve alıcının bildirdiği adrese gönderilir. Kargo bedeli sipariş özetinde ayrıca gösterilir.</p>
+      <h4>CAYMA HAKKI VE İADE</h4>
+      <p>Alıcı, ürünün tesliminden itibaren <b>14 gün</b> içinde cayma hakkına sahiptir. Ancak MACCA setleri, içeriği görüldüğü anda kopyalanabilir/çoğaltılabilir nitelikte <b>eğitim materyali</b> olduğundan, <b>ambalajı (jelatini) açılmış ürünlerde iade kabul edilmez</b>. Cayma hakkı yalnızca ambalajı açılmamış, kullanılmamış ve yeniden satılabilir durumdaki ürünler için geçerlidir; bu koşulu sağlayan iadelerde bedel, ürünün satıcıya ulaşmasını izleyen 14 gün içinde ödeme yöntemine iade edilir. Kargo hasarlı teslim edilen ürünlerde tutanak ile birlikte değişim hakkı saklıdır.</p>
+      <h4>ÖDEME VE GÜVENLİK</h4>
+      <p>Ödemeler <b>PayTR</b> güvenli ödeme altyapısıyla alınır; kart bilgileri satıcı tarafından görüntülenmez ve saklanmaz.</p>
+      <h4>KİŞİSEL VERİLER</h4>
+      <p>Ad, iletişim ve teslimat bilgileri yalnızca siparişin ifası, kargo süreci ve yasal yükümlülükler için işlenir; pazarlama amacıyla üçüncü kişilerle paylaşılmaz.</p>
+      <p style="color:var(--muted)">Not: Köşeli parantezli alanları kendi firma bilgilerinle doldurmayı unutma.</p>
     </div>
   </div>
 </div>
@@ -472,7 +1150,27 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px
    AYARLAR
    Satış linkini buraya yapıştır (Shopier, Trendyol, Instagram DM vb.)
    ========================================================= */
-const SATIN_ALMA_LINKI = ""; // örn: "https://www.shopier.com/senin-magazan"
+/* =========================================================
+   🛒 SATIŞ & ÖDEME AYARLARI (PayTR)
+   PayTR sanal POS onayın gelince yapılacak İKİ şey:
+   1) paytr-worker.js dosyasını Cloudflare Workers'a yükle ve
+      panelden 3 gizli değeri gir (PAYTR_MERCHANT_ID / KEY / SALT).
+   2) Worker adresini aşağıdaki ODEME_API satırına yaz. Hepsi bu —
+      ödeme adımında PayTR güvenli kart ekranı kendiliğinden açılır.
+   ========================================================= */
+const ODEME_API = "";              /* örn: "https://macca-odeme.hesabin.workers.dev" */
+const KARGO_UCRETI = 0;            /* TL · 0 = ücretsiz kargo */
+const URUNLER = [                  /* FİYATLARI BURADAN GÜNCELLE (paytr-worker.js ile aynı tut) */
+  { id:"set1", ad:"MACCA Set 1",             detay:"91 kart · 182 kelime",  fiyat:299 },
+  { id:"set2", ad:"MACCA Set 2",             detay:"104 kart · 208 kelime", fiyat:299 },
+  { id:"set3", ad:"MACCA Set 3",             detay:"162 kart · 324 kelime", fiyat:349 },
+  { id:"tam",  ad:"MACCA Tam Paket · 3 Set", detay:"357 kart · 713 kelime", fiyat:799, rozet:"EN AVANTAJLI" }
+];
+const ILETISIM = {                 /* İLETİŞİM BİLGİLERİNİ DOLDUR — iletişim kutusu ve alt bilgi otomatik kullanır */
+  eposta: "",                      /* örn: "destek@maccaword.com" */
+  tel: "",                         /* örn: "0532 000 00 00" */
+  instagram: ""                    /* örn: "maccaword" (@ işareti olmadan) */
+};
 
 /* =========================================================
    YÖNETİCİ ANAHTARI — kelime listesini SADECE SEN görürsün
@@ -504,6 +1202,20 @@ const OZEL_VIDEOLAR = {
 /* Cümle bitişi esastır: kesit, kelimenin geçtiği cümle TAMAMLANINCA durur.
    Altyazı sinyali hiç gelmezse (nadir) video en geç bu sürede durdurulur (emniyet freni). */
 const EMNIYET_SANIYE = 20;
+
+/* Kesit kelimeden çok önce başladıysa: hedef cümle bu süre içinde ekrana
+   gelmezse kesit otomatik atlanır (YouGlish ileri sarma imkânı vermiyor;
+   bekletmek yerine sonraki kesite geçmek en hızlı çözüm). */
+const KELIMEYE_KADAR_SN = 6;
+
+/* Altyazı ile ses arasında kayma olabilir (altyazı çoğu videoda sesten önce düşer).
+   Cümle "bitti" sinyali geldikten sonra konuşmacı cümleyi SESLİ olarak da
+   tamamlasın diye bu kadar beklenir; kesit ancak ondan sonra durur ya da geçer. */
+const CUMLE_KUYRUK_MS = 1200;
+
+/* Otomatik altyazıda hiç noktalama yoksa cümleye en fazla bu kadar ek blok bağlanır
+   (erken kesmemek için 2 → 3'e çıkarıldı) */
+const EK_BLOK_MAX = 3;
 
 /* YouTube linkini gömülebilir adrese çevirir */
 function parseT(t){
@@ -1040,12 +1752,12 @@ function buildWidget() {
           ? "≈ " + e.totalResult.toLocaleString("tr-TR") + " gerçek kesit — her kesit, kelimenin geçtiği cümlenin sonuna kadar oynar ve orada durur."
           : "Bu kelime için kesit bulunamadı. Alttaki kaynak bağlantılarını dene.";
       },
-      onVideoChange: () => { resetClipTimer(); pauseArmed = sentenceMode; hedefte = false; clearSentence(); },
-      onPlayerStateChange: e => { if (e.state === YG.PlayerState.PLAYING) armClipTimer(); else holdClipTimer(); },
+      onVideoChange: () => { resetClipTimer(); resetOnroll(); resetCumleDurumu(); pauseArmed = sentenceMode; hedefte = false; clearSentence(); },
+      onPlayerStateChange: e => { if (e.state === YG.PlayerState.PLAYING) { armClipTimer(); armOnroll(); } else { holdClipTimer(); holdOnroll(); } },
       onCaptionChange: e => { onCaption(e); },
       onCaptionConsumed: () => { onConsumed(); },
       onError: () => {
-        ygStatus.textContent = "Oynatıcı şu an yanıt vermiyor (günlük ücretsiz limit dolmuş olabilir). Aşağıdaki bağlantılardan dinleyebilirsin.";
+        ygStatus.textContent = "Oynatıcı şu an yanıt vermiyor (günlük ücretsiz limit dolmuş olabilir). 🔊 Hızlı telaffuz düğmesiyle ya da alttaki Cambridge Sözlük bağlantısından dinleyebilirsin.";
       }
     }
   });
@@ -1068,24 +1780,20 @@ function openWord(pos) {
   mKart.textContent = "SET " + w.set + " · KART " + w.lokal;
 
   const enc = encodeURIComponent(w.en.toLowerCase());
-  const ytq = ek => "https://www.youtube.com/results?search_query=%22" + enc + "%22+" + ek;
-  $("#srcFilm").href   = "https://www.playphrase.me/#/search?q=" + enc;
-  $("#srcTed").href    = ytq("ted");
-  $("#srcSpeech").href = ytq("speech");
-  $("#srcToon").href   = ytq("cartoon");
-  $("#srcViral").href  = ytq("shorts");
-  $("#lnkYT").href     = ytq("pronunciation");
-  $("#lnkYg").href = "https://youglish.com/pronounce/" + enc + "/english" + (accent !== "all" ? "/" + accent : "");
   $("#lnkDict").href = "https://dictionary.cambridge.org/dictionary/english/" + enc;
 
   clearSentence();
   resetClipTimer();
+  resetOnroll();
+  resetCumleDurumu();
   sentPanel.hidden = false;
   pauseArmed = sentenceMode;
   curCaption = "";
   hedefte = false;
   anlamDeneme = 0;
   sonAnlamKontrol = "";
+  tstHazirla(w);
+  $("#ilham").textContent = "“" + rastIlham() + "”";
 
   prevBtn.disabled = pos === 0;
   nextBtn.disabled = pos >= filtered.length - 1;
@@ -1126,9 +1834,11 @@ function kapatIc() { /* oynatıcıyı ve pencereyi kapatır (adres değişmez) *
   modal.classList.remove("open");
   document.body.style.overflow = "";
   ytFrame.src = "";
+  resetClipTimer(); resetOnroll(); resetCumleDurumu();
   clearSentence();
   sentPanel.hidden = true;
   if (yg) try { yg.pause(); } catch (e) {}
+  if (recAcik) { try { rec.stop(); } catch (e) {} }
   speechSynthesis.cancel();
 }
 function closeModal() { /* kullanıcı ✕ ile kapattı */
@@ -1152,6 +1862,14 @@ let sentenceMode = true, pauseArmed = true, curCaption = "", hedefte = false;
 let anlamFiltresi = true, anlamDeneme = 0, sonAnlamKontrol = "";
 const ANLAM_DENEME_MAX = 15; /* üst sınır: sonsuz atlamayı önlemek için (dilbilgisi denetimi ağa yük bindirmez) */
 let clipTimer = null, clipPlayedMs = 0, clipPlayStart = 0;
+/* Cümle birden çok altyazı bloğuna yayılabilir — akış uçtan uca izlenir,
+   cümle NOKTALANMADAN kesit asla durdurulmaz / değiştirilmez */
+let cumleAkisi = false, cumleTamam = false, ekSayac = 0, hedefDuz = "",
+    cumleBasladi = 0, atlaErtelendi = false;
+/* Ses kuyruğu sayacı: cümle sinyali bitti, konuşmacının sesi bitirmesi bekleniyor */
+let kuyrukTimer = null;
+/* Kelimeye ulaşmadan geçen oynatma süresi (çok erken başlayan kesitleri atlamak için) */
+let onrollMs = 0, onrollStart = 0, onrollTimer = null, hedefGoruldu = false;
 const trCache = new Map(), kelimeCevirCache = new Map();
 
 function resetClipTimer() { clearTimeout(clipTimer); clipTimer = null; clipPlayedMs = 0; clipPlayStart = 0; }
@@ -1170,6 +1888,29 @@ function armClipTimer() {
     sentState.textContent = "⏸ DURDURULDU";
     if (curCaption) autoTranslate(curCaption);
   }, kalan);
+}
+
+/* Cümle-akışı durumunu sıfırla (yeni kesit / yeni kelime / elle geçiş) */
+function resetCumleDurumu() {
+  cumleAkisi = false; cumleTamam = false; ekSayac = 0; hedefDuz = "";
+  cumleBasladi = 0; atlaErtelendi = false;
+  clearTimeout(kuyrukTimer); kuyrukTimer = null;
+}
+/* ---- Erken başlama nöbeti: kelime KELIMEYE_KADAR_SN içinde gelmezse kesiti atla ---- */
+function resetOnroll() { clearTimeout(onrollTimer); onrollTimer = null; onrollMs = 0; onrollStart = 0; hedefGoruldu = false; }
+function holdOnroll()  { if (onrollStart) { onrollMs += Date.now() - onrollStart; onrollStart = 0; } clearTimeout(onrollTimer); }
+function armOnroll() {
+  if (hedefGoruldu || !sentenceMode || ygWrap.hidden) return;
+  onrollStart = Date.now();
+  clearTimeout(onrollTimer);
+  onrollTimer = setTimeout(() => {
+    if (hedefGoruldu || ygWrap.hidden) return;
+    ygStatus.textContent = "⏩ Kesit kelimeden çok önce başlamıştı — beklemeden sonraki kesite geçildi.";
+    resetClipTimer(); resetOnroll(); resetCumleDurumu();
+    pauseArmed = sentenceMode;
+    clearSentence();
+    if (yg) try { yg.next(); } catch (e) {}
+  }, Math.max(0, KELIMEYE_KADAR_SN * 1000 - onrollMs));
 }
 
 function clearSentence() { sentEn.textContent = ""; sentTr.textContent = ""; sentState.textContent = ""; sentAnlam.hidden = true; sentAnlam.textContent = ""; }
@@ -1201,50 +1942,84 @@ function hedefCumle(t) {
 }
 function onCaption(e) {
   if (ygWrap.hidden) return;
-  const raw = hedefCumle(decodeCaption(e.caption));
-  hedefte = raw.indexOf("[[[") !== -1;
+  const ham = decodeCaption(e.caption);
+  const raw = hedefCumle(ham);
   /* Altyazı akıyorsa emniyet sayacını sıfırla — fren yalnızca sinyal tamamen kesilirse devreye girer */
   clipPlayedMs = 0;
   if (clipPlayStart) armClipTimer();
-  /* Kartın kelimesini içermeyen altyazılar paneli DEĞİŞTİREMEZ */
-  if (!hedefte) return;
-  sentPanel.hidden = false;
-  const duz = raw.replace(/\[\[\[|\]\]\]/g, "").trim();
-  if (duz !== curCaption) { sentTr.textContent = ""; sentState.textContent = ""; sentAnlam.hidden = true; sentAnlam.textContent = ""; }
-  curCaption = duz;
-  sentEn.innerHTML = "";
-  raw.split(/\[\[\[|\]\]\]/).forEach((part, i) => {
-    if (i % 2) { const m = document.createElement("mark"); m.textContent = part; sentEn.appendChild(m); }
-    else sentEn.appendChild(document.createTextNode(part));
-  });
-  /* 🎯 hedef cümle göründüğü anda anlamı denetle;
-     eşleşmiyorsa kesitin bitmesini beklemeden sonrakine geç */
-  if (anlamFiltresi && duz && duz !== sonAnlamKontrol) {
-    sonAnlamKontrol = duz;
-    const w = WORDS[filtered[currentPos]];
-    if (w) {
-      /* 1) Anında dilbilgisi denetimi (çevirisiz, sıfır bekleme):
-         kart FİİL ama kullanım İSİM (ya da tersi) ise hemen atla */
-    if (hizliUyusmazlik(raw, w)) { anlamAtla(w); return; }
-      /* 2) Çeviri denetimi (arka planda) */
-      anlamKontrol(duz, w);
+  const kelimeVar = raw.indexOf("[[[") !== -1;
+
+  if (kelimeVar) {
+    /* HEDEF CÜMLE BAŞLADI — erken-başlama nöbetini kapat, cümle akışını izlemeye geç */
+    hedefGoruldu = true; holdOnroll();
+    hedefte = true; cumleAkisi = true; ekSayac = 0; atlaErtelendi = false;
+    cumleBasladi = Date.now();
+    /* Cümle bu altyazı bloğunda noktalanıyor mu? Noktalanmıyorsa sonraki bloklarda sürer
+       ve kesit, cümlenin SONU gelmeden ASLA durdurulamaz. */
+    cumleTamam = /[.!?…]["')\]]*\s*$/.test(raw.trim());
+    sentPanel.hidden = false;
+    const duz = raw.replace(/\[\[\[|\]\]\]/g, "").trim();
+    if (duz !== curCaption) { sentTr.textContent = ""; sentState.textContent = ""; sentAnlam.hidden = true; sentAnlam.textContent = ""; }
+    curCaption = duz; hedefDuz = duz;
+    sentEn.innerHTML = "";
+    raw.split(/\[\[\[|\]\]\]/).forEach((part, i) => {
+      if (i % 2) { const m = document.createElement("mark"); m.textContent = part; sentEn.appendChild(m); }
+      else sentEn.appendChild(document.createTextNode(part));
+    });
+    /* 🎯 hedef cümle göründüğü anda anlamı denetle */
+    if (anlamFiltresi && duz && duz !== sonAnlamKontrol) {
+      sonAnlamKontrol = duz;
+      const w = WORDS[filtered[currentPos]];
+      if (w) {
+        /* 1) Anında dilbilgisi denetimi (çevirisiz): cümlenin daha en başındayken atlar */
+        if (hizliUyusmazlik(raw, w)) { anlamAtla(w); return; }
+        /* 2) Çeviri denetimi (arka planda; sonucu gecikirse geçiş cümle sonuna ertelenir) */
+        anlamKontrol(duz, w);
+      }
     }
+    return;
+  }
+
+  /* Kelime bu altyazıda yok */
+  if (!cumleAkisi) { hedefte = false; return; }   /* kelime henüz gelmedi — panel değişmez */
+  if (cumleTamam) return;                          /* cümle zaten noktalandı — duraklama bekleniyor */
+
+  /* CÜMLE SÜRÜYOR: altyazının devamını cümleye ekle, ekran sesle aynı gitsin */
+  hedefte = true;
+  let ek = ham.replace(/\[\[\[|\]\]\]/g, "");
+  const nokta = ek.match(/^[\s\S]*?[.!?…]+["')\]]*/);
+  if (nokta) { ek = nokta[0]; cumleTamam = true; }
+  else if (++ekSayac >= EK_BLOK_MAX) cumleTamam = true; /* otomatik altyazıda hiç noktalama yoksa: en fazla EK_BLOK_MAX ek blok */
+  ek = ek.trim();
+  if (ek) {
+    sentEn.appendChild(document.createTextNode(" " + ek));
+    curCaption = (curCaption + " " + ek).trim();
   }
 }
 
 /* ---------- 🎯 ANLAM FİLTRESİ ---------- */
 /* Ortak atlayıcı: sınır dolmadıysa sonraki kesite geçer */
+function simdiAtla(w) {
+  anlamDeneme++;
+  ygStatus.textContent = "🎯 Anlam eşleşmedi — karttaki \u201C" + w.tr + "\u201D anlamı aranıyor (" + anlamDeneme + "/" + ANLAM_DENEME_MAX + ")…";
+  resetClipTimer(); resetOnroll(); resetCumleDurumu();
+  pauseArmed = sentenceMode;
+  clearSentence();
+  if (yg) try { yg.next(); } catch (e) {}
+}
 function anlamAtla(w) {
   if (anlamDeneme >= ANLAM_DENEME_MAX) {
     ygStatus.textContent = "🎯 " + ANLAM_DENEME_MAX + " kesit denendi, birebir eşleşme bulunamadı — bu kesitte kelime farklı anlamda olabilir.";
     return;
   }
-  anlamDeneme++;
-  ygStatus.textContent = "🎯 Anlam eşleşmedi — karttaki \u201C" + w.tr + "\u201D anlamı aranıyor (" + anlamDeneme + "/" + ANLAM_DENEME_MAX + ")…";
-  resetClipTimer();
-  pauseArmed = sentenceMode;
-  clearSentence();
-  if (yg) try { yg.next(); } catch (e) {}
+  /* Cümle çalmaya başladıysa SÖZÜ KESME: geçiş, cümle tamamlanınca yapılır.
+     (Yalnızca cümlenin ilk anında yakalanan uyuşmazlıklar beklemeden atlanır.) */
+  if (pauseArmed && hedefte && cumleBasladi && Date.now() - cumleBasladi > 1200) {
+    atlaErtelendi = true;
+    ygStatus.textContent = "🎯 Anlam eşleşmedi — cümlenin bitmesi bekleniyor, sonra geçilecek…";
+    return;
+  }
+  simdiAtla(w);
 }
 
 /* Anlık dilbilgisi denetimi — çeviri gerekmeden bariz uyuşmazlıkları yakalar.
@@ -1292,11 +2067,27 @@ async function anlamKontrol(duz, w) {
 }
 function onConsumed() {
   if (ygWrap.hidden || !sentenceMode || !pauseArmed) return;
-  if (!hedefte) return; /* hedef cümle henüz gelmedi — kelimenin cümlesine kadar oynamaya devam */
+  if (!hedefte) return;              /* hedef cümle henüz gelmedi — oynamaya devam */
+  if (cumleAkisi && !cumleTamam) return; /* cümle sonraki altyazı bloğunda SÜRÜYOR — kesme */
+  if (kuyrukTimer) return;               /* ses kuyruğu zaten sayıyor — çift tetikleme olmasın */
+  if (atlaErtelendi && anlamFiltresi) {  /* anlam eşleşmemişti; cümlenin bitmesi beklendi */
+    const w = WORDS[filtered[currentPos]];
+    atlaErtelendi = false;
+    /* altyazı sesten önde olabilir: sözü kesmemek için ses kuyruğunu bekle, sonra geç */
+    kuyrukTimer = setTimeout(() => { kuyrukTimer = null; if (w) simdiAtla(w); }, CUMLE_KUYRUK_MS);
+    return;
+  }
   holdClipTimer();
-  try { yg.pause(); } catch (err) {}
-  sentState.textContent = "⏸ CÜMLE BİTTİ — DURDU";
+  pauseArmed = false; /* kesit görevini tamamladı — elle oynatılırsa yeniden durdurmaz */
+  sentState.textContent = "⏳ Cümlenin sesi bitiriliyor…";
   if (curCaption) autoTranslate(curCaption);
+  /* Altyazı çoğu videoda sesten önce düşer: konuşmacı cümleyi SESLİ olarak da
+     bitirsin diye kısa bir kuyruk beklenir, kesit ancak ondan sonra durdurulur */
+  kuyrukTimer = setTimeout(() => {
+    kuyrukTimer = null;
+    try { yg.pause(); } catch (err) {}
+    sentState.textContent = "⏸ CÜMLE BİTTİ — DURDU";
+  }, CUMLE_KUYRUK_MS);
 }
 /* ---- Türkçe eşleştirme: karttaki anlamın çevirideki karşılığını bul ---- */
 function kok(t) {
@@ -1402,12 +2193,12 @@ async function autoTranslate(text) {
 $("#trBtn").addEventListener("click", () => { const t = sentEn.textContent.trim(); if (t) autoTranslate(t); });
 $("#replayBtn").addEventListener("click", () => {
   sentState.textContent = "";
-  resetClipTimer();
+  resetClipTimer(); resetOnroll(); resetCumleDurumu();
   pauseArmed = sentenceMode;
   if (yg) try { yg.replay(); } catch (e) {}
 });
 $("#nextClipBtn").addEventListener("click", () => {
-  resetClipTimer();
+  resetClipTimer(); resetOnroll(); resetCumleDurumu();
   pauseArmed = sentenceMode;
   anlamDeneme = 0; /* kullanıcı devraldı — filtre sayacı baştan başlasın */
   clearSentence();
@@ -1416,13 +2207,14 @@ $("#nextClipBtn").addEventListener("click", () => {
 $("#anlamBtn").addEventListener("click", e => {
   anlamFiltresi = !anlamFiltresi;
   anlamDeneme = 0;
+  atlaErtelendi = false;
   e.currentTarget.textContent = "🎯 Anlam filtresi: " + (anlamFiltresi ? "AÇIK" : "KAPALI");
   e.currentTarget.classList.toggle("on", anlamFiltresi);
   if (anlamFiltresi && curCaption) { sonAnlamKontrol = curCaption; anlamKontrol(curCaption, WORDS[filtered[currentPos]]); }
 });
 $("#sentModeBtn").addEventListener("click", e => {
   sentenceMode = !sentenceMode; pauseArmed = sentenceMode;
-  if (!sentenceMode) holdClipTimer();
+  if (!sentenceMode) { holdClipTimer(); holdOnroll(); }
   e.currentTarget.textContent = "✂️ Tek cümle: " + (sentenceMode ? "AÇIK" : "KAPALI");
   e.currentTarget.classList.toggle("on", sentenceMode);
 });
@@ -1474,25 +2266,308 @@ $("#ttsBtn").addEventListener("click", () => {
   speechSynthesis.speak(u);
 });
 
+/* ---------- 🎤 TELAFFUZ TESTİ ----------
+   Tamamen tarayıcıda çalışır (Web Speech API) — anahtar/ücret yok.
+   Akış: 1) kelimeyi dinle  2) anlamına bak  3) mikrofona söyle →
+   söylenen, hedef kelimeyle karşılaştırılır ve anında not verilir. */
+const tstAkis = $("#tstAkis"), tstSonuc = $("#tstSonuc"), tstScore = $("#tstScore"),
+      tstDinle = $("#tstDinle"), tstSoyle = $("#tstSoyle");
+const SRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = null, recAcik = false;
+
+/* Sesteş kelimeler: yazılışı farklı ama SÖYLENİŞİ birebir aynı.
+   Tanıma "weak" yazsa bile "week" hedefinde telaffuz DOĞRUDUR. */
+const SESTES = [["week","weak"],["right","write","rite"],["meet","meat"],["sea","see"],
+  ["hear","here"],["some","sum"],["too","two","to"],["buy","by","bye"],["know","no"],
+  ["where","wear"],["fair","fare"],["break","brake"],["piece","peace"],["son","sun"],
+  ["one","won"],["our","hour"],["their","there","they're"],["hair","hare"],
+  ["read","reed"],["board","bored"],["course","coarse"],["hole","whole"],
+  ["sale","sail"],["mail","male"],["pair","pear","pare"],["past","passed"],
+  ["weather","whether"],["ball","bawl"],["deer","dear"],["steal","steel"],
+  ["cell","sell"],["cent","sent","scent"],["die","dye"],["flour","flower"],
+  ["knight","night"],["made","maid"],["plane","plain"],["role","roll"],
+  ["root","route"],["threw","through"],["waste","waist"],["wait","weight"],
+  ["way","weigh"],["would","wood"],["eye","i"],["be","bee"],["ate","eight"],
+  ["for","four","fore"],["blue","blew"],["close","clothes"],["find","fined"],
+  ["higher","hire"],["allowed","aloud"],["principal","principle"]];
+const sestesMap = new Map();
+SESTES.forEach(g => g.forEach(k => sestesMap.set(k, g)));
+function sestesAyni(a, b) { if (a === b) return true; const g = sestesMap.get(b); return !!g && g.includes(a); }
+
+function harfMesafe(a, b) { /* Levenshtein — "yakın telaffuz" tespiti için */
+  const m = a.length, n = b.length; if (!m) return n; if (!n) return m;
+  let onceki = Array.from({ length: n + 1 }, (_, i) => i);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++)
+      cur[j] = Math.min(onceki[j] + 1, cur[j - 1] + 1, onceki[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    onceki = cur;
+  }
+  return onceki[n];
+}
+function tstTemiz(s) { return String(s || "").toLowerCase().replace(/[^a-z' ]+/g, " ").replace(/\s+/g, " ").trim(); }
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+
+function degerlendir(adaylar, hedefHam) {
+  const hedef = tstTemiz(hedefHam);
+  let enIyi = null;
+  for (const ham of adaylar) {
+    const d = tstTemiz(ham);
+    if (!d) continue;
+    if (d === hedef) return { tip: "ok", duyulan: d };
+    if (hedef.includes(" ") && (" " + d + " ").includes(" " + hedef + " ")) return { tip: "ok", duyulan: d };
+    const kelimeler = d.split(" ");
+    if (kelimeler.some(k => k === hedef || sestesAyni(k, hedef))) return { tip: "ok", duyulan: d };
+    if (sestesAyni(d.replace(/ /g, ""), hedef)) return { tip: "ok", duyulan: d };
+    const mesafe = Math.min.apply(null, kelimeler.map(k => harfMesafe(k, hedef)));
+    const esik = hedef.length <= 4 ? 1 : 2;
+    if (mesafe <= esik || mesafe / Math.max(hedef.length, 1) <= 0.25) {
+      if (!enIyi || enIyi.tip === "yanlis") enIyi = { tip: "yakin", duyulan: d };
+    } else if (!enIyi) enIyi = { tip: "yanlis", duyulan: d };
+  }
+  return enIyi || { tip: "yok", duyulan: "" };
+}
+
+/* Kelime başına başarı sayacı (yalnızca bu tarayıcıda saklanır) */
+function tstIstatistik(en, dogruMu) {
+  let s = {}; try { s = JSON.parse(localStorage.getItem("macca_telaffuz") || "{}"); } catch (e) {}
+  const k = en.toLowerCase(); s[k] = s[k] || { d: 0, t: 0 }; s[k].t++; if (dogruMu) s[k].d++;
+  try { localStorage.setItem("macca_telaffuz", JSON.stringify(s)); } catch (e) {}
+  return s[k];
+}
+function tstSkorYaz(en) {
+  let s = {}; try { s = JSON.parse(localStorage.getItem("macca_telaffuz") || "{}"); } catch (e) {}
+  const v = s[en.toLowerCase()];
+  tstScore.textContent = v ? "✅ " + v.d + " / " + v.t + " deneme" : "";
+}
+function tstHazirla(w) { /* kelime her açıldığında panel sıfırlanır */
+  if (recAcik) { try { rec.stop(); } catch (e) {} }
+  tstSonuc.innerHTML = "";
+  tstAkis.innerHTML = "1️⃣ <b>Dinle</b> → 2️⃣ Anlamı: <b>" + esc(w.tr) + "</b> → 3️⃣ Mikrofona <b>sen söyle</b>; doğru söyleyip söylemediğin anında denetlenir.";
+  tstSkorYaz(w.en);
+}
+
+tstDinle.addEventListener("click", () => { $("#ttsBtn").click(); });
+
+tstSoyle.addEventListener("click", () => {
+  const w = WORDS[filtered[currentPos]]; if (!w) return;
+  if (!SRec) {
+    tstSonuc.innerHTML = '<span class="yanlis">Bu tarayıcı konuşma tanımayı desteklemiyor.</span> Telefonda ya da bilgisayarda <b>Chrome</b> / <b>Edge</b> ile aç.';
+    return;
+  }
+  if (recAcik) { try { rec.stop(); } catch (e) {} return; }
+  /* mikrofon temiz ses alsın: video ve seslendirme dursun */
+  try { if (yg) yg.pause(); } catch (e) {}
+  speechSynthesis.cancel();
+  rec = new SRec();
+  rec.lang = "en-US";
+  rec.interimResults = false;
+  rec.maxAlternatives = 10;
+  recAcik = true;
+  tstSoyle.classList.add("rec");
+  tstSoyle.textContent = "⏹ Dinliyorum — kelimeyi söyle…";
+  tstSonuc.innerHTML = "";
+  rec.onresult = e => {
+    const r = e.results[0], adaylar = [];
+    for (let i = 0; i < r.length; i++) adaylar.push(r[i].transcript);
+    const s = degerlendir(adaylar, w.en);
+    const ist = tstIstatistik(w.en, s.tip === "ok");
+    tstSkorYaz(w.en);
+    if (s.tip === "ok") {
+      const sestesNotu = tstTemiz(s.duyulan) !== tstTemiz(w.en)
+        ? ' <span class="duyulan">“' + esc(s.duyulan) + '”</span> yazıldı — sesteş kelime, telaffuzun birebir doğru.'
+        : "";
+      tstSonuc.innerHTML = '<span class="ok">✅ DOĞRU TELAFFUZ!</span>' + sestesNotu + (ist.d >= 3 ? " 🔥" : "");
+    } else if (s.tip === "yakin") {
+      tstSonuc.innerHTML = '<span class="yakin">🟡 Çok yakın!</span> <span class="duyulan">“' + esc(s.duyulan) + '”</span> duyuldu — 🔊 ile bir kez daha dinleyip yeniden dene.';
+    } else if (s.tip === "yanlis") {
+      tstSonuc.innerHTML = '<span class="yanlis">❌ Farklı duyuldu:</span> <span class="duyulan">“' + esc(s.duyulan) + '”</span> — 🔊 ile tekrar dinle, ağır ağır söyle.';
+    } else {
+      tstSonuc.innerHTML = '<span class="yanlis">Ses anlaşılamadı</span> — sessiz bir yerde, mikrofona yakın ve net söyle.';
+    }
+  };
+  rec.onerror = e => {
+    const m = {
+      "not-allowed": "Mikrofon izni verilmedi — tarayıcının adres çubuğundan izin ver.",
+      "no-speech": "Ses duyulamadı — tekrar dene.",
+      "audio-capture": "Mikrofon bulunamadı — cihazında mikrofon olduğundan emin ol.",
+      "network": "Konuşma tanıma servisine ulaşılamadı — internet bağlantını denetle."
+    };
+    tstSonuc.innerHTML = '<span class="yanlis">' + (m[e.error] || "Bir sorun oldu (" + esc(e.error) + ") — tekrar dene.") + "</span>";
+  };
+  rec.onend = () => {
+    recAcik = false;
+    tstSoyle.classList.remove("rec");
+    tstSoyle.textContent = "🎤 3 · Sen söyle";
+  };
+  try { rec.start(); } catch (e) { recAcik = false; tstSoyle.classList.remove("rec"); tstSoyle.textContent = "🎤 3 · Sen söyle"; }
+});
+
 /* Hero kartı → örnek kelime (Learn)
    Yönetici modunda tam liste açılır; halka açık modda yalnızca
    bu tek örnek açılır, başka kelimeye geçilemez. */
-$("#heroCard").addEventListener("click", () => {
+document.querySelectorAll(".fkart, .fcard3d").forEach(k => k.addEventListener("click", () => {
+  const en = (k.dataset.en || "").toLowerCase();
+  const idx = WORDS.findIndex(w => w.en.toLowerCase() === en);
+  if (idx < 0) return;
   if (MODE === "admin") {
     q.value = "";
     applyFilter();
-    openWord(0);
+    const p = filtered.indexOf(idx);
+    openWord(p >= 0 ? p : 0);
   } else {
-    filtered = [0];
+    filtered = [idx];
     openWord(0);
   }
-});
+}));
 
-/* Satın al */
-$("#buyBtn").addEventListener("click", () => {
-  if (SATIN_ALMA_LINKI) window.open(SATIN_ALMA_LINKI, "_blank");
-  else alert("Satış bağlantısı henüz eklenmedi.\n\nDosyayı bir metin düzenleyicide aç ve en üstteki SATIN_ALMA_LINKI değişkenine mağaza linkini yapıştır (Shopier, Trendyol, Instagram vb.).");
+/* İlham mesajları — her kelime açılışında biri gösterilir */
+const ILHAM = [
+  "Büyük başarılar, her gün öğrenilen küçük kelimelerle başlar.",
+  "Bugün öğrendiğin bir kelime, yarın kuracağın bir cümlenin parçası olacak.",
+  "Her tarama, İngilizceye atılmış yeni bir adımdır.",
+  "Gerçek konuşmaları anlamanın yolu, gerçek örneklerle öğrenmekten geçer.",
+  "İngilizce bir ders değil, yeni bir dünyaya açılan kapıdır."
+];
+const rastIlham = () => ILHAM[Math.floor(Math.random() * ILHAM.length)];
+
+/* ---------- 🛒 SATIN ALMA AKIŞI ---------- */
+const buyModal = $("#buyModal"), buyStepEl = $("#buyStep"),
+      bGeri = $("#bGeri"), bIleri = $("#bIleri");
+const SEPET = {}; URUNLER.forEach(u => SEPET[u.id] = (u.id === "tam" ? 1 : 0));
+let buyAdim = 1, resizerYuklendi = false;
+const TL = n => n.toLocaleString("tr-TR") + " ₺";
+
+$("#buyBtn").addEventListener("click", () => satinAc());
+
+function urunCiz() {
+  const kap = $("#urunListe"); kap.innerHTML = "";
+  URUNLER.forEach(u => {
+    const d = document.createElement("div"); d.className = "urun";
+    d.innerHTML = (u.rozet ? '<span class="rozet">' + u.rozet + "</span>" : "") +
+      "<b>" + u.ad + '</b><span class="det">' + u.detay + '</span><span class="fiy">' + TL(u.fiyat) + "</span>" +
+      '<div class="adet"><button type="button" data-e="-1" aria-label="Azalt">−</button><span class="n">' + SEPET[u.id] + '</span><button type="button" data-e="1" aria-label="Artır">+</button></div>';
+    d.querySelectorAll("[data-e]").forEach(b => b.addEventListener("click", () => {
+      SEPET[u.id] = Math.max(0, Math.min(20, SEPET[u.id] + (+b.dataset.e)));
+      d.querySelector(".n").textContent = SEPET[u.id];
+      ileriDurum();
+    }));
+    kap.appendChild(d);
+  });
+}
+const sepetToplam = () => URUNLER.reduce((t, u) => t + u.fiyat * SEPET[u.id], 0);
+const sepetAdet   = () => URUNLER.reduce((t, u) => t + SEPET[u.id], 0);
+
+function adimGoster(n) {
+  buyAdim = n;
+  ["bs1", "bs2", "bs3", "bsSonuc"].forEach((id, i) => $("#" + id).hidden = (i + 1) !== n);
+  buyStepEl.textContent = n <= 3 ? "ADIM " + n + " / 3" : "SİPARİŞ SONUCU";
+  bGeri.style.visibility = (n === 1 || n === 4) ? "hidden" : "visible";
+  bIleri.style.display = n === 4 ? "none" : "";
+  bIleri.textContent = n === 1 ? "Devam →" : (n === 2 ? "Sipariş Özeti →" : "🔒 Güvenli Ödemeye Geç");
+  if (n === 3) ozetCiz();
+  ileriDurum();
+}
+function ileriDurum() {
+  if (buyAdim === 1) bIleri.disabled = sepetAdet() === 0;
+  else if (buyAdim === 3) bIleri.disabled = !$("#fOnay").checked;
+  else bIleri.disabled = false;
+}
+function ozetCiz() {
+  let s = "";
+  URUNLER.forEach(u => { if (SEPET[u.id] > 0) s += '<div class="satir"><span>' + u.ad + " × " + SEPET[u.id] + "</span><span>" + TL(u.fiyat * SEPET[u.id]) + "</span></div>"; });
+  s += '<div class="satir"><span>Kargo</span><span>' + (KARGO_UCRETI > 0 ? TL(KARGO_UCRETI) : "Ücretsiz") + "</span></div>";
+  s += '<div class="satir top"><span>TOPLAM</span><span>' + TL(sepetToplam() + KARGO_UCRETI) + "</span></div>";
+  $("#buyOzet").innerHTML = s;
+  const p = $("#payAlan"); p.hidden = true; p.innerHTML = "";
+}
+function formOku() {
+  const al = id => $("#" + id).value.trim();
+  return { ad: al("fAd"), mail: al("fMail"), tel: al("fTel"), il: al("fIl"), adres: al("fAdres") };
+}
+function formGecerli() {
+  const m = formOku(); let ok = true;
+  const isaret = (id, kosul) => { $("#" + id).classList.toggle("hata", !kosul); if (!kosul) ok = false; };
+  isaret("fAd", m.ad.length >= 5 && m.ad.includes(" "));
+  isaret("fMail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.mail));
+  isaret("fTel", m.tel.replace(/\D/g, "").length >= 10);
+  isaret("fIl", m.il.length >= 3);
+  isaret("fAdres", m.adres.length >= 15);
+  return ok;
+}
+
+bIleri.addEventListener("click", () => {
+  if (buyAdim === 1) { if (sepetAdet() > 0) adimGoster(2); }
+  else if (buyAdim === 2) { if (formGecerli()) adimGoster(3); }
+  else if (buyAdim === 3) { if ($("#fOnay").checked) odemeBaslat(); }
 });
+bGeri.addEventListener("click", () => { if (buyAdim === 2 || buyAdim === 3) adimGoster(buyAdim - 1); });
+$("#fOnay").addEventListener("change", ileriDurum);
+
+function satinAc(sonuc) {
+  buyModal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  urunCiz();
+  if (sonuc === "ok") {
+    adimGoster(4);
+    $("#buySonuc").innerHTML = '<div class="big">🎉</div><b>Ödemen alındı, siparişin oluşturuldu!</b><br>Kargo bilgileri e-posta adresine gönderilecek.<br>MACCA kartların en kısa sürede yola çıkacak — iyi çalışmalar!<br><br><i style="color:var(--muted);font-size:13px">“' + rastIlham() + '”</i>';
+  } else if (sonuc === "fail") {
+    adimGoster(4);
+    $("#buySonuc").innerHTML = '<div class="big">😕</div><b>Ödeme tamamlanamadı.</b><br>Kartından ücret çekilmedi. Dilersen yeniden deneyebilirsin.<br><br><button class="chip" id="tekrarDene" type="button">↻ Yeniden dene</button>';
+    $("#tekrarDene").addEventListener("click", () => adimGoster(1));
+  } else adimGoster(1);
+}
+function satinKapat() {
+  buyModal.classList.remove("open");
+  document.body.style.overflow = "";
+  if (location.hash.startsWith("#odeme/")) history.replaceState(null, "", "#satin-al");
+}
+$("#buyClose").addEventListener("click", satinKapat);
+buyModal.addEventListener("click", e => { if (e.target === buyModal) satinKapat(); });
+
+/* Sözleşme metni */
+$("#sozLink").addEventListener("click", e => { e.preventDefault(); $("#sozModal").classList.add("open"); });
+$("#sozClose").addEventListener("click", () => $("#sozModal").classList.remove("open"));
+$("#sozModal").addEventListener("click", e => { if (e.target === $("#sozModal")) $("#sozModal").classList.remove("open"); });
+
+/* PayTR güvenli ödeme adımı */
+function odemeBaslat() {
+  const alan = $("#payAlan"); alan.hidden = false;
+  if (!ODEME_API) {
+    alan.innerHTML = '<div class="pay-not">🔌 <b>Sanal POS bağlantısı bekleniyor.</b><br>' +
+      'PayTR başvurun onaylanınca <b>paytr-worker.js</b> dosyasını Cloudflare Workers\'a yükle, ' +
+      'üç gizli anahtarı gir ve Worker adresini bu dosyanın başındaki <b>ODEME_API</b> satırına yaz.<br>' +
+      'Bağlantı yapıldığı anda bu alanda PayTR\'nin <b>güvenli kart ödeme ekranı</b> otomatik açılır — başka hiçbir değişiklik gerekmez.</div>';
+    return;
+  }
+  bIleri.disabled = true;
+  alan.innerHTML = '<div class="pay-not">Güvenli ödeme ekranı hazırlanıyor…</div>';
+  const sepet = URUNLER.filter(u => SEPET[u.id] > 0).map(u => ({ id: u.id, adet: SEPET[u.id] }));
+  fetch(ODEME_API.replace(/\/$/, "") + "/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sepet, musteri: formOku() })
+  }).then(r => r.json()).then(v => {
+    if (!v || !v.token) throw new Error((v && v.hata) || "token alınamadı");
+    const kur = () => {
+      alan.innerHTML = '<iframe src="https://www.paytr.com/odeme/guvenli/' + v.token + '" id="paytriframe" scrolling="no"></iframe>';
+      bIleri.style.display = "none";
+      try { iFrameResize({ checkOrigin: false }, "#paytriframe"); } catch (e) {}
+    };
+    if (resizerYuklendi) kur();
+    else {
+      const s = document.createElement("script");
+      s.src = "https://www.paytr.com/js/iframeResizer.min.js";
+      s.onload = () => { resizerYuklendi = true; kur(); };
+      s.onerror = kur;
+      document.head.appendChild(s);
+    }
+  }).catch(e => {
+    alan.innerHTML = '<div class="pay-not">⚠️ <b>Ödeme ekranı açılamadı.</b> ' + String(e && e.message || "").slice(0, 140) +
+      '<br>Birkaç saniye sonra tekrar dene; sorun sürerse bizimle iletişime geç.</div>';
+    bIleri.disabled = false;
+  });
+}
 
 /* =========================================================
    ROTALAR
@@ -1520,6 +2595,14 @@ function setMode(m) {
 function route() {
   let h = "";
   try { h = decodeURIComponent(location.hash || ""); } catch (e) { h = location.hash || ""; }
+
+  /* Ödeme dönüşü (PayTR ok/fail adresleri buraya döner) */
+  if (h === "#odeme/basarili" || h === "#odeme/hata") {
+    if (modal.classList.contains("open")) kapatIc();
+    setMode("public");
+    satinAc(h === "#odeme/basarili" ? "ok" : "fail");
+    return;
+  }
 
   /* Tek kelime sayfası (QR yönlendirmesi buraya gelir) */
   if (h.startsWith("#k/")) {
@@ -1583,6 +2666,63 @@ $("#copyAllBtn").addEventListener("click", () => {
 
 window.addEventListener("hashchange", route);
 route();
+</script>
+<script>
+(function () {
+  const secim = "header.hero .kicker, header.hero h1, header.hero .sub, .hero-cta, .hero-guven, .fcard3d, header.hero .stats, .nasil-ic > *, .nasil-adim, .story-inner > *, .ug-copy > *, .sahne, .buy-inner > *, .il-ic > *";
+  const ogeler = document.querySelectorAll(secim);
+  ogeler.forEach(el => el.classList.add("fade"));
+  const io = new IntersectionObserver(girisler => girisler.forEach(g => {
+    if (g.isIntersecting) { g.target.classList.add("in"); io.unobserve(g.target); }
+  }), { threshold: .15 });
+  ogeler.forEach(el => io.observe(el));
+  const hs = document.getElementById("heroSatin");
+  if (hs) hs.addEventListener("click", e => { e.preventDefault(); if (typeof satinAc === "function") satinAc(); });
+})();
+
+/* ---------- İletişim kutusu + Apple alt bilgi ---------- */
+(function () {
+  /* iletişim yolları */
+  const yol = document.getElementById("ilYollar"), par = [];
+  if (ILETISIM.eposta) par.push('<a href="mailto:' + ILETISIM.eposta + '">✉️ ' + ILETISIM.eposta + "</a>");
+  if (ILETISIM.tel) par.push('<a href="tel:' + ILETISIM.tel.replace(/\s/g, "") + '">📞 ' + ILETISIM.tel + "</a>");
+  if (ILETISIM.instagram) par.push('<a target="_blank" rel="noopener" href="https://instagram.com/' + ILETISIM.instagram + '">📷 @' + ILETISIM.instagram + "</a>");
+  yol.innerHTML = par.join("") || '<span class="soluk">İletişim bilgilerini dosyanın başındaki <b>ILETISIM</b> ayarına yaz — burada kendiliğinden görünür.</span>';
+
+  /* form → e-posta uygulamasında hazır mesaj */
+  document.getElementById("ilForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const ad = document.getElementById("iAd").value.trim(),
+          ma = document.getElementById("iMail").value.trim(),
+          me = document.getElementById("iMesaj").value.trim(),
+          nt = document.getElementById("ilNot");
+    if (!ILETISIM.eposta) { nt.textContent = "Alıcı adres ayarlı değil: dosyanın başındaki ILETISIM.eposta alanını doldur."; return; }
+    location.href = "mailto:" + ILETISIM.eposta +
+      "?subject=" + encodeURIComponent("MACCA İletişim — " + ad) +
+      "&body=" + encodeURIComponent(me + "\n\n— " + ad + " · " + ma);
+    nt.textContent = "E-posta uygulaman açıldı — göndermeyi onaylaman yeterli.";
+  });
+
+  /* sözleşme + satın al + başa dön bağlantıları */
+  document.querySelectorAll("[data-soz]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault(); document.getElementById("sozModal").classList.add("open");
+  }));
+  document.querySelectorAll("[data-satin]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault(); if (typeof satinAc === "function") satinAc();
+  }));
+  document.getElementById("afYukari").addEventListener("click", e => {
+    e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* mobil: kolonlar akordeon olur */
+  function akordeon() {
+    const dar = innerWidth < 768;
+    document.querySelectorAll(".af-kolonlar details").forEach(d => {
+      if (dar) d.removeAttribute("open"); else d.setAttribute("open", "");
+    });
+  }
+  akordeon(); addEventListener("resize", akordeon);
+})();
 </script>
 </body>
 </html>
